@@ -52,4 +52,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git remote set-url origin git@github.com:${{ github.repository }}.git
           yarn install --frozen-lockfile
-          NODE_DEBUG=gh-pages yarn deploy
+          yarn deploy
