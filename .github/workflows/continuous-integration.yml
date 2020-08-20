@@ -10,6 +10,7 @@ on:
 
 jobs:
   checks:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.1
@@ -41,6 +42,7 @@ jobs:
 
   gh-release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [checks]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
