@@ -13,22 +13,7 @@ footer.footer {
     &:hover {
       background-color: darken($primary, 10%);
       text-decoration: none;
-    }
-    .icon-social-buildandrun {
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      &:before {
-        content: '\00a0';
-      }
-      display: inline-block;
-      width: 2rem;
-      background: no-repeat url('../images/buildandrun.png') center;
-      background-size: 2rem;
+      color: $secondary !important;
     }
   }
 }

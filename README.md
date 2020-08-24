@@ -21,3 +21,6 @@ cd escemi-website
 yarn
 yarn start
 ```
+
+- Dev url: http://localhost:8000
+- Graphql playground: http://localhost:8000/___graphql

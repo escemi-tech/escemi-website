@@ -1,0 +1,29 @@
+.icon-social-buildandrun,
+.icon-social-malt {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  &:before {
+    content: '\00a0';
+  }
+  display: inline-block;
+  width: 2rem;
+  background: no-repeat center/1.5rem;
+
+  &.icon-social-buildandrun {
+    background-image: url('../images/buildandrun-white.png');
+    &:hover{
+        background-image: url('../images/buildandrun-secondary.png');
+    }
+  }
+  &.icon-social-malt {
+    background-image: url('../images/malt-white.png');
+    &:hover{
+        background-image: url('../images/malt-secondary.png');
+    }
+  }
+}

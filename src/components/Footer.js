@@ -21,7 +21,7 @@ export default function Footer() {
             );
           })}
         </ul>
-        <p className="text-muted small mb-0">Copyright &copy; ESCEMI</p>
+        <p className="text-muted small mb-0">&copy; {new Date().getFullYear()} ESCEMI</p>
       </div>
     </footer>
   );

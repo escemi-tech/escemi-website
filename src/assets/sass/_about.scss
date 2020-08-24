@@ -1,0 +1,30 @@
+#about {
+  a{
+  .icon-social-buildandrun {
+      background: no-repeat center/1.2rem;
+      background-image: url('../images/buildandrun-primary.png');
+      &:hover{
+          background-image: url('../images/buildandrun-secondary.png');
+      }
+    }
+    .icon-social-malt {
+      background: no-repeat center/1.2rem;
+      background-image: url('../images/malt-primary.png');
+      &:hover{
+          background-image: url('../images/malt-secondary.png');
+      }
+    }
+    &:hover{
+      text-decoration: none;
+      i{
+      color: $secondary;
+      }
+      .icon-social-buildandrun {
+            background-image: url('../images/buildandrun-secondary.png');
+      }
+      .icon-social-malt {
+            background-image: url('../images/malt-secondary.png');
+      }
+    }
+  }
+}

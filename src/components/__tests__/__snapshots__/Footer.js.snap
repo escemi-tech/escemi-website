@@ -41,6 +41,19 @@ exports[`Footer renders correctly 1`] = `
       >
         <a
           className="social-link rounded-circle text-white mr-3"
+          href="https://www.malt.fr/profile/emilienescalle"
+          title="Malt"
+        >
+          <i
+            className="icon-social-malt"
+          />
+        </a>
+      </li>
+      <li
+        className="list-inline-item"
+      >
+        <a
+          className="social-link rounded-circle text-white mr-3"
           href="https://www.build-and-run.fr/"
           title="Membre de BuildAndRun"
         >
@@ -53,7 +66,9 @@ exports[`Footer renders correctly 1`] = `
     <p
       className="text-muted small mb-0"
     >
-      Copyright © ESCEMI
+      © 
+      2020
+       ESCEMI
     </p>
   </div>
 </footer>

@@ -1,3 +1,4 @@
+const path = require(`path`);
 const config = require('./config');
 
 module.exports = {
@@ -21,5 +22,18 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, 'src', 'assets', 'images'),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src: 'https://s.pageclip.co/v1/pageclip.js',
+      },
+    },
   ],
 };
