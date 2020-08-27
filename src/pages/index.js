@@ -11,7 +11,7 @@ import Portfolio from '../components/Portfolio';
 import ScrollToTop from '../components/ScrollToTop';
 
 import logo from '../assets/images/logo.png';
-import avatar from '../assets/images/avatar.jpeg';
+import avatar from '../assets/images/avatar.jpg';
 const IndexPage = () => (
   <Layout>
     <Header />
