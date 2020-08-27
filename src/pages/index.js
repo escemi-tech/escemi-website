@@ -17,7 +17,7 @@ const IndexPage = () => (
     <Header />
 
     <header className="masthead d-flex">
-      <div className="container text-center my-auto">
+      <div className="container text-center">
         <h1 className="mb-3">
           <img className="img-fluid" src={logo} alt={config.heading} />
         </h1>
@@ -34,47 +34,50 @@ const IndexPage = () => (
     </header>
 
     <section className="content-section bg-light" id="about">
-      <div className="container text-center">
+      <div className="container ">
         <div className="row">
           <div className="col-lg-10 mx-auto">
-            <h2>À propos</h2>
+            <h2 className="text-center">À propos</h2>
             <div class="row">
-              <div className="col-sm-3">
+              <div className="col-sm-3 text-center">
                 <img className="rounded-circle " src={avatar} alt="Profil" />
               </div>
 
-              <div className="col-sm-9 lead mb-5 text-left">
-                Propulsé par une expertise forte de 12 ans dans le domaine du
-                digital, mon parcours professionnel s'est perfectionné sur les
-                thèmes de l'architecture en Systèmes d'Information, la gestion
-                de projet et le management d'équipes IT. Ces expériences sont
-                apportées au sein la société ESCEMI et permettent de mettre au
-                service de vos projets, des compétences techniques et
-                relationnelles, avec un sens de la rigueur et du travail bien
-                fait.
-                <hr />
-                <ul class="list-inline">
-                  {config.socialLinks.map((social) => {
-                    const { icon, name, url, title } = social;
-                    return (
-                      <li key={name} class="list-inline-item">
-                        ✓{' '}
-                        <a href={url} title={title?.length ? title : name}>
-                          <i className={icon}></i> {name}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
+              <div className="col-sm-9 lead text-justify">
+                Propulsé par une expertise de 12 ans dans le domaine du digital,
+                mon parcours professionnel s'est perfectionné sur les thèmes de
+                l'architecture en Systèmes d'Information, la gestion de projet
+                et le management d'équipes IT.
+                <br />
+                <br />
+                L’ensemble de ces expériences se retrouvent au sein de la
+                société ESCEMI qui se mettra au service de vos projets pour vous
+                apporter des compétences techniques et relationnelles, avec un
+                sens de la rigueur et du travail bien fait.
               </div>
             </div>
-
-            <p className=""></p>
-            <Scroll type="id" element="services" offset={100}>
-              <a className="btn btn-dark btn-xl" href="#services">
-                Services & missions
-              </a>
-            </Scroll>
+            <div className="row mt-5 lead text-md-center">
+              {config.socialLinks.map((social) => {
+                const { icon, name, url, title } = social;
+                return (
+                  <div className=" col-sm-3">
+                    ✓{' '}
+                    <a href={url} title={title?.length ? title : name}>
+                      <i className={icon}></i> {name}
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+            <hr className="mb-5" />
+            <p></p>
+            <div className="text-center">
+              <Scroll type="id" element="services" offset={100}>
+                <a className="btn btn-primary btn-xl" href="#services">
+                  Services & missions
+                </a>
+              </Scroll>
+            </div>
           </div>
         </div>
       </div>
@@ -112,8 +115,9 @@ const IndexPage = () => (
               sécurisée, moderne, agile, performante et surtout en accord avec
               votre vision
               <br />✓ Définition des standards et veille à la cohérence des
-              réalisations. Description des bonnes pratiques et contrôle de
-              leurs application
+              réalisations
+              <br />✓ Description des bonnes pratiques et contrôle de leurs
+              application
               <br />✓ Mise en place de P.O.C. dans le but de tester et prouver
               une nouvelle solution technique
               <br />✓ Apport d'une expertise technique et support des équipes
