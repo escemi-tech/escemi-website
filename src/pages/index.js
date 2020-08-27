@@ -62,7 +62,12 @@ const IndexPage = () => (
                 return (
                   <div className=" col-sm-3">
                     ✓{' '}
-                    <a href={url} title={title?.length ? title : name}>
+                    <a
+                      href={url}
+                      title={title?.length ? title : name}
+                      rel="noopener noreferrer nofollow"
+                      target="_blank"
+                    >
                       <i className={icon}></i> {name}
                     </a>
                   </div>
@@ -178,6 +183,8 @@ const IndexPage = () => (
                 <a
                   href="https://github.com/neilime?tab=repositories"
                   className="text-white"
+                  rel="noopener noreferrer nofollow"
+                  target="_blank"
                 >
                   Contributions Github
                 </a>
@@ -187,6 +194,8 @@ const IndexPage = () => (
                 <a
                   href="https://archiveprogram.github.com/"
                   className="text-white"
+                  rel="noopener noreferrer nofollow"
+                  target="_blank"
                 >
                   Contributeur au programme "Arctic Code Vault"
                 </a>

@@ -14,6 +14,8 @@ export default function Footer() {
                   href={url}
                   className="social-link rounded-circle text-white mr-3"
                   title={title?.length ? title : name}
+                  rel="noopener noreferrer nofollow"
+                  target="_blank"
                 >
                   <i className={icon}></i>
                 </a>
