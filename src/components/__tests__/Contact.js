@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Footer from '../Footer';
+import Contact from '../Contact';
 
-describe('Footer', () => {
+describe('Contact', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Footer />);
+    const tree = renderer.create(<Contact />);
     tree.unmount();
   });
 });

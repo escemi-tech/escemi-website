@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Layout from '../components/Layout';
 import Scroll from '../components/Scroll';
@@ -169,7 +169,8 @@ const IndexPage = () => (
         <div className="row">
           <div className="col-sm-6">
             <ul className="list-unstyled">
-              <li>✓ 
+              <li>
+                ✓
                 <a
                   href="https://github.com/neilime?tab=repositories"
                   className="text-white"
@@ -177,7 +178,8 @@ const IndexPage = () => (
                   Contributions Github
                 </a>
               </li>
-              <li>✓
+              <li>
+                ✓
                 <a
                   href="https://archiveprogram.github.com/"
                   className="text-white"

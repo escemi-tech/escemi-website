@@ -16,9 +16,7 @@ const PortfolioItem = ({ title, subtitle, url, image, content }) => {
     `
   );
 
-  console.log();
-
-  const imageSrc = files.allFile.nodes.find(
+  const imageSrc = files?.allFile.nodes.find(
     (file) => file.relativePath === image
   )?.publicURL;
 

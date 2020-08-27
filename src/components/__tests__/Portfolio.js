@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Footer from '../Footer';
+import Portfolio from '../Portfolio';
 
-describe('Footer', () => {
+describe('Portfolio', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Footer />);
+    const tree = renderer.create(<Portfolio />);
     tree.unmount();
   });
 });
