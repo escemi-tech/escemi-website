@@ -64,7 +64,7 @@ module.exports = {
     {
       icon: 'icon-social-github',
       name: 'Github',
-      url: 'https://github.com/escemi',
+      url: 'https://github.com/escemi-tech',
     },
     {
       icon: 'icon-social-linkedin',
