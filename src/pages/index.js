@@ -8,6 +8,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Portfolio from '../components/Portfolio';
+import Skills from '../components/Skills';
 import ScrollToTop from '../components/ScrollToTop';
 
 import logo from '../assets/images/logo.png';
@@ -34,7 +35,7 @@ const IndexPage = () => (
     </header>
 
     <section className="content-section bg-light" id="about">
-      <div className="container ">
+      <div className="container">
         <div className="row">
           <div className="col-lg-10 mx-auto">
             <h2 className="text-center">À propos</h2>
@@ -73,6 +74,11 @@ const IndexPage = () => (
                   </div>
                 );
               })}
+            </div>
+            <hr className="mb-5" />
+            <div className="row">
+              <h2 className="text-center mb-5">Compétences</h2>
+              <Skills />
             </div>
             <hr className="mb-5" />
             <p></p>

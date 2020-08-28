@@ -11,6 +11,55 @@ module.exports = {
   heading: 'ESCEMI',
   subHeading:
     'A votre service pour vous accompagner et relever les défis de vos projets digitaux',
+  skills: [
+    {
+      label: 'Méthodologies',
+      items: [
+        'Méthode agile',
+        'TDD',
+        'Scrum',
+        'Kanban',
+        'UML',
+        'Amélioration continue',
+      ],
+    },
+    {
+      label: 'Architecture',
+      items: ['Stratégie SI', 'Architecture SI'],
+    },
+    {
+      label: 'Cloud',
+      items: ['Cloud Engineer', 'Serverless', 'Amazon Web Services'],
+    },
+    {
+      label: 'Frameworks',
+      items: ['React.js', 'Angular', 'Zend', 'Doctrine', 'jQuery'],
+    },
+    {
+      label: 'Testing',
+      items: ['Intégration continue', 'Jenkins', 'PHPUnit'],
+    },
+    {
+      label: 'Langages',
+      items: ['Typescript', 'PHP', 'CSS', 'JavaScript'],
+    },
+    {
+      label: 'Databases',
+      items: ['Elasticsearch', 'MongoDB', 'PostgreSQL', 'SQL Server'],
+    },
+    {
+      label: 'Build',
+      items: ['Intégration continue'],
+    },
+    {
+      label: 'Platform',
+      items: ['Node.js'],
+    },
+    {
+      label: 'Version control',
+      items: ['GitHub', 'Git'],
+    },
+  ],
   portfolio: [
     {
       title: 'Atlas des Régions Naturelles',
