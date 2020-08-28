@@ -11,7 +11,7 @@
     "email": "developer@escemi.com"
   },
   "dependencies": {
-    "gatsby": "^2.24.47",
+    "gatsby": "^2.24.51",
     "gatsby-plugin-load-script": "^1.1.0",
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-offline": "^3.2.23",
