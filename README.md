@@ -1,5 +1,7 @@
 # ESCEMI corporate website
 
+![Continuous integration](https://github.com/escemi-tech/escemi-website/workflows/Continuous%20integration/badge.svg)
+
 ## Install
 
 Make sure that you have the Gatsby CLI program installed:
