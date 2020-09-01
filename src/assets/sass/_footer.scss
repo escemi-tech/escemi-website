@@ -1,11 +1,11 @@
 footer.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   .social-link {
     display: block;
-    height: 4rem;
-    width: 4rem;
-    line-height: 4.3rem;
+    margin: 0 auto;
+    max-width: 3.8rem;
+    line-height: 3.8rem;
     font-size: 1.5rem;
     background-color: $primary;
     transition: background-color 0.15s ease-in-out;

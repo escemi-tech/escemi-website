@@ -22,9 +22,9 @@ const IndexPage = () => (
         <h1 className="mb-3">
           <img className="img-fluid" src={logo} alt={config.heading} />
         </h1>
-        <h3 className="mb-5">
+        <h2 className="mb-5">
           <em>{config.subHeading}</em>
-        </h3>
+        </h2>
         <Scroll type="id" element="about" offset={100}>
           <a className="btn btn-primary btn-xl" href="#about">
             À propos
@@ -57,29 +57,26 @@ const IndexPage = () => (
                 sens de la rigueur et du travail bien fait.
               </div>
             </div>
-            <div className="row mt-5 lead text-md-center">
+            <div className="row mt-5 lead ">
               {config.socialLinks.map((social) => {
                 const { icon, name, url, title } = social;
                 return (
-                  <div className=" col-sm-3">
-                    ✓{' '}
+                  <div className="col-sm-3">
                     <a
                       href={url}
                       title={title?.length ? title : name}
+                      className="social-link d-block"
                       rel="noopener noreferrer nofollow"
                       target="_blank"
                     >
-                      <i className={icon}></i> {name}
+                      ✓ <i className={icon}></i> {name}
                     </a>
                   </div>
                 );
               })}
             </div>
             <hr className="mb-5" />
-            <div className="row">
-              <h2 className="text-center mb-5">Compétences</h2>
-              <Skills />
-            </div>
+            <Skills />
             <hr className="mb-5" />
             <p></p>
             <div className="text-center">
@@ -178,32 +175,30 @@ const IndexPage = () => (
     </section>
 
     <section className="content-section bg-primary text-white">
-      <div className="container ">
+      <div className="container">
         <h2 className="mb-4">Nous contribuons à l'univers Open source</h2>
 
         <div className="row">
           <div className="col-sm-6">
-            <ul className="list-unstyled">
+            <ul className="list-unstyled text-center">
               <li>
-                ✓
                 <a
                   href="https://github.com/neilime?tab=repositories"
-                  className="text-white"
+                  className="btn btn-link btn-lg text-white"
                   rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
-                  Contributions Github
+                  ✓ Contributions Github
                 </a>
               </li>
               <li>
-                ✓
                 <a
                   href="https://archiveprogram.github.com/"
-                  className="text-white"
+                  className="btn btn-link btn-lg text-white"
                   rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
-                  Contributeur au programme "Arctic Code Vault"
+                  ✓ Contributeur au programme "Arctic Code Vault"
                 </a>
               </li>
             </ul>

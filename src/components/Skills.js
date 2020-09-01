@@ -7,7 +7,7 @@ const SkillItem = ({ label, items }) => {
       <h3 className="text-secondary">{label}</h3>
       <ul className="list-unstyled">
         {items.map((item) => (
-          <li>{item}</li>
+          <li>✓ {item}</li>
         ))}
       </ul>
     </div>
@@ -17,11 +17,14 @@ const SkillItem = ({ label, items }) => {
 export default class Skills extends Component {
   render() {
     return (
-      <div className="row">
-        {config.skills.map((skill) => (
-          <SkillItem key={skill.label} {...skill} />
-        ))}
-      </div>
+      <>
+        <h2 className="text-center mb-5">Compétences</h2>
+        <div className="row">
+          {config.skills.map((skill) => (
+            <SkillItem key={skill.label} {...skill} />
+          ))}
+        </div>
+      </>
     );
   }
 }

@@ -21,6 +21,7 @@ export default class Contact extends Component {
           <div className="col-sm-8">
             <input
               type="text"
+              id="name"
               name="name"
               className="form-control form-control-lg"
               required
@@ -36,6 +37,7 @@ export default class Contact extends Component {
           </label>
           <div className="col-sm-8">
             <input
+              id="email"
               name="email"
               type="email"
               className="form-control form-control-lg"
@@ -51,6 +53,7 @@ export default class Contact extends Component {
           </label>
           <div className="col-sm-8">
             <textarea
+              id="message"
               name="message"
               className="form-control form-control-lg"
               required
