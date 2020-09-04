@@ -6,8 +6,8 @@ const SkillItem = ({ label, items }) => {
     <div className="col-lg-3">
       <h3 className="text-secondary">{label}</h3>
       <ul className="list-unstyled">
-        {items.map((item) => (
-          <li>✓ {item}</li>
+        {items.map((item, index) => (
+          <li key={`skill-item-${label}-${index}`}>✓ {item}</li>
         ))}
       </ul>
     </div>

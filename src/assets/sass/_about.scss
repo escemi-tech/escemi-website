@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 #about {
   a.social-link {
     font-size: 1.5rem;
@@ -5,20 +6,15 @@
     .icon-social-buildandrun {
       background: no-repeat center/1.2rem;
       background-image: url('../images/buildandrun-primary.png');
-      &:hover {
-        background-image: url('../images/buildandrun-secondary.png');
-      }
     }
+
     .icon-social-malt {
       background: no-repeat center/1.2rem;
       background-image: url('../images/malt-primary.png');
-      &:hover {
-        background-image: url('../images/malt-secondary.png');
-      }
     }
     &:hover {
       text-decoration: none;
-      i {
+      svg {
         color: $secondary;
       }
       .icon-social-buildandrun {
@@ -30,3 +26,4 @@
     }
   }
 }
+/*! purgecss end ignore */

@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 footer.footer {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -14,6 +15,13 @@ footer.footer {
       background-color: darken($primary, 10%);
       text-decoration: none;
       color: $secondary !important;
+      .icon-social-buildandrun {
+        background-image: url('../images/buildandrun-secondary.png');
+      }
+      .icon-social-malt {
+        background-image: url('../images/malt-secondary.png');
+      }
     }
   }
 }
+/*! purgecss end ignore */

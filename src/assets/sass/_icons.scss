@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 .icon-social-buildandrun,
 .icon-social-malt {
   speak: none;
@@ -16,14 +17,15 @@
 
   &.icon-social-buildandrun {
     background-image: url('../images/buildandrun-white.png');
-    &:hover{
-        background-image: url('../images/buildandrun-secondary.png');
+    &:hover {
+      background-image: url('../images/buildandrun-secondary.png');
     }
   }
   &.icon-social-malt {
     background-image: url('../images/malt-white.png');
-    &:hover{
-        background-image: url('../images/malt-secondary.png');
+    &:hover {
+      background-image: url('../images/malt-secondary.png');
     }
   }
 }
+/*! purgecss end ignore */

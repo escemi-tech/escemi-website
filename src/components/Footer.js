@@ -1,4 +1,6 @@
 import React from 'react';
+
+import SocialIcon from '../components/SocialIcon';
 import config from '../../config';
 
 export default function Footer() {
@@ -17,7 +19,7 @@ export default function Footer() {
                   rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
-                  <i className={icon}></i>
+                  <SocialIcon icon={icon} />
                 </a>
               </div>
             );

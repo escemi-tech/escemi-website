@@ -1,3 +1,5 @@
+const { faGithub, faLinkedin } = require('@fortawesome/free-brands-svg-icons');
+
 module.exports = {
   siteTitle: 'ESCEMI', // <title>
   manifestName: 'ESCEMI - Corporate website',
@@ -111,12 +113,12 @@ module.exports = {
   // social
   socialLinks: [
     {
-      icon: 'icon-social-github',
+      icon: faGithub,
       name: 'Github',
       url: 'https://github.com/escemi-tech',
     },
     {
-      icon: 'icon-social-linkedin',
+      icon: faLinkedin,
       name: 'Linkedin',
       url: 'https://www.linkedin.com/company/escemi',
     },

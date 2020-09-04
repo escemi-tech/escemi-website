@@ -4,11 +4,13 @@ import Layout from '../components/Layout';
 import Scroll from '../components/Scroll';
 
 import config from '../../config';
+import Services from '../components/Services';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Portfolio from '../components/Portfolio';
 import Skills from '../components/Skills';
+import SocialIcon from '../components/SocialIcon';
 import ScrollToTop from '../components/ScrollToTop';
 
 import logo from '../assets/images/logo.png';
@@ -16,7 +18,6 @@ import avatar from '../assets/images/avatar.jpg';
 const IndexPage = () => (
   <Layout>
     <Header />
-
     <header className="masthead d-flex">
       <div className="container text-center">
         <h1 className="mb-3">
@@ -39,7 +40,7 @@ const IndexPage = () => (
         <div className="row">
           <div className="col-lg-10 mx-auto">
             <h2 className="text-center">À propos</h2>
-            <div class="row">
+            <div className="row">
               <div className="col-sm-3 text-center">
                 <img className="rounded-circle " src={avatar} alt="Profil" />
               </div>
@@ -57,11 +58,12 @@ const IndexPage = () => (
                 sens de la rigueur et du travail bien fait.
               </div>
             </div>
-            <div className="row mt-5 lead ">
+            <div className="row mt-5 lead">
               {config.socialLinks.map((social) => {
                 const { icon, name, url, title } = social;
+
                 return (
-                  <div className="col-sm-3">
+                  <div key={`about-social-${name}`} className="col-sm-3">
                     <a
                       href={url}
                       title={title?.length ? title : name}
@@ -69,7 +71,7 @@ const IndexPage = () => (
                       rel="noopener noreferrer nofollow"
                       target="_blank"
                     >
-                      ✓ <i className={icon}></i> {name}
+                      ✓ <SocialIcon icon={icon} /> {name}
                     </a>
                   </div>
                 );
@@ -95,62 +97,7 @@ const IndexPage = () => (
       className="content-section bg-primary text-white text-center"
       id="services"
     >
-      <div className="container">
-        <div className="content-section-heading">
-          <h3 className="text-secondary mb-5">Services & missions</h3>
-        </div>
-        <div className="row">
-          <div className="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span className="service-icon rounded-circle mx-auto mb-3">
-              <i className="icon-directions"></i>
-            </span>
-            <h4 className="text-secondary text-bold">CTO à votre service</h4>
-            <p className="text-white mb-0">
-              ✓ Transformation digitale
-              <br />✓ Accompagnement de startup
-              <br />✓ Audit & Organisation SI pour viser l'excellence
-              opérationnelle
-              <br />✓ Recrutement & évolution des équipes techniques
-            </p>
-          </div>
-          <div className="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span className="service-icon rounded-circle mx-auto mb-3">
-              <i className="icon-organization"></i>
-            </span>
-            <h4 className="text-secondary text-bold">Architecte Web / Cloud</h4>
-            <p className="text-white mb-0">
-              ✓ Architecture de votre projet pour avoir une solution technique
-              sécurisée, moderne, agile, performante et surtout en accord avec
-              votre vision
-              <br />✓ Définition des standards et veille à la cohérence des
-              réalisations
-              <br />✓ Description des bonnes pratiques et contrôle de leurs
-              application
-              <br />✓ Mise en place de P.O.C. dans le but de tester et prouver
-              une nouvelle solution technique
-              <br />✓ Apport d'une expertise technique et support des équipes
-              technique
-            </p>
-          </div>
-          <div className="col-lg-4 col-md-6 mb-5 mb-md-0">
-            <span className="service-icon rounded-circle mx-auto mb-3">
-              <i className="icon-people"></i>
-            </span>
-            <h4 className="text-secondary text-bold">
-              Lead developper Nodejs / PHP
-            </h4>
-            <p className="text-white mb-0">
-              ✓ Accompagnement d'une équipe technique autour pour la réussite du
-              projet
-              <br />✓ Intermédiaire et garant de la bonne communication entre
-              les acteurs du projet
-              <br />✓ Assure la qualité du code et des bonnes pratiques
-              (craftmanship)
-              <br />✓ Veille et proposition d'amélioration continue
-            </p>
-          </div>
-        </div>
-      </div>
+      <Services />
     </section>
 
     <section id="contact" className="callout">

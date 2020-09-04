@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Scroll from './Scroll';
 import config from '../../config';
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +11,7 @@ export default class Header extends Component {
       openMenu: false,
     };
   }
-  toggleMenu = value => {
+  toggleMenu = (value) => {
     this.setState({ openMenu: value });
   };
 
@@ -17,15 +20,12 @@ export default class Header extends Component {
     return (
       <>
         <a
-          onClick={_ => this.toggleMenu(!openMenu)}
+          onClick={(_) => this.toggleMenu(!openMenu)}
           className={`menu-toggle rounded ${openMenu ? 'active' : ''}`}
           href="/#"
+          title="Toggle menu"
         >
-          {openMenu ? (
-            <i className="fas fa-times" />
-          ) : (
-            <i className="fas fa-bars" />
-          )}
+          <FontAwesomeIcon icon={openMenu ? faTimes : faBars} />
         </a>
         <nav id="sidebar-wrapper" className={` ${openMenu ? 'active' : ''}`}>
           <ul className="sidebar-nav">
@@ -34,7 +34,7 @@ export default class Header extends Component {
             </li>
             <li className="sidebar-nav-item">
               <Scroll
-                onClick={_ => this.toggleMenu(!openMenu)}
+                onClick={(_) => this.toggleMenu(!openMenu)}
                 type="class"
                 element="page-top"
               >
@@ -43,7 +43,7 @@ export default class Header extends Component {
             </li>
             <li className="sidebar-nav-item">
               <Scroll
-                onClick={_ => this.toggleMenu(!openMenu)}
+                onClick={(_) => this.toggleMenu(!openMenu)}
                 type="id"
                 element="about"
               >
@@ -52,7 +52,7 @@ export default class Header extends Component {
             </li>
             <li className="sidebar-nav-item">
               <Scroll
-                onClick={_ => this.toggleMenu(!openMenu)}
+                onClick={(_) => this.toggleMenu(!openMenu)}
                 type="id"
                 element="services"
               >
@@ -61,7 +61,7 @@ export default class Header extends Component {
             </li>
             <li className="sidebar-nav-item">
               <Scroll
-                onClick={_ => this.toggleMenu(!openMenu)}
+                onClick={(_) => this.toggleMenu(!openMenu)}
                 type="id"
                 element="contact"
               >
@@ -70,7 +70,7 @@ export default class Header extends Component {
             </li>
             <li className="sidebar-nav-item">
               <Scroll
-                onClick={_ => this.toggleMenu(!openMenu)}
+                onClick={(_) => this.toggleMenu(!openMenu)}
                 type="id"
                 element="portfolio"
               >
