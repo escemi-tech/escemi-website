@@ -1,6 +1,7 @@
 const { faGithub, faLinkedin } = require('@fortawesome/free-brands-svg-icons');
 
 module.exports = {
+  siteUrl: 'https://www.escemi.com',
   siteTitle: 'ESCEMI', // <title>
   manifestName: 'ESCEMI - Corporate website',
   manifestShortName: 'ESCEMI', // max 12 characters
