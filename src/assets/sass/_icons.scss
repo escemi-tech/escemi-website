@@ -9,22 +9,22 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   &:before {
-    content: '\00a0';
+    content: "\00a0";
   }
   display: inline-block;
   width: 2rem;
   background: no-repeat center/1.5rem;
 
   &.icon-social-buildandrun {
-    background-image: url('../images/buildandrun-white.png');
+    background-image: url("../img/buildandrun-white.png");
     &:hover {
-      background-image: url('../images/buildandrun-secondary.png');
+      background-image: url("../img/buildandrun-secondary.png");
     }
   }
   &.icon-social-malt {
-    background-image: url('../images/malt-white.png');
+    background-image: url("../img/malt-white.png");
     &:hover {
-      background-image: url('../images/malt-secondary.png');
+      background-image: url("../img/malt-secondary.png");
     }
   }
 }

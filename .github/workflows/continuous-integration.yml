@@ -49,7 +49,7 @@ jobs:
       - name: 🏗️ Build
         run: |
           mkdir -p .cache
-          yarn build --log-pages
+          yarn build:ci
         env:
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           NODE_ENV: production
@@ -114,26 +114,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-gatsby-
 
-      - name: 🔑 Add key to allow access to repository
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      - name: 🏗️ Build
         run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.GH_PAGES_DEPLOY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          cat <<EOT >> ~/.ssh/config
-          Host github.com
-          HostName github.com
-          IdentityFile ~/.ssh/id_rsa
-          EOT
+          mkdir -p .cache
+          yarn build:deploy
+        env:
+          NODE_ENV: production
+          CI: true
 
       - name: 🚀 Release to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: public
         env:
-          USE_SSH: true
-          GIT_USER: git
-        run: |
-          git config --global user.email "actions@gihub.com"
-          git config --global user.name "GitHub Actions"
-          git remote set-url origin git@github.com:${{ github.repository }}.git
-          NODE_DEBUG=gh-pages yarn deploy
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔭 Check the site is up
+        uses: srt32/uptime@master
+        with:
+          url-to-hit: "https://www.escemi.com"
+          expected-statuses: "200"

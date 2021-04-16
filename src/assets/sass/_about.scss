@@ -5,12 +5,12 @@
 
     .icon-social-buildandrun {
       background: no-repeat center/1.2rem;
-      background-image: url('../images/buildandrun-primary.png');
+      background-image: url("../img/buildandrun-primary.png");
     }
 
     .icon-social-malt {
       background: no-repeat center/1.2rem;
-      background-image: url('../images/malt-primary.png');
+      background-image: url("../img/malt-primary.png");
     }
     &:hover {
       text-decoration: none;
@@ -18,10 +18,10 @@
         color: $secondary;
       }
       .icon-social-buildandrun {
-        background-image: url('../images/buildandrun-secondary.png');
+        background-image: url("../img/buildandrun-secondary.png");
       }
       .icon-social-malt {
-        background-image: url('../images/malt-secondary.png');
+        background-image: url("../img/malt-secondary.png");
       }
     }
   }

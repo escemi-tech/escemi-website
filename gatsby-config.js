@@ -1,46 +1,94 @@
-const path = require(`path`);
-const config = require('./config');
-
 module.exports = {
-  pathPrefix: config.pathPrefix,
+  pathPrefix: "/", // This path is subpath of your hosting https://domain/portfolio,
   siteMetadata: {
-    title: config.siteTitle,
+    title: "ESCEMI",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-fontawesome-css',
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-fontawesome-css",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-typescript",
       options: {
-        name: config.manifestName,
-        short_name: config.manifestShortName,
-        start_url: config.pathPrefix || config.manifestStartUrl,
-        background_color: config.manifestBackgroundColor,
-        theme_color: config.manifestThemeColor,
-        display: config.manifestDisplay,
-        icon: config.manifestIcon, // This path is relative to the root of the site.
+        isTSX: true, // defaults to false
+        jsxPragma: "jsx", // defaults to "React"
+        allExtensions: true, // defaults to false
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `images`,
-        path: path.join(__dirname, 'src', 'assets', 'images'),
+        name: "ESCEMI - À votre service",
+        short_name: "ESCEMI",
+        description:
+          "À votre service pour vous accompagner et relever les défis de vos projets digitaux",
+        start_url: "/",
+        background_color: "#1c3144",
+        theme_color: "#1c3144",
+        display: "standalone",
+        lang: "fr",
+        localize: [
+          {
+            start_url: `/en/`,
+            lang: `en`,
+            name: `ESCEMI - At your service`,
+            short_name: `ESCEMI`,
+            description: `At your service to support you and meet the challenges of your digital projects`,
+          },
+        ],
+        icon: "src/assets/img/website-icon.png", // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `any maskable`,
+        },
+        // cache_busting_mode: "none",
       },
     },
     {
-      resolve: 'gatsby-plugin-load-script',
+      resolve: "gatsby-plugin-offline",
+      // options: {
+      //   workboxConfig: {
+      //     globPatterns: ["**/icon-path*"],
+      //   },
+      // },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
       options: {
-        src: 'https://s.pageclip.co/v1/pageclip.js',
+        name: "images",
+        path: `${__dirname}/src/assets/img`,
       },
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
+      resolve: "gatsby-plugin-purgecss",
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        develop: true, // Enable while using "gatsby develop"
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/locales`,
+        name: "locale",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-i18next",
+      options: {
+        siteUrl: "https://www.escemi.com",
+        localeJsonSourceName: "locale",
+        languages: ["fr", "en"],
+        defaultLanguage: "fr",
+        i18nextOptions: {
+          keySeparator: false,
+          nsSeparator: "::",
+        },
+        pages: [],
       },
     },
   ],
