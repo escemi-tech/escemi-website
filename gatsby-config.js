@@ -1,4 +1,9 @@
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+  },
   pathPrefix: "/", // This path is subpath of your hosting https://domain/portfolio,
   siteMetadata: {
     title: "ESCEMI",
@@ -10,6 +15,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-plugin-fontawesome-css",
+    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-typescript",
       options: {
@@ -45,16 +51,7 @@ module.exports = {
           // please see the section "Additional Resources" below.
           purpose: `any maskable`,
         },
-        // cache_busting_mode: "none",
       },
-    },
-    {
-      resolve: "gatsby-plugin-offline",
-      // options: {
-      //   workboxConfig: {
-      //     globPatterns: ["**/icon-path*"],
-      //   },
-      // },
     },
     {
       resolve: "gatsby-source-filesystem",
