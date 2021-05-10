@@ -10,6 +10,6 @@ import React from "react";
 
 export const onRenderBody = ({ setPostBodyComponents }) => {
   setPostBodyComponents([
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>,
+    <script src="https://s.pageclip.co/v1/pageclip.js" charSet="utf-8" key="pageclip"></script>,
   ]);
 };

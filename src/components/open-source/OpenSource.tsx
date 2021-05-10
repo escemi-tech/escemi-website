@@ -21,31 +21,31 @@ const OpenSource = (): ReactElement => {
   githubStatsUrl.searchParams.append("include_all_commits", "true");
 
   return (
-    <section className="content-section bg-primary text-white">
+    <section className="content-section bg-primary text-white" id="open-source">
       <div className="container">
         <h2 className="mb-4">{t("We contribute to the open source scene")}</h2>
 
         <div className="row">
           <div className="col-sm-5">
-            <ul className="list-unstyled text-center">
+            <ul className="list-unstyled text-start">
               <li>
                 <a
                   href="https://github.com/neilime?tab=repositories"
-                  className="btn btn-link btn-lg text-white"
+                  className="text-white"
                   rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
-                  ✓ {t("Github contributions")}
+                  {t("Github contributions")}
                 </a>
               </li>
               <li>
                 <a
                   href="https://archiveprogram.github.com/"
-                  className="btn btn-link btn-lg text-white"
+                  className="text-white"
                   rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
-                  ✓ {t('Contributor to the "Arctic Code Vault" program')}
+                  {t('Contributor to the "Arctic Code Vault" program')}
                 </a>
               </li>
             </ul>

@@ -31,47 +31,37 @@ export default function Footer(): ReactElement {
             );
           })}
         </div>
-        <div className="row justify-content-md-center">
+        <div className="row justify-content-md-center footer-internal-links">
           <div className="col ">
             <p className="text-muted small mt-5">
               &copy; {new Date().getFullYear()} {t("Copyright")} -{" "}
               <a href="https://www.escemi.com/">{t("ESCEMI")}</a>
-              <Link to={originalPath} language="fr" className="ml-5 mr-2">
+              <Link to={originalPath} language="fr">
                 {t("French")}
-              </Link>{" "}
-              |
-              <Link to={originalPath} language={"en"} className="ml-2 mr-2">
-                {t("English")}
               </Link>
               |
+              <Link to={originalPath} language={"en"}>
+                {t("English")}
+              </Link>{" "}
+              -{" "}
               <Scroll type="class" element="page-top">
-                <a href="#page-top" className="ml-2 mr-2">
-                  {t("Home")}
-                </a>
+                <a href="#page-top">{t("Home")}</a>
               </Scroll>
               |
               <Scroll type="id" element="about">
-                <a href="#about" className="ml-2 mr-2">
-                  {t("About us")}
-                </a>
+                <a href="#about">{t("About us")}</a>
               </Scroll>
               |
               <Scroll type="id" element="services">
-                <a href="#services" className="ml-2 mr-2">
-                  {t("Services & missions")}
-                </a>
+                <a href="#services">{t("Services & missions")}</a>
               </Scroll>
               |
               <Scroll type="id" element="contact">
-                <a href="#contact" className="ml-2 mr-2">
-                  {t("Contact")}
-                </a>
+                <a href="#contact">{t("Contact")}</a>
               </Scroll>
               |
               <Scroll type="id" element="portfolio">
-                <a href="#portfolio" className="ml-2">
-                  {t("Portfolio")}
-                </a>
+                <a href="#portfolio">{t("Portfolio")}</a>
               </Scroll>
             </p>
           </div>

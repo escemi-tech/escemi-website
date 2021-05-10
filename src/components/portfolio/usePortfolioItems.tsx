@@ -20,8 +20,8 @@ export function usePortfolioItems(): Array<PortfolioItem> {
             relativePath
             childImageSharp {
               gatsbyImageData(
-                width: 540
-                height: 360
+                width: 636
+                height: 378
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )

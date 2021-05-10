@@ -1,17 +1,18 @@
-@import 'variables';
+@import "variables";
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-@import 'mixins';
-@import 'global';
-@import 'icons';
-@import 'masthead';
-@import 'sidebar';
-@import 'about';
-@import 'services';
-@import 'callout';
-@import 'portfolio';
-@import 'footer';
-@import 'bootstrap-overrides';
+@import "mixins";
+@import "global";
+@import "icons";
+@import "masthead";
+@import "sidebar";
+@import "about";
+@import "services";
+@import "callout";
+@import "portfolio";
+@import "open-source";
+@import "footer";
+@import "bootstrap-overrides";
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&display=swap");

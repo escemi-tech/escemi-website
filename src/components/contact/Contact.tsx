@@ -14,7 +14,7 @@ const ContactForm = (): ReactElement => {
       data-netlify="true"
       className="offset-sm-1 col-sm-8"
     >
-      <div className="form-group row">
+      <div className="row mb-3">
         <label htmlFor="name" className="col-sm-4 col-form-label col-form-label-lg text-secondary">
           {t("Nom")}
         </label>
@@ -28,7 +28,7 @@ const ContactForm = (): ReactElement => {
           />
         </div>
       </div>
-      <div className="form-group row">
+      <div className="row mb-3">
         <label htmlFor="email" className="col-sm-4 col-form-label col-form-label-lg text-secondary">
           {t("Email")}
         </label>
@@ -36,7 +36,7 @@ const ContactForm = (): ReactElement => {
           <input id="email" name="email" type="email" className="form-control form-control-lg" />
         </div>
       </div>
-      <div className="form-group row">
+      <div className="row mb-3">
         <label
           htmlFor="message"
           className="col-sm-4 col-form-label col-form-label-lg text-secondary"
@@ -52,7 +52,7 @@ const ContactForm = (): ReactElement => {
           ></textarea>
         </div>
       </div>
-      <div className="form-group row">
+      <div className="row">
         <div className="offset-sm-4 col-sm-8 text-left">
           <button type="submit" className="btn btn-lg btn-secondary">
             {t("Send")}

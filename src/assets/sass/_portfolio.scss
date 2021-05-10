@@ -17,7 +17,7 @@
       display: flex;
       height: 100%;
       width: 100%;
-      background-color: fade-out($gray-900, 0.5);
+      background-color: fade-out($gray-900, 0.3);
       position: absolute;
       top: 0;
       bottom: 0;
@@ -36,8 +36,7 @@
       max-width: none;
       margin: 0;
       .caption {
-        -webkit-transition: -webkit-clip-path 0.25s ease-out,
-          background-color 0.7s;
+        -webkit-transition: -webkit-clip-path 0.25s ease-out, background-color 0.7s;
         -webkit-clip-path: inset(0px);
         clip-path: inset(0px);
         .caption-content {
