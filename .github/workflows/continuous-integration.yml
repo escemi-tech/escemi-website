@@ -3,10 +3,10 @@ name: Continuous integration
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   checks:
@@ -64,7 +64,7 @@ jobs:
           CI: true
 
   gh-release:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [checks]
     runs-on: ubuntu-latest
     steps:
