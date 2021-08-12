@@ -1,15 +1,17 @@
 module.exports = {
   flags: {
-    PRESERVE_WEBPACK_CACHE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
     FAST_DEV: true,
+    LMDB_STORE: true,
+    PARALLEL_QUERY_RUNNING: true,
   },
   pathPrefix: "/", // This path is subpath of your hosting https://domain/portfolio,
   siteMetadata: {
     title: "ESCEMI",
   },
   plugins: [
+    "gatsby-plugin-eslint",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
