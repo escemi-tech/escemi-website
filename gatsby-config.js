@@ -85,7 +85,6 @@ module.exports = {
         languages: ["fr", "en"],
         defaultLanguage: "fr",
         i18nextOptions: {
-          keySeparator: false,
           nsSeparator: "::",
         },
         pages: [],
