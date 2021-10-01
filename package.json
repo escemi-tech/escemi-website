@@ -49,7 +49,11 @@
     "serve": "gatsby serve",
     "clean": "rimraf .cache public",
     "format": "prettier --write '**/*.js'",
-    "test": "jest",
+    "jest": "jest --detectOpenHandles --forceExit",
+    "test": "yarn jest --maxWorkers=50%",
+    "test:watch": "yarn jest --watch --maxWorkers=25%",
+    "test:cov": "yarn jest --coverage",
+    "test:ci": "yarn test:cov --runInBand",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "prepare": "ts-dev-tools install"
   },
