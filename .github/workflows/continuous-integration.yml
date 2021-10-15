@@ -12,102 +12,20 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-      - uses: actions/setup-node@v2.4.0
+      - uses: escemi-tech/actions-node@main
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
-          cache: yarn
-
-      - name: ⚙️ Install Dependencies
-        run: yarn
-
-      - name: ♻️ Gatsby cache
-        uses: actions/cache@v2.1.6
-        id: gatsby-cache
-        with:
-          path: |
-            .cache
-            public
-          key: ${{ runner.os }}-cache-gatsby-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-cache-gatsby-
-
-      - name: 🏗️ Build
-        run: |
-          mkdir -p .cache
-          yarn build:ci
-        env:
-          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
-          NODE_ENV: production
-          CI: true
-
-      - name: ♻️ Get Jest cache dir
-        id: jest-cache-dir-path
-        run: |
-          JEST_CACHE_DIR=$(yarn jest --showConfig | grep -oP '(?<="cacheDirectory": ")[^"]+(?=")')
-          echo "::set-output name=dir::$JEST_CACHE_DIR"
-
-      - name: ♻️ Test cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: |
-            ${{ steps.jest-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-test-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-test-
-
-      - name: 🧪 Test
-        run: yarn test
-        env:
-          CI: true
+          build: "build:ci"
+          test: true
 
   gh-release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: github-pages
     needs: [checks]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.4.0
-
-      - name: ♻️ Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: ♻️ Yarn packages cache
-        id: yarn-cache
-        uses: actions/cache@v2.1.6
+      - uses: escemi-tech/actions-node@main
         with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: ⚙️ Install Dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn
-
-      - name: ♻️ Gatsby cache
-        uses: actions/cache@v2.1.6
-        id: gatsby-cache
-        with:
-          path: |
-            .cache
-            public
-          key: ${{ runner.os }}-cache-gatsby-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-cache-gatsby-
-
-      - name: 🏗️ Build
-        run: |
-          mkdir -p .cache
-          yarn build:deploy
-        env:
-          NODE_ENV: production
-          CI: true
+          build: "build:deploy"
 
       - name: 🚀 Release to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
@@ -118,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🔭 Check the site is up
-        uses: srt32/uptime@master
+        uses: srt32/uptime@v0.2.1
         with:
-          url-to-hit: "https://www.escemi.com"
+          url-to-hit: ${{ secrets.DEPLOY_URL }}
           expected-statuses: "200"
