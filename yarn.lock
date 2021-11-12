@@ -9570,9 +9570,9 @@ listr2@^3.8.2:
     wrap-ansi "^7.0.0"
 
 lmdb-store@^1.6.6:
-  version "1.6.12"
-  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.12.tgz#95edc584992b558632a95ad82dc429be89dcabe9"
-  integrity sha512-zFQS4J0dmMamAH+oF1keWS7MlYW4rjX3+qsYvpZu5jU9AR2vSRnzMRFrc/R94uwOkyMptR7hT2fzqaQ/DcrDeg==
+  version "1.6.13"
+  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.13.tgz#ae4c9d4faccbc07aaf47a79664f703799fc61221"
+  integrity sha512-WJPNfzSZXD6anGFdIEK/wq/HzAU5kfi7+LSUSzQ2Qo9uV9REeIYPGqWX+FKl/QCb6qK4ie1D4f44aEvvv7M7rw==
   dependencies:
     nan "^2.14.2"
     node-gyp-build "^4.2.3"
