@@ -2705,10 +2705,10 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.1.1.tgz#3348564048e7a2d7398c935d466c0414ebb6a669"
   integrity sha512-Z6DoceYb/1xSg5+e+ZlPZ9v0N16ZvZ+wYMraFue4HYrE4ttONKtsvruIRf6t9TBR0YvSOfi1hUU0fJfBLCDYow==
 
-"@ts-dev-tools/core@^1.5.25":
-  version "1.5.25"
-  resolved "https://registry.yarnpkg.com/@ts-dev-tools/core/-/core-1.5.25.tgz#a5ec279d596b09d766d88582cff5a97488ecf205"
-  integrity sha512-mv3ODa7SpkyZmYIh5+H33MgUcJCGcAuRFzVLE5hJDx43Z0luovHdykQkCiSCxVWTbTZMP43humnmwNDFsPJgFQ==
+"@ts-dev-tools/core@^1.5.26":
+  version "1.5.26"
+  resolved "https://registry.yarnpkg.com/@ts-dev-tools/core/-/core-1.5.26.tgz#24a4d725fd7694442fd4c6f056066376081f9836"
+  integrity sha512-v/CZ67KPFW5XARGahyIxFWIXWeC0cTXVU/qP95roFrZI2bWwFOSC+sqp817ca8Fr7BnqwyVqq4+WPKyVwu/gWw==
   dependencies:
     "@commitlint/cli" "^16.2.3"
     "@commitlint/config-conventional" "^16.2.1"
@@ -2732,15 +2732,15 @@
     typescript "^4.6.3"
 
 "@ts-dev-tools/react@^1.5.4":
-  version "1.5.25"
-  resolved "https://registry.yarnpkg.com/@ts-dev-tools/react/-/react-1.5.25.tgz#9d68c466b60a20ac20869ad174b25b7bdf980538"
-  integrity sha512-4OQF06p7q1vplLGeaTRju98VamrpqlxENCy1R87pXGxst/eFR0aSpkqaYTVq2qgglQVO9Bv7aEQSiI6n1/GowQ==
+  version "1.5.26"
+  resolved "https://registry.yarnpkg.com/@ts-dev-tools/react/-/react-1.5.26.tgz#d82cfd1b0c4a406444cdb4d7206b8153e02183fb"
+  integrity sha512-r/KMw/wDAekdYmLND9OVAFWGCnWXZtdYRdm8HkxN2KsJGeH0hdM+tggfjM899IDOkXDRgH143uHeD8wGrONefg==
   dependencies:
     "@testing-library/jest-dom" "^5.16.4"
     "@testing-library/react" "^13.1.1"
-    "@ts-dev-tools/core" "^1.5.25"
-    "@types/react" "^18.0.5"
-    "@types/react-dom" "^18.0.1"
+    "@ts-dev-tools/core" "^1.5.26"
+    "@types/react" "^18.0.6"
+    "@types/react-dom" "^18.0.2"
     eslint-plugin-react "^7.29.4"
     react-test-renderer "^18.0.0"
 
@@ -3083,10 +3083,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^18.0.0", "@types/react-dom@^18.0.1":
-  version "18.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.2.tgz#2d6b46557aa30257e87e67a6d952146d15979d79"
-  integrity sha512-UxeS+Wtj5bvLRREz9tIgsK4ntCuLDo0EcAcACgw3E+9wE8ePDr9uQpq53MfcyxyIS55xJ+0B6mDS8c4qkkHLBg==
+"@types/react-dom@^18.0.0", "@types/react-dom@^18.0.2":
+  version "18.0.3"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.3.tgz#a022ea08c75a476fe5e96b675c3e673363853831"
+  integrity sha512-1RRW9kst+67gveJRYPxGmVy8eVJ05O43hg77G2j5m76/RFJtMbcfAs2viQ2UNsvvDg8F7OfQZx8qQcl6ymygaQ==
   dependencies:
     "@types/react" "*"
 
@@ -3097,10 +3097,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.5":
-  version "18.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.6.tgz#30206c3830af6ce8639b91ace5868bc2d3d1d96c"
-  integrity sha512-bPqwzJRzKtfI0mVYr5R+1o9BOE8UEXefwc1LwcBtfnaAn6OoqMhLa/91VA8aeWfDPJt1kHvYKI8RHcQybZLHHA==
+"@types/react@*", "@types/react@^18.0.6":
+  version "18.0.8"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.8.tgz#a051eb380a9fbcaa404550543c58e1cf5ce4ab87"
+  integrity sha512-+j2hk9BzCOrrOSJASi5XiOyBbERk9jG5O73Ya4M0env5Ixi6vUNli4qy994AINcEF+1IEHISYFfIT4zwr++LKw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
