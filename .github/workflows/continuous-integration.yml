@@ -12,9 +12,9 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: escemi-tech/actions-node@main
+      - uses: escemi-tech/actions-node@v1.7.0
         with:
-          build: "build:ci"
+          build: build:ci
           test: true
 
   gh-release:
@@ -25,7 +25,8 @@ jobs:
     steps:
       - uses: escemi-tech/actions-node@main
         with:
-          build: "build:deploy"
+          checkout: '{ "token": "${{ secrets.GH_PRIVATE_ACCESS_TOKEN }}" }'
+          build: build:deploy
 
       - name: 🚀 Release to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
@@ -33,7 +34,7 @@ jobs:
           target_branch: gh-pages
           build_dir: public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GH_PRIVATE_ACCESS_TOKEN }}
 
       - name: 🔭 Check the site is up
         uses: srt32/uptime@v0.2.1
