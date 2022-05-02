@@ -34,7 +34,7 @@ jobs:
           target_branch: gh-pages
           build_dir: public
         env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GH_PRIVATE_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PRIVATE_ACCESS_TOKEN }}
 
       - name: 🔭 Check the site is up
         uses: srt32/uptime@v0.2.1
