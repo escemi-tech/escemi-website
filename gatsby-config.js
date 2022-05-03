@@ -3,8 +3,6 @@ module.exports = {
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
     FAST_DEV: true,
-    LMDB_STORE: true,
-    PARALLEL_QUERY_RUNNING: true,
   },
   pathPrefix: "/", // This path is subpath of your hosting https://domain/portfolio,
   siteMetadata: {

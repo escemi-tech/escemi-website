@@ -14,13 +14,13 @@ const ElementWrapper = (props: PropsWithChildren<unknown>): ReactElement => {
   return <>{props.children}</>;
 };
 
-type ScrollProps = {
+type ScrollProps = PropsWithChildren<{
   type?: string;
   element?: string;
   offset?: number;
   timeout?: number;
   onClick?: MouseEventHandler;
-};
+}>;
 
 class Scroll extends Component<ScrollProps> {
   constructor(props: PropsWithChildren<ScrollProps>) {

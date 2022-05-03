@@ -15,7 +15,7 @@ jobs:
       - uses: escemi-tech/actions-node@v1.7.0
         with:
           build: build:ci
-          test: true
+          checks: true
 
   gh-release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -23,7 +23,7 @@ jobs:
     needs: [checks]
     runs-on: ubuntu-latest
     steps:
-      - uses: escemi-tech/actions-node@main
+      - uses: escemi-tech/actions-node@v1.7.0
         with:
           checkout: '{ "token": "${{ secrets.GH_PRIVATE_ACCESS_TOKEN }}" }'
           build: build:deploy

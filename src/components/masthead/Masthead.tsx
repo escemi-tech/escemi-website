@@ -15,7 +15,6 @@ const Masthead = (): ReactElement => {
             src="../../assets/img/website-icon.png"
             alt={t("Logo ESCEMI")}
             placeholder="blurred"
-            width={240}
             height={240}
             aspectRatio={1}
           />
