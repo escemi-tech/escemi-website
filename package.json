@@ -27,7 +27,7 @@
     "gatsby-plugin-sass": "^5.19.0",
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-plugin-typescript": "^4.19.0",
-    "gatsby-source-filesystem": "^4.19.0",
+    "gatsby-source-filesystem": "^4.21.0",
     "gatsby-transformer-sharp": "^4.19.0",
     "i18next": "^21.8.14",
     "lmdb-store": "^1.6.6",
