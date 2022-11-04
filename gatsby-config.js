@@ -1,6 +1,7 @@
 module.exports = {
   flags: {
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    DETECT_NODE_MUTATIONS: true,
     PARALLEL_SOURCING: true,
     FAST_DEV: true,
   },
