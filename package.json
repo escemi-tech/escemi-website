@@ -60,7 +60,7 @@
     "@ts-dev-tools/react": "^1.5.33",
     "@types/react-helmet": "^6.1.1",
     "@types/smoothscroll-polyfill": "^0.3.1",
-    "babel-preset-gatsby": "^2.19.0",
+    "babel-preset-gatsby": "^3.0.0",
     "gatsby-plugin-eslint": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "rimraf": "^3.0.2"
