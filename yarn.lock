@@ -7249,9 +7249,9 @@ gatsby-plugin-sass@^5.19.0:
     sass-loader "^10.1.1"
 
 gatsby-plugin-sharp@^5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-5.13.0.tgz#a84fabbbd211256c65f8dbd079fd10a89a63fa86"
-  integrity sha512-mechLDYE5dIo5n1rC3VtmqEtrts9v1136Yq6S3i2vUyW9ZhEgsMo4XXxKmF6g/SoYgN9AWevXE4XsCByFpMsMA==
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-5.13.1.tgz#051da57ddef3ad75a52152d3b78e3ed07589cff9"
+  integrity sha512-PA1LxLjZ7nKjgGykfbIxNQqrfqqfNsMN6+7wZNy5HK4Vhqjw1zDyImJEBEn6v08L2T3tlLMgR0or/OE7yo7F9A==
   dependencies:
     "@babel/runtime" "^7.20.13"
     async "^3.2.4"
@@ -7259,8 +7259,8 @@ gatsby-plugin-sharp@^5.13.0:
     debug "^4.3.4"
     filenamify "^4.3.0"
     fs-extra "^11.1.1"
-    gatsby-core-utils "^4.13.0"
-    gatsby-plugin-utils "^4.13.0"
+    gatsby-core-utils "^4.13.1"
+    gatsby-plugin-utils "^4.13.1"
     lodash "^4.17.21"
     probe-image-size "^7.2.3"
     semver "^7.5.3"
@@ -7294,15 +7294,15 @@ gatsby-plugin-utils@^3.19.0:
     joi "^17.4.2"
     mime "^3.0.0"
 
-gatsby-plugin-utils@^4.13.0:
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-4.13.0.tgz#7715055942161fc20e4cc9e90c42cae15c0ff6b9"
-  integrity sha512-3qwhM6mUYjorRiD0D0cgmCHcKwroG2d4PlfErnapHJpM/ISGfdBBOfRhPyk2N0u3dbGeb3KQq5gImCCS73bvxg==
+gatsby-plugin-utils@^4.13.1:
+  version "4.13.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-4.13.1.tgz#9def57eea4559e1355244ebf706ce528231a510e"
+  integrity sha512-dQ8cZyUENWHqZOOSBBYWCJ8yG3zSYnHYk0mKQbgZblUS30Sp7ZFM4r0/+lsvUkEYaBOnzFBQjSSQtTa0xu9QWA==
   dependencies:
     "@babel/runtime" "^7.20.13"
     fastq "^1.15.0"
     fs-extra "^11.1.1"
-    gatsby-core-utils "^4.13.0"
+    gatsby-core-utils "^4.13.1"
     gatsby-sharp "^1.13.0"
     graphql-compose "^9.0.10"
     import-from "^4.0.0"
