@@ -3102,9 +3102,9 @@
     "@types/node" "*"
 
 "@types/smoothscroll-polyfill@^0.3.1":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@types/smoothscroll-polyfill/-/smoothscroll-polyfill-0.3.3.tgz#60dcd0acfdb62a9df5e3d4d935436be089c43adb"
-  integrity sha512-VBcuyevh5N80XlrUz8a2GWgP9MnIVctdUgxWj8YdD+tN2OMptZTEUKYo8wXly8MR91HisJ9CaX8utF9zbMU8yA==
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@types/smoothscroll-polyfill/-/smoothscroll-polyfill-0.3.4.tgz#80cbce8f1abe740d450288550fce07fd42e4eae8"
+  integrity sha512-w1krF+TJh7Azz/2/bEN1tmyKoNt3B6bLCn6SfJErzhKAr1w1b06ePx79NXA+3lTw+DbqXN12nk/Ce1UQDVY8yA==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
@@ -7050,7 +7050,7 @@ gatsby-core-utils@^3.25.0:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
-gatsby-core-utils@^4.13.0, gatsby-core-utils@^4.13.1:
+gatsby-core-utils@^4.13.1:
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-4.13.1.tgz#57955316486cc85ab150922f481484bc9287205e"
   integrity sha512-w7G6SsQr8T2q+AJ1MxvRNGocCt+wjc22MiRLj2Zi3Ijpjszbr818JxwI4+aPt8WOSHlKT5SYCHICnEvcYPm9gg==
