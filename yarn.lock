@@ -1742,7 +1742,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@hapi/topo@^5.0.0", "@hapi/topo@^5.1.0":
+"@hapi/topo@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/topo/-/topo-5.1.0.tgz#dc448e332c6c6e37a4dc02fd84ba8d44b9afb012"
   integrity sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==
@@ -2544,14 +2544,14 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@sideway/address@^4.1.3", "@sideway/address@^4.1.4":
+"@sideway/address@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
   integrity sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@sideway/formula@^3.0.0", "@sideway/formula@^3.0.1":
+"@sideway/formula@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sideway/formula/-/formula-3.0.1.tgz#80fcbcbaf7ce031e0ef2dd29b1bfc7c3f583611f"
   integrity sha512-/poHZJJVjx3L+zVD6g9KgHfYnb443oi7wLu/XKojDviHy6HOEOA6z1Trk5aR1dGcmPenJEgb2sK2I80LeS3MIg==
@@ -3339,7 +3339,7 @@
     "@typescript-eslint/types" "6.5.0"
     eslint-visitor-keys "^3.4.1"
 
-"@vercel/webpack-asset-relocator-loader@^1.7.0":
+"@vercel/webpack-asset-relocator-loader@1.7.3":
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/@vercel/webpack-asset-relocator-loader/-/webpack-asset-relocator-loader-1.7.3.tgz#e65ca1fd9feb045039788f9b4710e5acc84b01b0"
   integrity sha512-vizrI18v8Lcb1PmNNUBz7yxPxxXoOeuaVEjTG9MjvDrphjiSxFZrRJ5tIghk+qdLFRCXI5HBCshgobftbmrC5g==
@@ -7384,9 +7384,9 @@ gatsby-worker@^1.25.0:
     "@babel/runtime" "^7.15.4"
 
 gatsby@^4.19.2:
-  version "4.25.8"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.25.8.tgz#13173ef2879769648bce806b9370d4704b03b15f"
-  integrity sha512-kqrZ6z22XuxrO3Blt+K2ewqchVGP8bCSJcjnQm6GcV3QJLnedk+jOYc9NP4C+d8uGlTK7l8OWxbL3bHxLddDIw==
+  version "4.25.9"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.25.9.tgz#22240d315b00f127968a934955cb2006bc82e489"
+  integrity sha512-/0/C4mesu+afcoQ+SCmTJQJrZLS7cUIgqotxPQ61+hhvE/DoU8j6a61qM1jOp1/Bwh+FQBpDXuFxGFAF3yNBig==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.15.5"
@@ -7414,7 +7414,7 @@ gatsby@^4.19.2:
     "@types/http-proxy" "^1.17.7"
     "@typescript-eslint/eslint-plugin" "^4.33.0"
     "@typescript-eslint/parser" "^4.33.0"
-    "@vercel/webpack-asset-relocator-loader" "^1.7.0"
+    "@vercel/webpack-asset-relocator-loader" "1.7.3"
     acorn-loose "^8.3.0"
     acorn-walk "^8.2.0"
     address "1.1.2"
@@ -7828,17 +7828,10 @@ graphemer@^1.4.0:
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
 
-graphql-compose@^9.0.10:
+graphql-compose@^9.0.10, graphql-compose@^9.0.7:
   version "9.0.10"
   resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-9.0.10.tgz#1e870166deb1785761865fe742dea0601d2c77f2"
   integrity sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==
-  dependencies:
-    graphql-type-json "0.3.2"
-
-graphql-compose@^9.0.7:
-  version "9.0.8"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-9.0.8.tgz#920b6b0584f5e3784a532138974063d3807f7455"
-  integrity sha512-I3zvygpVz5hOWk2cYL6yhbgfKbNWbiZFNXlWkv/55U+lX6Y3tL+SyY3zunw7QWrN/qtwG2DqZb13SHTv2MgdEQ==
   dependencies:
     graphql-type-json "0.3.2"
 
@@ -9312,18 +9305,7 @@ jiti@^1.19.1:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
-joi@^17.4.2:
-  version "17.6.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.0.tgz#0bb54f2f006c09a96e75ce687957bd04290054b2"
-  integrity sha512-OX5dG6DTbcr/kbMFj0KGYxuew69HPcAE3K/sZpEV2nP6e/j/C0HV+HNiBPCASxdx5T7DMoa0s8UeHWMnb6n2zw==
-  dependencies:
-    "@hapi/hoek" "^9.0.0"
-    "@hapi/topo" "^5.0.0"
-    "@sideway/address" "^4.1.3"
-    "@sideway/formula" "^3.0.0"
-    "@sideway/pinpoint" "^2.0.0"
-
-joi@^17.9.2:
+joi@^17.4.2, joi@^17.9.2:
   version "17.12.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.12.0.tgz#a3fb5715f198beb0471cd551dd26792089c308d5"
   integrity sha512-HSLsmSmXz+PV9PYoi3p7cgIbj06WnEBNT28n+bbBNcPZXZFqCzzvGqpTBPujx/Z0nh1+KNQPDrNgdmQ8dq0qYw==
