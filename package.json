@@ -43,8 +43,7 @@
     "start": "yarn build:deploy && yarn serve",
     "dev": "gatsby develop",
     "build": "tsc --noEmit",
-    "build:ci": "gatsby build --log-pages",
-    "build:deploy": "gatsby build --prefix-paths",
+    "build:ci": "gatsby build --log-pages --prefix-paths",
     "serve": "gatsby serve",
     "clean": "rimraf .cache public",
     "format": "prettier --cache --write '**/*.{ts,tsx}'",
@@ -57,7 +56,7 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.5.33",
+    "@ts-dev-tools/react": "^1.8.5",
     "@types/react-helmet": "^6.1.1",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "babel-preset-gatsby": "^3.0.0",
@@ -75,47 +74,6 @@
     "url": "https://github.com/escemi-tech/escemi-website/issues"
   },
   "homepage": "https://github.com/escemi-tech/escemi-website#readme",
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:jest/recommended",
-      "plugin:react/recommended",
-      "prettier"
-    ],
-    "env": {
-      "es2021": true,
-      "browser": true
-    },
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      },
-      "jest": {
-        "version": "detect"
-      }
-    },
-    "rules": {
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off"
-    },
-    "ignorePatterns": [
-      "gatsby-config.js"
-    ]
-  },
   "prettier": {
     "semi": true,
     "printWidth": 100,
@@ -173,6 +131,6 @@
     ]
   },
   "tsDevTools": {
-    "version": "20220617100200-prettier-cache"
+    "version": "20240617094000-config-nx-scopes"
   }
 }
