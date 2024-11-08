@@ -8,6 +8,20 @@ updates:
       interval: weekly
       day: friday
       time: "04:00"
+    groups:
+      fortawesome-dependencies:
+        patterns:
+          - "@fortawesome/*"
+      gatsby-dependencies:
+        patterns:
+          - "gatsby"
+          - "gatsby-*"
+      react-dependencies:
+        patterns:
+          - "react"
+          - "react-*"
+      dev-dependencies:
+        dependency-type: development
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -15,3 +29,7 @@ updates:
       interval: weekly
       day: friday
       time: "04:00"
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
