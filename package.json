@@ -75,47 +75,6 @@
     "url": "https://github.com/escemi-tech/escemi-website/issues"
   },
   "homepage": "https://github.com/escemi-tech/escemi-website#readme",
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:jest/recommended",
-      "plugin:react/recommended",
-      "prettier"
-    ],
-    "env": {
-      "es2021": true,
-      "browser": true
-    },
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      },
-      "jest": {
-        "version": "detect"
-      }
-    },
-    "rules": {
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off"
-    },
-    "ignorePatterns": [
-      "gatsby-config.js"
-    ]
-  },
   "prettier": {
     "semi": true,
     "printWidth": 100,
@@ -173,6 +132,6 @@
     ]
   },
   "tsDevTools": {
-    "version": "20220617100200-prettier-cache"
+    "version": "20240617094000-config-nx-scopes"
   }
 }
