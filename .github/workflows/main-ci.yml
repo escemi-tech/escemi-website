@@ -21,35 +21,40 @@ jobs:
     uses: ./.github/workflows/__shared-ci.yml
     secrets: inherit
 
-deploy:
-  name: Deploy website
-  needs: ci
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-    pages: write
-    id-token: write
-  environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
-  steps:
-    - uses: actions/checkout@v4
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    name: Deploy website
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
 
-    - uses: actions/download-artifact@v4
-      with:
-        name: documentation
+      - uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: /
 
-    - name: ⚙️ Setup Pages
-      if: github.ref == 'refs/heads/main'
-      uses: actions/configure-pages@v5
+      - name: 📦 Upload website build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
 
-    - name: 🚀 Deploy to GitHub Pages
-      id: deployment
-      if: github.ref == 'refs/heads/main'
-      uses: actions/deploy-pages@v4
+      - name: ⚙️ Setup Pages
+        uses: actions/configure-pages@v5
 
-    - name: 🔭 Check the site is up
-      uses: srt32/uptime@v0.2.1
-      with:
-        url-to-hit: ${{ steps.deployment.outputs.page_url }}
-        expected-statuses: "200"
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: 🔭 Check the site is up
+        uses: srt32/uptime@v0.2.1
+        with:
+          url-to-hit: ${{ steps.deployment.outputs.page_url }}
+          expected-statuses: "200"
