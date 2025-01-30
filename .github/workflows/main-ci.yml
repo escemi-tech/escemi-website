@@ -27,34 +27,13 @@ jobs:
     needs: ci
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       pages: write
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.url }}
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@v4
+      - id: deployment
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@0.2.0
         with:
-          name: build
-          path: /
-
-      - name: 📦 Upload website build artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
-
-      - name: ⚙️ Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: 🚀 Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: 🔭 Check the site is up
-        uses: srt32/uptime@v0.2.1
-        with:
-          url-to-hit: ${{ steps.deployment.outputs.page_url }}
-          expected-statuses: "200"
+          build-assets-path: public
