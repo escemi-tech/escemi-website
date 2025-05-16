@@ -3003,10 +3003,10 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
-"@ts-dev-tools/core@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@ts-dev-tools/core/-/core-1.9.0.tgz#974a7abc4fb5da2cd01a05ca49d37a0b6d9c89bf"
-  integrity sha512-pa2eOyjAOfdFIWHyLpg8BThgIqPuz9tLBzqYl9jhJ4NR1SiV35Le7AxVlyI/x4MENLR1VZ2O8rqBIBLI3klzqg==
+"@ts-dev-tools/core@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@ts-dev-tools/core/-/core-1.9.1.tgz#136f2e0c418b5ede97d9500a24be4dbe111afad7"
+  integrity sha512-2BzflHQULywPpS2J3qE5ymtPbPHQY+45RYX/MxY6s8oFECSzlsqM9ko5k2Ub8EG7fdTtNiueaijDV7Vqv1RO1A==
   dependencies:
     "@commitlint/cli" "^19.4.0"
     "@commitlint/config-conventional" "^19.0.3"
@@ -3027,14 +3027,14 @@
     typescript-eslint "^8.30.1"
 
 "@ts-dev-tools/react@^1.8.5":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@ts-dev-tools/react/-/react-1.9.0.tgz#9dffec50dc3e7bbcfef416c138bd8c324a69395e"
-  integrity sha512-qr6nu4ht7ssdNe4jZEn98+ahv5VMOOiNiRk5n3y/83qToTypEdGR/bL0D28E1XFw284iq6TDt+ijMkOlKsYccg==
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@ts-dev-tools/react/-/react-1.9.1.tgz#ba3322c09a14e52147038048bcb67e39ce66d05e"
+  integrity sha512-3fdi3svEgAlSmugnBTfv0DNiYYpGCNDjidFgAMVI3IiVHaZbOUU3wHzunHGVI9m+osnbi+0MUlsCaQhmFvnxFw==
   dependencies:
     "@testing-library/dom" "^10.4.0"
     "@testing-library/jest-dom" "^6.5.0"
     "@testing-library/react" "^16.3.0"
-    "@ts-dev-tools/core" "^1.9.0"
+    "@ts-dev-tools/core" "^1.9.1"
     "@types/react" "^19.1.2"
     "@types/react-dom" "^19.1.2"
     eslint-plugin-react "^7.37.5"
