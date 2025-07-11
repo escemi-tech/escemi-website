@@ -37,3 +37,5 @@ jobs:
         uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@d404b9ebce43ba9b1cf12fc83be5839a32dde2bd # 0.6.1
         with:
           build-path: public
+          build-artifact-name: build
+          static-site-generator: gatsby
