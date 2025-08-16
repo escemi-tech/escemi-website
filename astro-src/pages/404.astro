@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+
+const title = '404 - Page non trouvée';
+const description = 'La page que vous demandez n\'existe pas';
+---
+
+<BaseLayout title={title} description={description} lang="fr">
+  <main class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-3 to-accent-3">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-6xl md:text-8xl font-bold text-primary-9 mb-6">
+        404
+      </h1>
+      
+      <h2 class="text-2xl md:text-3xl font-semibold text-fg mb-4">
+        Page non trouvée
+      </h2>
+      
+      <p class="text-lg text-fg/80 mb-8">
+        La page que vous demandez n'existe pas ou a été déplacée.
+      </p>
+      
+      <Button href="/" size="lg" variant="primary">
+        Retour à l'accueil
+      </Button>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    min-height: calc(100vh - 4rem); /* Account for nav height */
+  }
+</style>

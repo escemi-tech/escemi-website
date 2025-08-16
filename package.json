@@ -60,7 +60,11 @@
     "test:cov": "yarn jest --coverage",
     "test:ci": "yarn test:cov --runInBand",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "prepare": "ts-dev-tools install"
+    "prepare": "ts-dev-tools install",
+    "astro:dev": "astro dev",
+    "astro:build": "astro build",
+    "astro:preview": "astro preview",
+    "astro:check": "astro check"
   },
   "devDependencies": {
     "@ts-dev-tools/react": "^1.8.5",
