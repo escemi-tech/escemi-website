@@ -1,0 +1,68 @@
+/* Design Token System - OKLCH Brand Colors */
+:root {
+  /* Brand Colors (OKLCH) */
+  --brand-main: oklch(30.5% 0.044 247.1); /* #1c3144 */
+  --brand-secondary: oklch(80.7% 0.164 87.9); /* #ecb807 */
+  
+  /* Text on brand surfaces */
+  --on-primary: white;
+  --on-accent: black;
+
+  /* Base colors */
+  --bg: oklch(98% 0.01 95);
+  --fg: oklch(18% 0.02 95);
+
+  /* Primary color scale */
+  --primary-9: var(--brand-main);
+  --primary-10: color-mix(in oklch, var(--brand-main) 88%, black 12%);
+  --primary-3: color-mix(in oklch, var(--brand-main) 10%, white 90%);
+
+  /* Accent color scale */
+  --accent-9: var(--brand-secondary);
+  --accent-10: color-mix(in oklch, var(--brand-secondary) 85%, black 15%);
+  --accent-3: color-mix(in oklch, var(--brand-secondary) 10%, white 90%);
+
+  /* Design tokens */
+  --radius: 0.5rem;
+}
+
+/* Dark mode adaptations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: oklch(12% 0.02 95);
+    --fg: oklch(96% 0.01 95);
+    
+    /* Adjust hover states for dark mode */
+    --primary-10: color-mix(in oklch, var(--brand-main) 88%, white 12%);
+    --accent-10: color-mix(in oklch, var(--brand-secondary) 85%, white 15%);
+    --primary-3: color-mix(in oklch, var(--brand-main) 25%, white 75%);
+    --accent-3: color-mix(in oklch, var(--brand-secondary) 25%, white 75%);
+  }
+}
+
+/* Base styles */
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--brand-secondary);
+  outline-offset: 2px;
+}
+
+/* Ensure buttons have proper contrast */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--brand-secondary);
+  outline-offset: 2px;
+}

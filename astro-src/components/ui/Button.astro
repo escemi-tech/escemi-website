@@ -1,0 +1,58 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  type = 'button', 
+  disabled = false,
+  class: className = '',
+  ...rest 
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-9 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
+
+const variantClasses = {
+  primary: 'bg-primary-9 text-on-primary hover:bg-primary-10',
+  secondary: 'bg-accent-9 text-on-accent hover:bg-accent-10',
+  ghost: 'bg-transparent border-2 border-primary-9 text-primary-9 hover:bg-primary-3'
+};
+
+const sizeClasses = {
+  sm: 'px-3 py-1.5 text-sm rounded-brand',
+  md: 'px-4 py-2 text-base rounded-brand',
+  lg: 'px-6 py-3 text-lg rounded-brand',
+  xl: 'px-8 py-4 text-xl rounded-brand'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  class={classes}
+  href={href}
+  type={href ? undefined : type}
+  disabled={href ? undefined : disabled}
+  {...rest}
+>
+  <slot />
+</Element>
+
+<style>
+  /* Ensure consistent focus styles */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--brand-secondary);
+    outline-offset: 2px;
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`bg-bg border border-gray-200 rounded-brand shadow-sm overflow-hidden ${className}`}>
+  <slot />
+</div>
+
+<style>
+  /* Card component styles */
+  div {
+    background-color: var(--bg);
+    border-color: color-mix(in oklch, var(--fg) 10%, transparent 90%);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    div {
+      border-color: color-mix(in oklch, var(--fg) 20%, transparent 80%);
+    }
+  }
+</style>

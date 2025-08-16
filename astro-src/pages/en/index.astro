@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/layout/Navigation.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+
+const title = 'ESCEMI - At your service';
+const description = 'At your service to support you and meet the challenges of your digital projects';
+---
+
+<BaseLayout title={title} description={description} lang="en">
+  <Navigation currentLang="en" />
+  
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-3 to-accent-3">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-8">
+        <img 
+          src="/logo.png" 
+          alt="ESCEMI Logo" 
+          class="mx-auto h-48 w-48 object-contain"
+        />
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-bold text-primary-9 mb-6">
+        ESCEMI
+      </h1>
+      
+      <h2 class="text-xl md:text-2xl text-fg mb-8 italic">
+        At your service to support you and meet the challenges of your digital projects
+      </h2>
+      
+      <Button href="#about" size="xl" variant="primary">
+        About us
+      </Button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-bg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary-9 mb-12">
+        About us
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-center">
+          <img 
+            src="/avatar.jpg" 
+            alt="Profile" 
+            class="w-48 h-48 rounded-full mx-auto object-cover"
+          />
+        </div>
+        
+        <div class="text-lg text-fg leading-relaxed">
+          <p class="mb-6">
+            Driven by a 12-years expertise in the digital field, my professional career has been refined on the themes of Information Systems architecture, project management and IT team management.
+          </p>
+          
+          <p class="mb-8">
+            The whole of these experiences are found within the ESCEMI company which will be at the service of your projects, to bring you technical and relational competences, with a sense of the rigour and the work well made.
+          </p>
+          
+          <!-- Social Links -->
+          <div class="grid grid-cols-2 gap-4">
+            <a href="https://github.com/escemi-tech" class="flex items-center space-x-2 text-primary-9 hover:text-primary-10 transition-colors">
+              <span>✓ Github</span>
+            </a>
+            <a href="https://www.linkedin.com/company/escemi" class="flex items-center space-x-2 text-primary-9 hover:text-primary-10 transition-colors">
+              <span>✓ LinkedIn</span>
+            </a>
+            <a href="https://www.malt.fr/profile/emilienescalle" class="flex items-center space-x-2 text-primary-9 hover:text-primary-10 transition-colors">
+              <span>✓ Malt</span>
+            </a>
+            <a href="https://www.build-and-run.fr/" class="flex items-center space-x-2 text-primary-9 hover:text-primary-10 transition-colors">
+              <span>✓ BuildAndRun</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Skills Section -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-primary-9 mb-8 text-center">Skills</h3>
+        
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <Card class="p-4 text-center">
+            <h4 class="font-semibold text-primary-9 mb-2">Methodologies</h4>
+            <p class="text-sm text-fg">Scrum, TDD, Kanban, Kaizen, UML</p>
+          </Card>
+          
+          <Card class="p-4 text-center">
+            <h4 class="font-semibold text-primary-9 mb-2">Cloud</h4>
+            <p class="text-sm text-fg">AWS, Serverless, Cloud Architecture</p>
+          </Card>
+          
+          <Card class="p-4 text-center">
+            <h4 class="font-semibold text-primary-9 mb-2">Frameworks</h4>
+            <p class="text-sm text-fg">React.js, Angular, NestJS, Laminas</p>
+          </Card>
+          
+          <Card class="p-4 text-center">
+            <h4 class="font-semibold text-primary-9 mb-2">Languages</h4>
+            <p class="text-sm text-fg">TypeScript, JavaScript, PHP</p>
+          </Card>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <Button href="#services" size="lg" variant="primary">
+          Services & missions
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-primary-3/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary-9 mb-12">
+        Services & missions
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card class="p-6">
+          <h3 class="text-xl font-semibold text-primary-9 mb-4">CTO at your service</h3>
+          <ul class="space-y-2 text-fg">
+            <li>• Digital transformation</li>
+            <li>• Mentoring of startups</li>
+            <li>• IT Audit & Organization</li>
+            <li>• Hiring & development of technical teams</li>
+          </ul>
+        </Card>
+        
+        <Card class="p-6">
+          <h3 class="text-xl font-semibold text-primary-9 mb-4">Web / Cloud architect</h3>
+          <ul class="space-y-2 text-fg">
+            <li>• Architecture of your project</li>
+            <li>• Definition of standards</li>
+            <li>• Description of good practices</li>
+            <li>• Implementation of P.O.C.</li>
+          </ul>
+        </Card>
+        
+        <Card class="p-6">
+          <h3 class="text-xl font-semibold text-primary-9 mb-4">Lead developer Nodejs / PHP</h3>
+          <ul class="space-y-2 text-fg">
+            <li>• Support of a technical team</li>
+            <li>• Code quality and best practices</li>
+            <li>• Technical watch</li>
+            <li>• Continuous improvement</li>
+          </ul>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary-9 mb-12">
+        A project, a mission: contact us!
+      </h2>
+      
+      <Card class="p-8">
+        <form class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-fg mb-2">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-brand focus:ring-2 focus:ring-accent-9 focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-fg mb-2">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-brand focus:ring-2 focus:ring-accent-9 focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-fg mb-2">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-brand focus:ring-2 focus:ring-accent-9 focus:border-transparent"
+            ></textarea>
+          </div>
+          
+          <div class="text-center">
+            <Button type="submit" size="lg" variant="primary">
+              Send
+            </Button>
+          </div>
+        </form>
+      </Card>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-primary-3/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary-9 mb-12">
+        Latest projects
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <Card class="p-6">
+          <h3 class="text-xl font-semibold text-primary-9 mb-3">Atlas of Natural Regions</h3>
+          <p class="text-fg mb-4">Project of photographic archive of the French territory</p>
+          <div class="space-y-2 text-sm text-fg">
+            <p>• Serverless architecture: Amplify, Cloudfront, Aurora Serverless</p>
+            <p>• CI/CD: Github Action</p>
+            <p>• Backend development: AWS Lambda / Typescript / GraphQL</p>
+            <p>• Backoffice development: React / Typescript</p>
+          </div>
+        </Card>
+        
+        <Card class="p-6">
+          <h3 class="text-xl font-semibold text-primary-9 mb-3">Spotishakr</h3>
+          <p class="text-fg mb-4">Spotify Playlist Generator</p>
+          <div class="space-y-2 text-sm text-fg">
+            <p>• JAMSTACK architecture: Netlify</p>
+            <p>• Backend development: Typescript / Netlify function</p>
+            <p>• Frontend development: React / Typescript</p>
+          </div>
+        </Card>
+      </div>
+      
+      <div class="text-center mt-8">
+        <Button href="https://github.com/escemi-tech" variant="secondary" size="lg">
+          See more on Github
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary-9 text-on-primary py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p>&copy; 2024 ESCEMI. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  /* Additional page-specific styles */
+  section {
+    scroll-margin-top: 4rem; /* Account for sticky nav */
+  }
+  
+  /* Form input styles */
+  input, textarea {
+    background-color: var(--bg);
+    border-color: color-mix(in oklch, var(--fg) 20%, transparent 80%);
+  }
+  
+  input:focus, textarea:focus {
+    border-color: var(--brand-secondary);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--brand-secondary) 20%, transparent 80%);
+  }
+</style>
