@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   continuous-integration:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@51de90c148d4cc86d7c63bb9ac4fb75935d71d26 # 0.13.0
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@1d00c9eb280acbee5df4b4a2087f786e66b13d87 # 0.14.1
     permissions:
       id-token: write
       security-events: write
