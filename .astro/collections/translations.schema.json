@@ -1,0 +1,36 @@
+{
+  "$ref": "#/definitions/translations",
+  "definitions": {
+    "translations": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string",
+          "enum": [
+            "fr",
+            "en"
+          ]
+        },
+        "category": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value",
+        "lang"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
