@@ -33,7 +33,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^15.0.0",
+    "react-i18next": "^15.7.3",
     "react-images": "^1.2.0-beta.6",
     "react-scrollspy": "^3.4.3",
     "sass": "^1.53.0",
