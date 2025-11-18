@@ -1,0 +1,8 @@
+---
+import HomePage from '../../components/pages/HomePage.astro';
+import { resolveLocale } from '../../../i18n.config';
+
+const locale = resolveLocale(Astro.currentLocale);
+---
+
+<HomePage locale={locale} />
