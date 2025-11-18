@@ -3,23 +3,46 @@ name: Common Continuous Integration tasks
 on:
   workflow_call:
 
-permissions:
-  contents: read
-  packages: read
-  statuses: write
-  security-events: write
-  id-token: write
+permissions: {}
 
 jobs:
-  continuous-integration:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@6809332ced7647b3d52300a47d65657283f3395e # 0.16.0
+  continuous-integration-actions:
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@32a69b7b8fd5f7ab7bf656e7e88aa90ad235cf8d # 0.18.0
     permissions:
-      id-token: write
-      security-events: write
       contents: read
+      id-token: write
+      pull-requests: write
+      security-events: write
+    strategy:
+      matrix:
+        working-directory:
+          - .github/actions/generate-blog-post
+          - .github/actions/generate-brand-content
+          - .github/actions/validate-manifest
     with:
+      working-directory: ${{ matrix.working-directory }}
+      build: null
+      lint: null
+      dependency-review: false
+      test: |
+        {
+          "coverage": null
+        }
+
+  continuous-integration:
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@32a69b7b8fd5f7ab7bf656e7e88aa90ad235cf8d # 0.18.0
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+      security-events: write
+    with:
+      working-directory: application
       build: |
         {
-          "commands": ["build:ci"],
-          "artifact": ["public"]
+          "artifact": ["dist"]
+        }
+      test: |
+        {
+          "coverage": "codecov"
         }
