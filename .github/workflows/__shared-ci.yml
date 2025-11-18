@@ -6,29 +6,6 @@ on:
 permissions: {}
 
 jobs:
-  continuous-integration-actions:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@32a69b7b8fd5f7ab7bf656e7e88aa90ad235cf8d # 0.18.0
-    permissions:
-      contents: read
-      id-token: write
-      pull-requests: write
-      security-events: write
-    strategy:
-      matrix:
-        working-directory:
-          - .github/actions/generate-blog-post
-          - .github/actions/generate-brand-content
-          - .github/actions/validate-manifest
-    with:
-      working-directory: ${{ matrix.working-directory }}
-      build: null
-      lint: null
-      dependency-review: false
-      test: |
-        {
-          "coverage": null
-        }
-
   continuous-integration:
     uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@32a69b7b8fd5f7ab7bf656e7e88aa90ad235cf8d # 0.18.0
     permissions:
