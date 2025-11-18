@@ -1,28 +1,55 @@
-# ESCEMI corporate website
+# ESCEMI Landing Page
 
-![Continuous integration](https://github.com/escemi-tech/escemi-website/workflows/Continuous%20integration/badge.svg)
+Marketing site for ESCEMI, built with [Astro](https://astro.build/) 5 and Tailwind CSS. The production code lives under `application/` and is packaged for deployment as a static site.
 
-## Install
+## Requirements
 
-Make sure that you have the Gatsby CLI program installed:
+- Node.js 18.17+ (or 20.3+/21+)
+- npm 9+
+- Docker (optional, used by linting workflow)
 
-```sh
-yarn global add gatsby-cli
+## Getting Started
+
+```bash
+make prepare   # Install npm dependencies in application/
+make start     # Run Astro dev server on http://localhost:4321
 ```
 
-And run from your CLI:
+To preview a production build locally:
 
-```sh
-git clone git@github.com:escemi-tech/escemi-website.git
+```bash
+make build
+npm run preview --prefix application
 ```
 
-Then you can run it by:
+## Development Workflow
 
-```sh
-cd escemi-website
-yarn
-yarn start
-```
+- `make lint` – Run Prettier and Astro checks (accepts globs: `make lint src/pages`)
+- `make lint-fix` – Apply automated fixes via npm audit + Dockerized linter
+- `make build` – Run `astro check` and produce a production build
+- `make ci` – Run prepare, lint, and build sequentially
+- `npm run preview --prefix application` – Serve the built site for QA
 
-- Dev url: http://localhost:8000
-- Graphql playground: http://localhost:8000/___graphql
+Most changes should happen inside `application/`. See `AGENTS.md` for detailed automation guardrails.
+
+## Project Structure
+
+- `application/astro.config.ts` – Astro configuration, integrations, and Partytown setup
+- `application/src/config.yaml` – Site metadata, feature toggles, and analytics IDs
+- `application/src/i18n/ui.ts` – Shared UI strings for `fr` (default) and `en` locales
+- `application/src/assets/images` – Optimized assets consumed via the shared `Image` component
+- `application/src/content/` and `application/src/data/` – Blog posts and data-driven content
+
+## Configuration Notes
+
+- Keep locale strings synchronized in `application/src/i18n/ui.ts`
+- Update metadata and analytics via `application/src/config.yaml` instead of hardcoding values
+- Follow the frontmatter schema in `application/src/content/config.ts` when adding content
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome. Review the [contributing guide](CONTRIBUTING.md) and use the [issue tracker](https://github.com/escemi-tech/escemi-website/issues) to report bugs or request features.
+
+## License
+
+This project is released under the [0BSD License](LICENSE).

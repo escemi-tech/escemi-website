@@ -1,35 +1,60 @@
 version: 2
+
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: "npm"
     open-pull-requests-limit: 20
-    versioning-strategy: widen
-    directory: "/"
+    directories:
+      - "application/"
+      - ".github/actions/**/*"
+    versioning-strategy: increase
     schedule:
-      interval: weekly
-      day: friday
-      time: "04:00"
+      interval: "weekly"
     groups:
-      fortawesome-dependencies:
+      npm-development-dependencies:
+        dependency-type: "development"
+      npm-astro-dependencies:
         patterns:
-          - "@fortawesome/*"
-      gatsby-dependencies:
+          - "@astrojs/*"
+          - "@astrolib/*"
+          - "astro"
+          - "astro-*"
+      npm-tailwind-dependencies:
         patterns:
-          - "gatsby"
-          - "gatsby-*"
-      react-dependencies:
+          - "@tailwindcss/*"
+          - "tailwindcss"
+          - "tailwind-*"
+      npm-react-dependencies:
         patterns:
           - "react"
           - "react-*"
-      dev-dependencies:
-        dependency-type: development
+      npm-fontsource-variable-dependencies:
+        patterns:
+          - "@fontsource-variable/*"
 
   - package-ecosystem: github-actions
+    open-pull-requests-limit: 20
+    directories:
+      - "/"
+      - "/.github/actions/**/*"
+    schedule:
+      interval: weekly
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "devcontainers"
+    open-pull-requests-limit: 20
     directory: "/"
     schedule:
       interval: weekly
-      day: friday
-      time: "04:00"
+
+  - package-ecosystem: "docker"
+    open-pull-requests-limit: 20
+    directory: "/"
+    schedule:
+      interval: "weekly"
     groups:
-      github-actions-dependencies:
+      docker-dependencies:
         patterns:
           - "*"
