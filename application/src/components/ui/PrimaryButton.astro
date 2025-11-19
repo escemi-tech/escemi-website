@@ -1,0 +1,22 @@
+---
+interface Props {
+	href: string;
+	text: string;
+	external?: boolean;
+}
+
+const { href, text, external = false } = Astro.props;
+const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+---
+
+<a 
+	href={href}
+	{...externalProps}
+	class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-10 py-5 text-lg overflow-hidden transition-all duration-300 shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_50px_rgba(6,182,212,0.5)]"
+>
+	<span class="relative z-10">{text}</span>
+	<svg class="relative z-10 w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+	</svg>
+	<span class="absolute inset-0 border-2 border-cyan-400 animate-border-pulse"></span>
+</a>

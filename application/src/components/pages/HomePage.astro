@@ -2,462 +2,186 @@
 import Layout from '../../layouts/Layout.astro';
 import type { Locale } from '../../../i18n.config';
 import { getCopyForLocale } from '../../../i18n.config';
-import bgMasthead from '../../assets/bg-masthead.jpg';
+import HeroBackground from '../ui/HeroBackground.astro';
+import PrimaryButton from '../ui/PrimaryButton.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import MetricCard from '../ui/MetricCard.astro';
+import ProjectCard from '../ui/ProjectCard.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import { EXTERNAL_URLS, FEATURED_PROJECTS, CONTACT_BUTTONS } from '../../lib/constants';
 
 interface Props {
-	locale: Locale;
+locale: Locale;
 }
 
 const { locale } = Astro.props;
 const copy = getCopyForLocale(locale);
+const [firstName, lastName] = copy.hero.name.split(' ');
 ---
 
 <Layout locale={locale} meta={copy.meta}>
-	<!-- Futuristic Hero Section -->
-	<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
-		<!-- Background Image with Parallax Effect -->
-		<div id="hero-bg" class="absolute inset-0 z-0">
-			<img 
-				src={bgMasthead.src} 
-				alt="Desert radar landscape" 
-				class="w-full h-full object-cover opacity-40"
-			/>
-			<!-- Atmospheric layering with neon accents -->
-			<div class="absolute inset-0 bg-gradient-to-tr from-cyan-950/60 via-transparent to-blue-950/60"></div>
-			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]"></div>
-			
-			<!-- Animated Radar Pulse Effect -->
-			<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-				<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/30 animate-radar-pulse"></div>
-				<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/20 animate-radar-pulse animation-delay-1000"></div>
-				<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/10 animate-radar-pulse animation-delay-2000"></div>
-			</div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+<HeroBackground />
 
-			<!-- Floating geometric accents -->
-			<div class="absolute top-20 right-20 w-32 h-32 border border-cyan-400/20 rotate-45 animate-float"></div>
-			<div class="absolute bottom-40 left-20 w-24 h-24 border border-blue-400/20 -rotate-12 animate-float-delayed"></div>
-		</div>
+<!-- Hero Content -->
+<div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+<div class="max-w-4xl">
+<p class="text-lg font-mono text-cyan-400 mb-6 tracking-[0.3em] uppercase animate-glow">
+{copy.hero.greeting}
+</p>
 
-		<!-- Hero Content with bold typography -->
-		<div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
-			<div class="max-w-4xl">
-				<!-- Glowing greeting -->
-				<p class="text-lg font-mono text-cyan-400 mb-6 tracking-[0.3em] uppercase animate-glow">
-					{copy.hero.greeting}
-				</p>
-				
-				<!-- Massive bold name with text effects -->
-				<h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 leading-none tracking-tight">
-					<span class="inline-block hover:scale-105 transition-transform duration-300">
-						{copy.hero.name.split(' ')[0]}
-					</span>
-					<br />
-					<span class="inline-block bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-gradient bg-size-300 hover:scale-105 transition-transform duration-300">
-						{copy.hero.name.split(' ')[1]}
-					</span>
-				</h1>
-				
-				<!-- Role with neon effect -->
-				<p class="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 mb-8 tracking-wide">
-					{copy.hero.title}
-				</p>
-				
-				<!-- Baseline with generous spacing -->
-				<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl leading-relaxed font-light">
-					{copy.hero.baseline}
-				</p>
-				
-				<!-- Futuristic CTA button -->
-				<a 
-					href="https://www.linkedin.com/in/emilienescalle/" 
-					target="_blank"
-					rel="noopener noreferrer"
-					class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-10 py-5 text-lg overflow-hidden transition-all duration-300 shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_50px_rgba(6,182,212,0.5)]"
-				>
-					<span class="relative z-10">{copy.hero.cta}</span>
-					<svg class="relative z-10 w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-					</svg>
-					<!-- Animated border effect -->
-					<span class="absolute inset-0 border-2 border-cyan-400 animate-border-pulse"></span>
-				</a>
-			</div>
-		</div>
+<h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 leading-none tracking-tight">
+<span class="inline-block hover:scale-105 transition-transform duration-300">
+{firstName}
+</span>
+<br />
+<span class="inline-block bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-gradient bg-size-300 hover:scale-105 transition-transform duration-300">
+{lastName}
+</span>
+</h1>
 
-		<!-- Scroll indicator -->
-		<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-			<svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-			</svg>
-		</div>
-	</section>
+<p class="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400 mb-8 tracking-wide">
+{copy.hero.title}
+</p>
 
-	<!-- Futuristic Services Section with asymmetric grid -->
-	<section class="relative py-32 bg-gray-950 overflow-hidden">
-		<!-- Background geometric patterns -->
-		<div class="absolute inset-0 opacity-10">
-			<div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#06b6d420_1px,transparent_1px),linear-gradient(to_bottom,#06b6d420_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-		</div>
+<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl leading-relaxed font-light">
+{copy.hero.baseline}
+</p>
 
-		<div class="relative z-10 max-w-7xl mx-auto px-6">
-			<!-- Section header with avant-garde style -->
-			<div class="mb-20">
-				<h2 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
-					{copy.services.title}
-				</h2>
-				<div class="h-1 w-32 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
-			</div>
+<PrimaryButton href={EXTERNAL_URLS.linkedin} text={copy.hero.cta} external={true} />
+</div>
+</div>
 
-			<!-- Asymmetric grid layout -->
-			<div class="grid md:grid-cols-2 gap-6">
-				{copy.services.items.map((service, index) => (
-					<div 
-						class={`group relative p-10 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 transform hover:-translate-y-2 ${index === 0 ? 'md:row-span-2' : ''}`}
-						style={`animation-delay: ${index * 100}ms`}
-					>
-						<!-- Neon corner accent -->
-						<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-400/50 group-hover:border-cyan-400 transition-colors duration-300"></div>
-						<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/50 group-hover:border-blue-400 transition-colors duration-300"></div>
+<!-- Scroll indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+<svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+</svg>
+</div>
+</section>
 
-						<!-- Service number -->
-						<div class="text-8xl font-black text-gray-800/50 absolute top-4 right-4 group-hover:text-cyan-900/50 transition-colors">
-							0{index + 1}
-						</div>
+<!-- Services Section -->
+<section class="relative py-32 bg-gray-950 overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#06b6d420_1px,transparent_1px),linear-gradient(to_bottom,#06b6d420_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+</div>
 
-						<h3 class="relative text-3xl font-bold text-cyan-400 mb-6 z-10">
-							{service.title}
-						</h3>
-						<p class="relative text-gray-300 text-lg leading-relaxed z-10">
-							{service.description}
-						</p>
+<div class="relative z-10 max-w-7xl mx-auto px-6">
+<SectionHeader title={copy.services.title} />
 
-						<!-- Glow effect on hover -->
-						<div class="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
+<div class="grid md:grid-cols-2 gap-6">
+{copy.services.items.map((service, index) => (
+<ServiceCard 
+title={service.title}
+description={service.description}
+index={index}
+isLarge={index === 0}
+/>
+))}
+</div>
+</div>
+</section>
 
-	<!-- Immersive Impact Metrics Section with scroll effects -->
-	<section class="relative py-32 bg-gradient-to-b from-gray-950 via-cyan-950/20 to-gray-950 overflow-hidden">
-		<!-- Animated background elements -->
-		<div class="absolute inset-0">
-			<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-			<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
-		</div>
+<!-- Impact Metrics Section -->
+<section class="relative py-32 bg-gradient-to-b from-gray-950 via-cyan-950/20 to-gray-950 overflow-hidden">
+<div class="absolute inset-0">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+</div>
 
-		<div class="relative z-10 max-w-7xl mx-auto px-6">
-			<h2 class="text-5xl md:text-7xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-24 tracking-tight">
-				{copy.impact.title}
-			</h2>
+<div class="relative z-10 max-w-7xl mx-auto px-6">
+<h2 class="text-5xl md:text-7xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-24 tracking-tight">
+{copy.impact.title}
+</h2>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-				{copy.impact.metrics.map((metric, index) => (
-					<div 
-						class="group text-center transform hover:scale-110 transition-transform duration-300"
-						style={`animation-delay: ${index * 150}ms`}
-					>
-						<!-- Metric value with neon glow -->
-						<div class="relative inline-block mb-6">
-							<div class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-500 group-hover:from-cyan-300 group-hover:to-blue-400 transition-all duration-300">
-								{metric.value}
-							</div>
-							<!-- Glow effect -->
-							<div class="absolute inset-0 text-7xl md:text-8xl font-black text-cyan-400 blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-						</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+{copy.impact.metrics.map((metric, index) => (
+<MetricCard 
+value={metric.value}
+label={metric.label}
+description={metric.description}
+index={index}
+/>
+))}
+</div>
+</div>
+</section>
 
-						<div class="text-2xl font-bold text-white mb-3 tracking-wide">
-							{metric.label}
-						</div>
-						<p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
-							{metric.description}
-						</p>
+<!-- Projects Section -->
+<section class="relative py-32 bg-gray-900">
+<div class="max-w-7xl mx-auto px-6">
+<SectionHeader title={copy.experience.title} />
 
-						<!-- Decorative line -->
-						<div class="mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
+<div class="grid md:grid-cols-3 gap-8 mb-16">
+{FEATURED_PROJECTS.map((project) => (
+<ProjectCard 
+name={project.name}
+role={project.role}
+description={project.description}
+tags={project.tags}
+/>
+))}
+</div>
 
-	<!-- Experimental Projects Section with layered cards -->
-	<section class="relative py-32 bg-gray-900">
-		<div class="max-w-7xl mx-auto px-6">
-			<div class="mb-20">
-				<h2 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
-					{copy.experience.title}
-				</h2>
-				<div class="h-1 w-32 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
-			</div>
+<div class="text-center">
+<a 
+href={EXTERNAL_URLS.linkedin}
+target="_blank"
+rel="noopener noreferrer"
+class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-bold text-lg transition-colors group"
+>
+<span>{copy.experience.cta}</span>
+<svg class="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
 
-			<div class="grid md:grid-cols-3 gap-8 mb-16">
-				<!-- TestUnMetier -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 overflow-hidden">
-					<!-- Animated background on hover -->
-					<div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
-					
-					<div class="relative z-10">
-						<h3 class="text-2xl font-bold text-cyan-400 mb-2">TestUnMetier</h3>
-						<p class="text-sm font-semibold text-blue-400 mb-4 uppercase tracking-wider">CTO Consultant</p>
-						<p class="text-gray-300 text-sm leading-relaxed mb-6">
-							Technical governance framework improving team visibility and reducing time-to-market by 35%
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-medium border border-cyan-500/30">CTO</span>
-							<span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-medium border border-blue-500/30">Strategy</span>
-						</div>
-					</div>
-				</div>
+<!-- Contact Section -->
+<section class="relative py-32 bg-gradient-to-b from-gray-900 via-gray-950 to-black overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.15),transparent_50%)]"></div>
 
-				<!-- Tekkare -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 overflow-hidden">
-					<div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
-					
-					<div class="relative z-10">
-						<h3 class="text-2xl font-bold text-cyan-400 mb-2">Tekkare</h3>
-						<p class="text-sm font-semibold text-blue-400 mb-4 uppercase tracking-wider">Technical Mentor</p>
-						<p class="text-gray-300 text-sm leading-relaxed mb-6">
-							Reduced feature development time by 40% through optimized GraphQL architecture with NestJS
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-medium border border-cyan-500/30">GraphQL</span>
-							<span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-medium border border-blue-500/30">NestJS</span>
-						</div>
-					</div>
-				</div>
+<div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+<h2 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
+{copy.contact.title}
+</h2>
+<p class="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+{copy.contact.description}
+</p>
 
-				<!-- ARN -->
-				<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 overflow-hidden">
-					<div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
-					
-					<div class="relative z-10">
-						<h3 class="text-2xl font-bold text-cyan-400 mb-2">Atlas des Régions Naturelles</h3>
-						<p class="text-sm font-semibold text-blue-400 mb-4 uppercase tracking-wider">Backend Architect</p>
-						<p class="text-gray-300 text-sm leading-relaxed mb-6">
-							Architected photo archive platform managing 15,000+ images with &lt;300ms response time
-						</p>
-						<div class="flex flex-wrap gap-2">
-							<span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-medium border border-cyan-500/30">Architecture</span>
-							<span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-medium border border-blue-500/30">Cloud</span>
-						</div>
-					</div>
-				</div>
-			</div>
+<div class="flex flex-wrap justify-center gap-6">
+{CONTACT_BUTTONS.map((button) => (
+button.outlined ? (
+<a 
+href={button.url}
+target="_blank"
+rel="noopener noreferrer"
+class="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 font-bold text-lg transition-all duration-300"
+>
+{button.text}
+</a>
+) : (
+<a 
+href={button.url}
+target="_blank"
+rel="noopener noreferrer"
+class="group relative px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-lg transition-all duration-300 shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:shadow-[0_0_60px_rgba(6,182,212,0.6)] overflow-hidden"
+>
+<span class="relative z-10">{button.text}</span>
+<div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+</a>
+)
+))}
+</div>
+</div>
+</section>
 
-			<div class="text-center">
-				<a 
-					href="https://www.linkedin.com/in/emilienescalle/" 
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-bold text-lg transition-colors group"
-				>
-					<span>{copy.experience.cta}</span>
-					<svg class="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-					</svg>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Bold Contact Section with dramatic CTA -->
-	<section class="relative py-32 bg-gradient-to-b from-gray-900 via-gray-950 to-black overflow-hidden">
-		<!-- Radial gradient background -->
-		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.15),transparent_50%)]"></div>
-		
-		<div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
-				{copy.contact.title}
-			</h2>
-			<p class="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed font-light">
-				{copy.contact.description}
-			</p>
-
-			<div class="flex flex-wrap justify-center gap-6">
-				<a 
-					href="https://www.linkedin.com/in/emilienescalle/" 
-					target="_blank"
-					rel="noopener noreferrer"
-					class="group relative px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-lg transition-all duration-300 shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:shadow-[0_0_60px_rgba(6,182,212,0.6)] overflow-hidden"
-				>
-					<span class="relative z-10">LinkedIn</span>
-					<div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-				</a>
-				<a 
-					href="https://www.malt.fr/profile/emilienescalle" 
-					target="_blank"
-					rel="noopener noreferrer"
-					class="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 font-bold text-lg transition-all duration-300"
-				>
-					Malt
-				</a>
-				<a 
-					href="https://github.com/neilime" 
-					target="_blank"
-					rel="noopener noreferrer"
-					class="px-12 py-6 bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900 font-bold text-lg transition-all duration-300"
-				>
-					GitHub
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Custom animations and scroll effects -->
-	<script>
-		// Parallax effect for hero background
-		window.addEventListener('scroll', () => {
-			const scrolled = window.pageYOffset;
-			const heroBg = document.getElementById('hero-bg');
-			if (heroBg) {
-				heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-			}
-		});
-
-		// Intersection Observer for scroll-triggered animations
-		const observerOptions = {
-			threshold: 0.1,
-			rootMargin: '0px 0px -100px 0px'
-		};
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('animate-fade-in-up');
-				}
-			});
-		}, observerOptions);
-
-		// Observe all sections
-		document.querySelectorAll('section').forEach(section => {
-			observer.observe(section);
-		});
-	</script>
-
-	<!-- Custom styles for animations -->
-	<style>
-		@keyframes radar-pulse {
-			0%, 100% {
-				transform: scale(0.8);
-				opacity: 0;
-			}
-			50% {
-				transform: scale(1.5);
-				opacity: 0.5;
-			}
-		}
-
-		@keyframes glow {
-			0%, 100% {
-				text-shadow: 0 0 10px rgba(6, 182, 212, 0.5),
-							 0 0 20px rgba(6, 182, 212, 0.3);
-			}
-			50% {
-				text-shadow: 0 0 20px rgba(6, 182, 212, 0.8),
-							 0 0 30px rgba(6, 182, 212, 0.5);
-			}
-		}
-
-		@keyframes gradient {
-			0%, 100% {
-				background-position: 0% 50%;
-			}
-			50% {
-				background-position: 100% 50%;
-			}
-		}
-
-		@keyframes border-pulse {
-			0%, 100% {
-				opacity: 1;
-			}
-			50% {
-				opacity: 0.5;
-			}
-		}
-
-		@keyframes float {
-			0%, 100% {
-				transform: translateY(0) rotate(45deg);
-			}
-			50% {
-				transform: translateY(-20px) rotate(45deg);
-			}
-		}
-
-		@keyframes float-delayed {
-			0%, 100% {
-				transform: translateY(0) rotate(-12deg);
-			}
-			50% {
-				transform: translateY(-15px) rotate(-12deg);
-			}
-		}
-
-		@keyframes pulse-slow {
-			0%, 100% {
-				opacity: 0.3;
-			}
-			50% {
-				opacity: 0.6;
-			}
-		}
-
-		@keyframes fade-in-up {
-			from {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		.animate-radar-pulse {
-			animation: radar-pulse 4s ease-in-out infinite;
-		}
-
-		.animation-delay-1000 {
-			animation-delay: 1s;
-		}
-
-		.animation-delay-2000 {
-			animation-delay: 2s;
-		}
-
-		.animate-glow {
-			animation: glow 2s ease-in-out infinite;
-		}
-
-		.animate-gradient {
-			animation: gradient 6s ease infinite;
-		}
-
-		.animate-border-pulse {
-			animation: border-pulse 2s ease-in-out infinite;
-		}
-
-		.animate-float {
-			animation: float 6s ease-in-out infinite;
-		}
-
-		.animate-float-delayed {
-			animation: float-delayed 8s ease-in-out infinite;
-		}
-
-		.animate-pulse-slow {
-			animation: pulse-slow 6s ease-in-out infinite;
-		}
-
-		.animate-fade-in-up {
-			animation: fade-in-up 0.8s ease-out forwards;
-		}
-
-		.bg-size-300 {
-			background-size: 300% 300%;
-		}
-	</style>
+<!-- Animation Scripts -->
+<script>
+import { initAnimations } from '../../lib/animations';
+initAnimations();
+</script>
 </Layout>
