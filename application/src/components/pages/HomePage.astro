@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Welcome from '../Welcome.astro';
 import type { Locale } from '../../../i18n.config';
 import { getCopyForLocale } from '../../../i18n.config';
+import bgMasthead from '../../assets/bg-masthead.jpg';
 
 interface Props {
 	locale: Locale;
@@ -13,4 +13,184 @@ const copy = getCopyForLocale(locale);
 ---
 
 <Layout locale={locale} meta={copy.meta}>
+	<!-- Hero Section -->
+	<section class="relative min-h-[600px] flex items-center overflow-hidden">
+		<!-- Background Image with Overlay -->
+		<div class="absolute inset-0 z-0">
+			<img 
+				src={bgMasthead.src} 
+				alt="Background" 
+				class="w-full h-full object-cover"
+			/>
+			<!-- Bright optimistic overlay -->
+			<div class="absolute inset-0 bg-gradient-to-br from-cyan-50/95 via-blue-50/90 to-indigo-50/85"></div>
+		</div>
+
+		<!-- Hero Content -->
+		<div class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+			<div class="max-w-3xl">
+				<p class="text-lg font-medium text-indigo-600 mb-4 tracking-wide">{copy.hero.greeting}</p>
+				<h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+					{copy.hero.name}
+				</h1>
+				<p class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
+					{copy.hero.title}
+				</p>
+				<p class="text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+					{copy.hero.baseline}
+				</p>
+				<a 
+					href="https://www.linkedin.com/in/emilienescalle/" 
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+				>
+					{copy.hero.cta}
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section class="py-20 bg-white">
+		<div class="max-w-6xl mx-auto px-6">
+			<h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">
+				{copy.services.title}
+			</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				{copy.services.items.map((service) => (
+					<div class="p-8 rounded-xl border-2 border-gray-200 hover:border-indigo-500 transition-colors duration-200 bg-gray-50 hover:bg-indigo-50">
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">
+							{service.title}
+						</h3>
+						<p class="text-gray-600 leading-relaxed">
+							{service.description}
+						</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Impact Metrics Section -->
+	<section class="py-20 bg-gradient-to-br from-indigo-600 to-blue-600 text-white">
+		<div class="max-w-6xl mx-auto px-6">
+			<h2 class="text-4xl font-bold mb-16 text-center">
+				{copy.impact.title}
+			</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				{copy.impact.metrics.map((metric) => (
+					<div class="text-center">
+						<div class="text-5xl font-bold mb-2">
+							{metric.value}
+						</div>
+						<div class="text-xl font-semibold mb-2 text-indigo-100">
+							{metric.label}
+						</div>
+						<p class="text-sm text-indigo-100 leading-relaxed">
+							{metric.description}
+						</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Projects Section -->
+	<section class="py-20 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-6">
+			<h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">
+				{copy.experience.title}
+			</h2>
+			<div class="grid md:grid-cols-3 gap-8 mb-12">
+				<!-- TestUnMetier -->
+				<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">TestUnMetier</h3>
+					<p class="text-sm font-semibold text-indigo-600 mb-4">CTO Consultant</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-4">
+						Technical governance framework improving team visibility and reducing time-to-market by 35%
+					</p>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">CTO</span>
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Strategy</span>
+					</div>
+				</div>
+
+				<!-- Tekkare -->
+				<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Tekkare</h3>
+					<p class="text-sm font-semibold text-indigo-600 mb-4">Technical Mentor</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-4">
+						Reduced feature development time by 40% through optimized GraphQL architecture with NestJS
+					</p>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">GraphQL</span>
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">NestJS</span>
+					</div>
+				</div>
+
+				<!-- ARN -->
+				<div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Atlas des Régions Naturelles</h3>
+					<p class="text-sm font-semibold text-indigo-600 mb-4">Backend Architect</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-4">
+						Architected photo archive platform managing 15,000+ images with &lt;300ms response time
+					</p>
+					<div class="flex flex-wrap gap-2">
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Architecture</span>
+						<span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Cloud</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<a 
+					href="https://www.linkedin.com/in/emilienescalle/" 
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block text-indigo-600 hover:text-indigo-700 font-semibold text-lg underline"
+				>
+					{copy.experience.cta} →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="py-20 bg-white">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<h2 class="text-4xl font-bold text-gray-900 mb-6">
+				{copy.contact.title}
+			</h2>
+			<p class="text-xl text-gray-600 mb-10 leading-relaxed">
+				{copy.contact.description}
+			</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a 
+					href="https://www.linkedin.com/in/emilienescalle/" 
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+				>
+					LinkedIn
+				</a>
+				<a 
+					href="https://www.malt.fr/profile/emilienescalle" 
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-white hover:bg-gray-50 text-indigo-600 font-semibold px-8 py-4 rounded-lg transition-colors duration-200 border-2 border-indigo-600"
+				>
+					Malt
+				</a>
+				<a 
+					href="https://github.com/neilime" 
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-block bg-white hover:bg-gray-50 text-indigo-600 font-semibold px-8 py-4 rounded-lg transition-colors duration-200 border-2 border-indigo-600"
+				>
+					GitHub
+				</a>
+			</div>
+		</div>
+	</section>
 </Layout>
