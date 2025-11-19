@@ -52,14 +52,14 @@ export type LocaleCopy = {
 export const UI_COPY: Record<Locale, LocaleCopy> = {
     fr: {
         meta: {
-            title: 'ESCEMI - CTO Freelance | Architecture & Leadership Technique',
+            title: 'ESCEMI - CTO • Lead Dev • Engineering Manager Freelance',
             description:
-                'À votre service pour vous accompagner et relever les défis de vos projets digitaux. Expertise CTO, architecture logicielle, et leadership technique.',
+                'À votre service pour vous accompagner et relever les défis de vos projets digitaux. Expertise CTO, Lead Dev, Engineering Manager, architecture logicielle et leadership technique.',
         },
         hero: {
             greeting: 'Bonjour, je suis',
             name: 'Emilien Escalle',
-            title: 'CTO Freelance & Architecte Logiciel',
+            title: 'CTO • Lead Dev • Engineering Manager',
             baseline: 'À votre service pour vous accompagner et relever les défis de vos projets digitaux.',
             cta: 'Discutons de votre projet',
         },
@@ -121,14 +121,14 @@ export const UI_COPY: Record<Locale, LocaleCopy> = {
     },
     en: {
         meta: {
-            title: 'ESCEMI - Freelance CTO | Software Architecture & Technical Leadership',
+            title: 'ESCEMI - Freelance CTO • Lead Dev • Engineering Manager',
             description:
-                'At your service to support you and meet the challenges of your digital projects. CTO expertise, software architecture, and technical leadership.',
+                'At your service to support you and meet the challenges of your digital projects. CTO, Lead Dev, Engineering Manager expertise, software architecture, and technical leadership.',
         },
         hero: {
             greeting: 'Hi, I\'m',
             name: 'Emilien Escalle',
-            title: 'Freelance CTO & Software Architect',
+            title: 'CTO • Lead Dev • Engineering Manager',
             baseline: 'At your service to support you and meet the challenges of your digital projects.',
             cta: 'Let\'s discuss your project',
         },
