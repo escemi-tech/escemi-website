@@ -1,0 +1,15 @@
+---
+interface Props {
+	title: string;
+	className?: string;
+}
+
+const { title, className = '' } = Astro.props;
+---
+
+<div class={`mb-20 ${className}`}>
+	<h2 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
+		{title}
+	</h2>
+	<div class="h-1 w-32 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
+</div>
