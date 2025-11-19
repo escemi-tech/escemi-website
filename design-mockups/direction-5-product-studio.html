@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direction 5: Product Studio - Portfolio Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #ffffff;
+            color: #1c3144;
+            line-height: 1.6;
+        }
+        header {
+            padding: 40px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 300;
+            color: #1c3144;
+            letter-spacing: 0.15em;
+        }
+        nav a {
+            color: #1c3144;
+            text-decoration: none;
+            margin-left: 48px;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 80px;
+        }
+        .hero-badge {
+            font-size: 13px;
+            color: #ecb807;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 40px;
+        }
+        .hero h1 strong { font-weight: 700; }
+        .hero p {
+            font-size: 24px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+        .cta {
+            display: inline-block;
+            padding: 20px 48px;
+            background: #1c3144;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .cta:hover { background: #ecb807; color: #1c3144; }
+        .signature-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .number-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #ecb807;
+            margin-bottom: 8px;
+        }
+        .number-label {
+            font-size: 13px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .image-section {
+            height: 60vh;
+            background: linear-gradient(135deg, #1c3144 0%, #2c4458 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        .image-section h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+        .image-section p {
+            font-size: 18px;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+        .services {
+            padding: 160px 80px;
+        }
+        .section-title {
+            font-size: 13px;
+            color: #ecb807;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 80px;
+            font-weight: 600;
+        }
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            margin-bottom: 100px;
+            max-width: 1200px;
+        }
+        .service-number {
+            font-size: 120px;
+            font-weight: 700;
+            color: #f3f4f6;
+        }
+        .service-item h3 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .service-item p {
+            font-size: 18px;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ESCEMI</div>
+        <nav>
+            <a href="#">Services</a>
+            <a href="#">Expertise</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <div class="hero-badge">CTO Fractional • Expert DevX</div>
+            <h1>Code robuste,<br><strong>équipes autonomes</strong></h1>
+            <p>J'aide les scale-ups à structurer leur développement et maximiser leur vélocité technique. Architecture cloud-native et leadership hands-on.</p>
+            <a href="#" class="cta">Commencer une collaboration</a>
+            
+            <div class="signature-numbers">
+                <div>
+                    <div class="number-value">16</div>
+                    <div class="number-label">Années</div>
+                </div>
+                <div>
+                    <div class="number-value">15+</div>
+                    <div class="number-label">Équipes</div>
+                </div>
+                <div>
+                    <div class="number-value">20+</div>
+                    <div class="number-label">Projets</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="image-section">
+        <div>
+            <h2>Node.js & PHP Expert</h2>
+            <p>Maîtrise approfondie de NestJS, Symfony et Laravel. J'accompagne les équipes techniques dans la construction d'architectures scalables et la mise en place de pratiques DevX d'excellence.</p>
+        </div>
+    </div>
+
+    <section class="services">
+        <div class="section-title">Services</div>
+        
+        <div class="service-item">
+            <div class="service-number">01</div>
+            <div>
+                <h3>CTO Fractional</h3>
+                <p>Structure technique et culture dev pour équipes en croissance. Je combine vision stratégique et exécution hands-on pour accélérer votre vélocité produit.</p>
+            </div>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-number">02</div>
+            <div>
+                <h3>DevX & CI/CD</h3>
+                <p>Optimisation des pipelines, qualité code et autonomie développeurs. Réduction drastique de la dette technique.</p>
+            </div>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-number">03</div>
+            <div>
+                <h3>Technical Leadership</h3>
+                <p>Coaching technique et montée en compétences. Clean code, patterns avancés, et mentorat.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

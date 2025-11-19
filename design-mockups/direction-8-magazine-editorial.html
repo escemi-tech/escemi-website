@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Direction 8: Magazine Editorial - Bold Typography</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #f8f8f8;
+    color: #1c3144;
+}
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #1c3144;
+    padding: 30px 60px;
+}
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    font-style: italic;
+}
+.hero {
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 80vh;
+}
+.hero-main {
+    padding: 120px 80px;
+    border-right: 1px solid #e0e0e0;
+}
+.hero-sidebar {
+    padding: 120px 60px;
+    background: #f8f8f8;
+}
+.hero-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ecb807;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 108px;
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+.hero p {
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+.cta {
+    display: inline-block;
+    background: #1c3144;
+    color: #ffffff;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+.sidebar-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #999;
+    margin-bottom: 24px;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: #ecb807;
+    margin-bottom: 8px;
+}
+.stat-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 32px;
+}
+.services {
+    background: #ffffff;
+    padding: 100px 60px;
+    border-top: 1px solid #e0e0e0;
+}
+.section-number {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ecb807;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 80px;
+}
+.services-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+.service-column {
+    border-left: 3px solid #ecb807;
+    padding-left: 32px;
+}
+.service-column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.service-column p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+}
+    </style>
+</head>
+<body>
+    <header><div class="logo">ESCEMI</div></header>
+    <section class="hero">
+        <div class="hero-main">
+            <div class="hero-label">CTO Fractional • Expert DevX • Node.js & PHP</div>
+            <h1>L'excellence<br>technique,<br>incarnée</h1>
+            <p>J'accompagne les scale-ups ambitieuses dans la structuration de leur développement. Architecture cloud-native, DevX d'excellence.</p>
+            <a href="#" class="cta">Commencer une conversation</a>
+        </div>
+        <div class="hero-sidebar">
+            <div class="sidebar-title">Impact Mesurable</div>
+            <div class="stat-number">16</div>
+            <div class="stat-description">années d'expertise technique</div>
+            <div class="stat-number">+35%</div>
+            <div class="stat-description">amélioration vélocité dev</div>
+            <div class="stat-number">-40%</div>
+            <div class="stat-description">réduction dette technique</div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="section-number">01 — Services</div>
+        <h2 class="section-title">Accompagnement<br>sur-mesure</h2>
+        <div class="services-columns">
+            <div class="service-column">
+                <h3>CTO Fractional</h3>
+                <p>Structure technique et culture dev pour équipes en croissance.</p>
+            </div>
+            <div class="service-column">
+                <h3>DevX & CI/CD</h3>
+                <p>Optimisation des pipelines, qualité code, autonomie développeurs.</p>
+            </div>
+            <div class="service-column">
+                <h3>Technical Leadership</h3>
+                <p>Coaching technique et montée en compétences.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

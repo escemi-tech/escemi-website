@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Direction 6: DevOps Horizon - Dynamic Gradients</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: linear-gradient(135deg, #0a0f1c 0%, #1c3144 50%, #2c4458 100%);
+    color: white;
+}
+header {
+    padding: 24px 60px;
+    background: rgba(10, 15, 28, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, transparent, rgba(236, 184, 7, 0.5), transparent) 1;
+}
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #ecb807 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 60px;
+}
+.hero-badge {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(236, 184, 7, 0.2), rgba(59, 130, 246, 0.2));
+    border: 1px solid #ecb807;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+.hero h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, #ffffff 0%, #ecb807 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero p {
+    font-size: 22px;
+    margin-bottom: 48px;
+}
+.btn {
+    padding: 18px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    background: linear-gradient(135deg, #ecb807 0%, #f4d03f 100%);
+    color: #0a0f1c;
+    margin-right: 16px;
+}
+.stats-bar {
+    background: linear-gradient(135deg, rgba(236, 184, 7, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    padding: 40px 0;
+    margin: 80px 0;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+.stat-value {
+    font-size: 56px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ecb807 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+.stat-label {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.services {
+    padding: 100px 60px;
+}
+.section-title {
+    font-size: 56px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #ecb807 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 80px;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.service-card {
+    padding: 40px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(28, 49, 68, 0.5) 0%, rgba(28, 49, 68, 0.3) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.service-icon { font-size: 48px; margin-bottom: 24px; }
+.service-card h3 { font-size: 26px; margin-bottom: 16px; }
+.service-card p { color: rgba(255, 255, 255, 0.75); font-size: 16px; }
+    </style>
+</head>
+<body>
+    <header><div class="logo">ESCEMI</div></header>
+    <section class="hero">
+        <div>
+            <div class="hero-badge">CTO Fractional • DevX Expert • Cloud Native</div>
+            <h1>Vélocité produit,<br>excellence technique</h1>
+            <p>J'industrialise le développement et élève les capacités techniques des équipes en croissance.</p>
+            <a href="#" class="btn">Démarrer un projet</a>
+        </div>
+    </section>
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div><div class="stat-value">16</div><div class="stat-label">Années</div></div>
+            <div><div class="stat-value">+35%</div><div class="stat-label">Vélocité Dev</div></div>
+            <div><div class="stat-value">-40%</div><div class="stat-label">Dette Technique</div></div>
+            <div><div class="stat-value">20+</div><div class="stat-label">Projets Livrés</div></div>
+        </div>
+    </div>
+    <section class="services">
+        <h2 class="section-title">Services techniques</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>CTO Fractional</h3>
+                <p>Structure technique et culture dev pour équipes en croissance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Architecture & DevX</h3>
+                <p>Optimisation CI/CD, qualité code, cloud-native.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Technical Leadership</h3>
+                <p>Coaching technique, mentoring, montée en compétences.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

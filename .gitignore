@@ -23,6 +23,3 @@ application/.env.production
 
 # generated types
 application/.astro
-
-# design mockups (temporary visual proposals)
-design-mockups/

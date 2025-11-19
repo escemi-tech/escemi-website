@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Direction 9: Neon Tech - Cyberpunk Futuristic</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #050510;
+    color: #ffffff;
+}
+header {
+    background: rgba(5, 5, 16, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, #00ffff, #ecb807, #ff00ff) 1;
+    padding: 20px 60px;
+}
+.logo {
+    font-size: 36px;
+    font-weight: 900;
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff;
+    letter-spacing: 0.1em;
+}
+.hero {
+    padding: 120px 60px;
+}
+.hero-badge {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, rgba(236, 184, 7, 0.2), rgba(59, 130, 246, 0.2));
+    border: 1px solid #00ffff;
+    font-size: 11px;
+    margin-bottom: 40px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+.hero h1 {
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #00ffff 0%, #ecb807 50%, #ff00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+.hero p {
+    font-size: 28px;
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+.cta {
+    display: inline-block;
+    background: transparent;
+    color: #00ffff;
+    padding: 20px 50px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+.stats-display {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-top: 100px;
+}
+.stat-box {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid #00ffff;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+.stat-number {
+    font-size: 56px;
+    font-weight: 900;
+    color: #ecb807;
+    text-shadow: 0 0 20px #ecb807;
+    margin-bottom: 12px;
+}
+.stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #00ffff;
+}
+.services {
+    padding: 120px 60px;
+}
+.section-title {
+    font-size: 64px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 80px;
+    background: linear-gradient(135deg, #00ffff, #ecb807);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.service-card {
+    background: rgba(5, 5, 16, 0.8);
+    border: 1px solid #00ffff;
+    padding: 48px;
+}
+.service-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00ffff;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+.service-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+    </style>
+</head>
+<body>
+    <header><div class="logo">ESCEMI</div></header>
+    <section class="hero">
+        <div class="hero-badge">CTO FRACTIONAL • DEVX EXPERT • NODE.JS & PHP</div>
+        <h1>TECH<br>VELOCITY<br>MAXIMIZED</h1>
+        <p>Structure technique cloud-native et DevX d'excellence. J'élève les capacités techniques des équipes en croissance.</p>
+        <a href="#" class="cta">INITIATE PROJECT</a>
+        <div class="stats-display">
+            <div class="stat-box"><div class="stat-number">16</div><div class="stat-label">Years</div></div>
+            <div class="stat-box"><div class="stat-number">+35%</div><div class="stat-label">Velocity</div></div>
+            <div class="stat-box"><div class="stat-number">-40%</div><div class="stat-label">Tech Debt</div></div>
+            <div class="stat-box"><div class="stat-number">20+</div><div class="stat-label">Projects</div></div>
+        </div>
+    </section>
+    <section class="services">
+        <h2 class="section-title">Core Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>CTO Fractional</h3>
+                <p>Structure technique et culture dev. Vision stratégique et exécution hands-on.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>DevX Expert</h3>
+                <p>CI/CD unifiés, qualité code, autonomie développeurs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Tech Leadership</h3>
+                <p>Coaching technique, mentoring équipes. Clean code, SOLID.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Direction 7: Brutalist Impact - Raw Power</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Space Grotesk', sans-serif; background: #ffffff; color: #000000; }
+header {
+    background: #000000;
+    padding: 20px 40px;
+    border-bottom: 8px solid #ecb807;
+}
+.logo {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.hero {
+    background: #1c3144;
+    padding: 100px 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 0.95;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+.hero .accent { color: #ecb807; display: block; }
+.hero p { font-size: 22px; color: #ffffff; margin-bottom: 50px; }
+.cta {
+    display: inline-block;
+    background: #ecb807;
+    color: #000000;
+    padding: 24px 48px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 5px solid #000000;
+    box-shadow: 12px 12px 0 #000000;
+}
+.stats-block {
+    background: #000000;
+    border: 5px solid #ecb807;
+    padding: 40px;
+}
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 3px solid #ecb807;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-label {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.stat-value {
+    font-size: 48px;
+    color: #ecb807;
+    font-weight: 700;
+}
+.services {
+    background: #ffffff;
+    padding: 100px 40px;
+}
+.section-title {
+    font-size: 64px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    border-bottom: 8px solid #1c3144;
+    padding-bottom: 20px;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 5px solid #000000;
+}
+.service-box {
+    padding: 60px 40px;
+    border-right: 5px solid #000000;
+}
+.service-box:nth-child(3) { border-right: none; }
+.service-number {
+    font-size: 120px;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+.service-box h3 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+    <header><div class="logo">ESCEMI</div></header>
+    <section class="hero">
+        <div>
+            <h1>CODE<br><span class="accent">PUISSANT</span><br>RÉSULTATS</h1>
+            <p>CTO Fractional • Expert DevX • Architecte Node.js & PHP.</p>
+            <a href="#" class="cta">Démarrer ↗</a>
+        </div>
+        <div class="stats-block">
+            <div class="stat-row"><span class="stat-label">Expérience</span><span class="stat-value">16 ANS</span></div>
+            <div class="stat-row"><span class="stat-label">Équipes</span><span class="stat-value">15+</span></div>
+            <div class="stat-row"><span class="stat-label">Vélocité</span><span class="stat-value">+35%</span></div>
+            <div class="stat-row"><span class="stat-label">Dette Tech</span><span class="stat-value">-40%</span></div>
+        </div>
+    </section>
+    <section class="services">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <div class="service-number">01</div>
+                <h3>CTO Fractional</h3>
+                <p>Structure technique et culture dev.</p>
+            </div>
+            <div class="service-box">
+                <div class="service-number">02</div>
+                <h3>DevX Expert</h3>
+                <p>CI/CD, qualité code, autonomie.</p>
+            </div>
+            <div class="service-box">
+                <div class="service-number">03</div>
+                <h3>Tech Leadership</h3>
+                <p>Coaching, mentoring, compétences.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
