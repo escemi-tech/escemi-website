@@ -47,9 +47,9 @@ export const UI_COPY: Record<Locale, LocaleCopy> = {
                 'Studio francais dedie aux experiences data et aux produits assistes par l IA pour les equipes marketing.',
         },
         hero: {
-            heading: 'Des experiences data responsables',
+            heading: 'Engineering Intelligence',
             body:
-                'Nous aidons les equipes produit et marketing a livrer des parcours personnalises, regulierement testes et conformes aux attentes locales.',
+                'Strategic AI & software consulting',
             primaryCta: {
                 label: 'Parler a un expert',
                 href: 'https://escemi.fr/contact',
@@ -74,9 +74,9 @@ export const UI_COPY: Record<Locale, LocaleCopy> = {
                 'Paris based studio building data informed journeys and AI assisted products for go to market teams.',
         },
         hero: {
-            heading: 'Data experiences with guardrails',
+            heading: 'Engineering Intelligence',
             body:
-                'We partner with product squads to ship localized and privacy aware experiences powered by clean data and lightweight AI copilots.',
+                'Strategic AI & software consulting',
             primaryCta: {
                 label: 'Talk with a specialist',
                 href: 'https://escemi.fr/en/contact',

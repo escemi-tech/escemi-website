@@ -1,6 +1,4 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
 import type { LocaleCopy } from '../../i18n.config';
 
 interface Props {
@@ -11,151 +9,374 @@ const { copy } = Astro.props;
 const { hero, news } = copy;
 ---
 
-<div class="hero-shell">
-	<img class="hero-shell__background" src={background.src} alt="" fetchpriority="high" />
-	<section class="hero">
-		<div class="hero__eyebrow">
-			<img src={astroLogo.src} width="115" height="48" alt="Astro" />
+<div class="neo-monolith-hero">
+	<div class="hero-background"></div>
+	
+	<div class="hero-container">
+		<!-- Left content section -->
+		<section class="hero-content">
+			<h1 class="hero-title">
+				<span class="title-line">ENGINEERING</span>
+				<span class="title-line">INTELLIGENCE</span>
+			</h1>
+			<p class="hero-subtitle">{hero.body}</p>
+			<div class="hero-accent"></div>
+			<div class="hero-brand-box">
+				<span class="hero-brand">ESCEMI</span>
+			</div>
+		</section>
+
+		<!-- Right monolith section -->
+		<div class="monolith-container">
+			<div class="monolith">
+				<div class="monolith-face">
+					<div class="monolith-logo">
+						<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g opacity="0.8">
+								<!-- Left E -->
+								<path d="M 20 25 L 45 25 L 45 32 L 28 32 L 28 46 L 43 46 L 43 53 L 28 53 L 28 68 L 45 68 L 45 75 L 20 75 Z" fill="currentColor"/>
+								<!-- Right mirrored E -->
+								<path d="M 80 25 L 55 25 L 55 32 L 72 32 L 72 46 L 57 46 L 57 53 L 72 53 L 72 68 L 55 68 L 55 75 L 80 75 Z" fill="currentColor"/>
+							</g>
+							<circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.2"/>
+						</svg>
+					</div>
+					<div class="monolith-edge-left"></div>
+					<div class="monolith-edge-right"></div>
+				</div>
+			</div>
 		</div>
-		<h1>{hero.heading}</h1>
-		<p class="hero__lead">{hero.body}</p>
-		<div class="hero__actions">
-			<a class="button button--primary" href={hero.primaryCta.href}>{hero.primaryCta.label}</a>
-			<a class="button button--ghost" href={hero.secondaryCta.href}>{hero.secondaryCta.label}</a>
-		</div>
-	</section>
-	<a href={news.href} class="hero-card">
-		<h2>{news.title}</h2>
-		<p>{news.body}</p>
-		<span class="hero-card__link">{news.linkLabel}</span>
-	</a>
+	</div>
+
+	<!-- Bottom info card -->
+	<div class="info-card-container">
+		<a href={news.href} class="info-card">
+			<h2 class="info-card-title">{news.title}</h2>
+			<p class="info-card-body">{news.body}</p>
+			<span class="info-card-link">{news.linkLabel} →</span>
+		</a>
+	</div>
 </div>
 
 <style>
-.hero-shell {
+/* Neo-Monolith Hero Section */
+.neo-monolith-hero {
 	position: relative;
-	border-radius: 32px;
-	padding: 2rem;
-	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	min-height: 400px;
+	min-height: 100vh;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(180deg, #0a0e14 0%, #1c3144 50%, #2a4158 100%);
 }
 
-.hero-shell__background {
+/* Background with texture */
+.hero-background {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
-	z-index: -1;
-	filter: blur(140px) saturate(180%);
+	background: 
+		radial-gradient(circle at 20% 80%, rgba(236, 184, 7, 0.03) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(236, 184, 7, 0.02) 0%, transparent 50%),
+		linear-gradient(180deg, transparent 0%, rgba(28, 49, 68, 0.4) 100%);
+	z-index: 0;
 }
 
-.hero {
-	max-width: 520px;
-	color: white;
-}
-
-.hero__eyebrow {
-	margin-bottom: 0.5rem;
-}
-
-.hero h1 {
-	margin: 0;
-	font-size: clamp(2rem, 4vw, 3rem);
-	line-height: 1.1;
-}
-
-.hero__lead {
-	margin: 1rem 0 1.5rem;
-	color: rgba(255, 255, 255, 0.8);
-	font-size: 1.125rem;
-	line-height: 1.6;
-}
-
-.hero__actions {
-	display: flex;
-	gap: 0.75rem;
-	flex-wrap: wrap;
-}
-
-.button {
-	border-radius: 999px;
-	padding: 0.75rem 1.5rem;
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 0.95rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.button--primary {
-	background: linear-gradient(120deg, #7084ff, #c67dff);
-	color: white;
-}
-
-.button--ghost {
-	border: 1px solid rgba(255, 255, 255, 0.4);
-	color: white;
-	background: transparent;
-}
-
-.button:hover {
-	opacity: 0.9;
-}
-
-.hero-card {
+.hero-background::before {
+	content: '';
 	position: absolute;
-	right: 2rem;
-	bottom: 2rem;
-	max-width: 320px;
-	padding: 1.5rem;
-	border-radius: 16px;
-	background: rgba(255, 255, 255, 0.1);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: 
+		repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+	opacity: 0.3;
+}
+
+/* Main container */
+.hero-container {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 8rem 4rem 4rem;
+	flex: 1;
+	align-items: center;
+}
+
+/* Left content */
+.hero-content {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.hero-title {
+	margin: 0;
+	font-size: clamp(3rem, 6vw, 5rem);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+}
+
+.title-line {
+	display: block;
+	background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.9) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.hero-subtitle {
+	font-size: 1.125rem;
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.75);
+	max-width: 500px;
+	margin: 0;
+	font-weight: 400;
+}
+
+.hero-accent {
+	width: 120px;
+	height: 3px;
+	background: linear-gradient(90deg, #ecb807 0%, transparent 100%);
+	box-shadow: 0 0 20px rgba(236, 184, 7, 0.5);
+}
+
+.hero-brand-box {
+	display: inline-flex;
+	padding: 1rem 2.5rem;
+	background: rgba(28, 49, 68, 0.9);
+	border: 2px solid rgba(236, 184, 7, 0.2);
+	border-left: 4px solid #ecb807;
+	align-self: flex-start;
+	backdrop-filter: blur(10px);
+}
+
+.hero-brand {
+	font-size: 1.75rem;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	color: white;
+}
+
+/* Monolith */
+.monolith-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 1000px;
+}
+
+.monolith {
+	position: relative;
+	width: 400px;
+	height: 600px;
+	transform-style: preserve-3d;
+	animation: floatMonolith 6s ease-in-out infinite;
+}
+
+@keyframes floatMonolith {
+	0%, 100% {
+		transform: translateY(0) rotateY(-5deg);
+	}
+	50% {
+		transform: translateY(-20px) rotateY(-5deg);
+	}
+}
+
+.monolith-face {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #1a2832 0%, #0f1419 50%, #1a2832 100%);
+	border-radius: 8px;
+	box-shadow: 
+		-40px 0 80px rgba(0, 0, 0, 0.8),
+		40px 0 80px rgba(236, 184, 7, 0.1),
+		inset 0 0 100px rgba(0, 0, 0, 0.5),
+		0 0 100px rgba(236, 184, 7, 0.05);
+	overflow: hidden;
+}
+
+.monolith-face::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: 
+		repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.005) 3px, rgba(255,255,255,0.005) 6px),
+		repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.005) 3px, rgba(255,255,255,0.005) 6px);
+	opacity: 0.3;
+}
+
+.monolith-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+	color: rgba(255, 255, 255, 0.15);
+	filter: drop-shadow(0 0 30px rgba(236, 184, 7, 0.2));
+}
+
+.monolith-logo svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* Monolith edges with gold highlights */
+.monolith-edge-left,
+.monolith-edge-right {
+	position: absolute;
+	top: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg, transparent 0%, #ecb807 50%, transparent 100%);
+	box-shadow: 0 0 10px rgba(236, 184, 7, 0.8);
+	animation: edgePulse 3s ease-in-out infinite;
+}
+
+.monolith-edge-left {
+	left: 0;
+}
+
+.monolith-edge-right {
+	right: 0;
+}
+
+@keyframes edgePulse {
+	0%, 100% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 0.8;
+	}
+}
+
+/* Info card */
+.info-card-container {
+	position: relative;
+	z-index: 2;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 4rem 4rem;
+	width: 100%;
+}
+
+.info-card {
+	display: block;
+	padding: 2.5rem;
+	background: rgba(28, 49, 68, 0.6);
+	border: 1px solid rgba(236, 184, 7, 0.15);
+	border-left: 4px solid #ecb807;
 	text-decoration: none;
 	color: white;
 	backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	transition: transform 0.2s ease;
+	transition: all 0.3s ease;
+	max-width: 600px;
 }
 
-.hero-card:hover {
-	transform: translateY(-4px);
+.info-card:hover {
+	background: rgba(28, 49, 68, 0.8);
+	border-left-width: 8px;
+	transform: translateX(4px);
+	box-shadow: 0 10px 40px rgba(236, 184, 7, 0.1);
 }
 
-.hero-card h2 {
-	margin: 0 0 0.5rem;
-	font-size: 1.25rem;
-}
-
-.hero-card p {
+.info-card-title {
 	margin: 0 0 1rem;
-	color: rgba(255, 255, 255, 0.85);
-	line-height: 1.5;
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
 }
 
-.hero-card__link {
+.info-card-body {
+	margin: 0 0 1.5rem;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.7;
+	font-size: 1rem;
+}
+
+.info-card-link {
 	font-weight: 600;
+	color: #ecb807;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.9rem;
 }
 
-@media (max-width: 900px) {
-	.hero-card {
-		position: static;
-		margin-top: 1.5rem;
+/* Responsive design */
+@media (max-width: 1024px) {
+	.hero-container {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+		padding: 6rem 2rem 3rem;
+	}
+
+	.monolith {
+		width: 300px;
+		height: 450px;
+	}
+
+	.monolith-logo {
+		width: 150px;
+		height: 150px;
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 8vw, 4rem);
+	}
+
+	.info-card-container {
+		padding: 0 2rem 3rem;
 	}
 }
 
 @media (max-width: 640px) {
-	.hero-shell {
-		padding: 1.5rem;
-		border-radius: 24px;
+	.hero-container {
+		padding: 4rem 1.5rem 2rem;
 	}
 
-	.hero__actions {
-		flex-direction: column;
+	.hero-title {
+		font-size: clamp(2rem, 10vw, 3rem);
+	}
+
+	.monolith {
+		width: 250px;
+		height: 375px;
+	}
+
+	.monolith-logo {
+		width: 120px;
+		height: 120px;
+	}
+
+	.hero-brand-box {
+		padding: 0.75rem 1.5rem;
+	}
+
+	.hero-brand {
+		font-size: 1.25rem;
+	}
+
+	.info-card-container {
+		padding: 0 1.5rem 2rem;
+	}
+
+	.info-card {
+		padding: 2rem;
 	}
 }
 </style>

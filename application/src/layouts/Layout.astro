@@ -17,6 +17,9 @@ const { locale, meta } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{meta.title}</title>
 		<meta name="description" content={meta.description} />
@@ -51,18 +54,20 @@ const { locale, meta } = Astro.props;
 <style>
 :global(body) {
 	margin: 0;
-	font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-	background-color: #040308;
-	color: #111827;
+	font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background-color: #0a0e14;
+	color: #ffffff;
+	line-height: 1.6;
 }
 
 .site-header {
 	position: sticky;
 	top: 0;
-	background: rgba(4, 3, 8, 0.75);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	background: #1c3144;
+	border-bottom: 1px solid rgba(236, 184, 7, 0.2);
 	backdrop-filter: blur(12px);
-	padding: 0.5rem 1rem;
+	padding: 1rem 2rem;
+	z-index: 100;
 }
 
 .site-header__inner {
@@ -75,7 +80,9 @@ const { locale, meta } = Astro.props;
 
 .site-header__brand {
 	color: white;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.08em;
+	font-size: 1.25rem;
+	font-weight: 700;
 }
 
 .locale-switcher {
@@ -91,22 +98,27 @@ const { locale, meta } = Astro.props;
 	color: white;
 	text-decoration: none;
 	font-size: 0.875rem;
-	padding: 0.25rem 0.5rem;
-	border-radius: 999px;
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-radius: 2px;
+	transition: all 0.2s ease;
 }
 
 .locale-switcher span {
-	background: rgba(255, 255, 255, 0.15);
+	background: rgba(236, 184, 7, 0.15);
+	border: 1px solid rgba(236, 184, 7, 0.3);
 }
 
 .locale-switcher a:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(236, 184, 7, 0.2);
 }
 
 .page-content {
 	margin: 0 auto;
-	max-width: 960px;
-	padding: 2rem 1rem 4rem;
+	max-width: 1400px;
+	padding: 0;
+	background: linear-gradient(180deg, #0a0e14 0%, #1c3144 100%);
 }
 
 @media (max-width: 640px) {
