@@ -1,0 +1,25 @@
+---
+import bgMasthead from '../../assets/bg-masthead.jpg';
+---
+
+<div id="hero-bg" class="absolute inset-0 z-0">
+	<img 
+		src={bgMasthead.src} 
+		alt="Desert radar landscape" 
+		class="w-full h-full object-cover opacity-40"
+	/>
+	<!-- Atmospheric layering -->
+	<div class="absolute inset-0 bg-gradient-to-tr from-cyan-950/60 via-transparent to-blue-950/60"></div>
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]"></div>
+	
+	<!-- Animated Radar Pulse Effect -->
+	<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+		<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/30 animate-radar-pulse"></div>
+		<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/20 animate-radar-pulse animation-delay-1000"></div>
+		<div class="radar-pulse absolute w-96 h-96 rounded-full border-2 border-cyan-400/10 animate-radar-pulse animation-delay-2000"></div>
+	</div>
+
+	<!-- Floating geometric accents -->
+	<div class="absolute top-20 right-20 w-32 h-32 border border-cyan-400/20 rotate-45 animate-float"></div>
+	<div class="absolute bottom-40 left-20 w-24 h-24 border border-blue-400/20 -rotate-12 animate-float-delayed"></div>
+</div>
