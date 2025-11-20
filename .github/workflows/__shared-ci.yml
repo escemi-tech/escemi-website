@@ -3,7 +3,11 @@ name: Common Continuous Integration tasks
 on:
   workflow_call:
     outputs:
-      build-artifact-id: ${{ jobs.continuous-integration.outputs.build-artifact-id }}
+      build-artifact-id:
+        description: "ID of the build artifact) uploaded during the build step."
+        value: ${{ jobs.continuous-integration.outputs.build-artifact-id }}
+
+permissions: {}
 
 permissions: {}
 
