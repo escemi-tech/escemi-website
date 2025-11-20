@@ -1,0 +1,145 @@
+name: Sync Resumes From Canonical Source
+
+# Receives resume artifacts via repository_dispatch and mirrors them into this repo.
+# Replace the default GITHUB_TOKEN with a GitHub App token if cross-repo artifact
+# downloads require elevated permissions.
+
+on:
+  repository_dispatch:
+    types:
+      - sync-resumes
+  workflow_dispatch:
+    inputs:
+      #checkov:skip=CKV_GHA_7: required
+      repository:
+        description: "The repository where to download the branding artifact from"
+        required: true
+        type: string
+      run-id:
+        description: "The run ID from the branding repository"
+        required: true
+        type: string
+      artifact-id:
+        description: "The artifact ID from the branding repository"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-resume-assets:
+    name: Update resume JSON and PDF files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+
+      - name: Parse inputs
+        id: parse-inputs
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        env:
+          REPOSITORY_INPUT: ${{ inputs.repository }}
+          RUN_ID_INPUT: ${{ inputs.run-id }}
+          ARTIFACT_ID_INPUT: ${{ inputs.artifact-id }}
+        with:
+          script: |
+            let repository;
+            let runId;
+            let artifactId;
+
+            if (context.eventName === 'repository_dispatch') {
+              repository = context.payload.client_payload.repository;
+              runId = context.payload.client_payload["run-id"];
+              artifactId = context.payload.client_payload["artifact-id"];
+
+            } else {
+              repository = process.env.REPOSITORY_INPUT;
+              runId = process.env.RUN_ID_INPUT;
+              artifactId = process.env.ARTIFACT_ID_INPUT;
+            }
+
+            if (!repository) {
+              return core.setFailed('Repository is required');
+            }
+            core.setOutput('repository', repository);
+
+            if (!runId) {
+              return core.setFailed('Run ID is required');
+            }
+            core.setOutput('run-id', runId);
+
+            if (!artifactId) {
+              return core.setFailed('Artifact ID is required');
+            }
+            core.setOutput('artifact-id', artifactId);
+
+            core.info('📦 Branding update received:');
+            core.info(`  Artifact ID: ${artifactId}`);
+            core.info(`  Repository: ${repository}`);
+            core.info(`  Run ID: ${runId}`);
+
+      - uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        id: generate-token
+        with:
+          app-id: ${{ vars.CI_BOT_APP_ID }}
+          private-key: ${{ secrets.CI_BOT_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          repository: ${{ inputs.repository }}
+          run-id: ${{ inputs.run-id }}
+          artifact-ids: ${{ inputs.artifact-id }}
+          github-token: ${{ steps.generate-token.outputs.token }}
+          path: ${{ runner.temp }}/resumes-assets-${{ inputs.run-id }}-${{ inputs.artifact-id }}
+
+      - name: Copy resume files
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        env:
+          DOWNLOADED_PATH: ${{ steps.download-artifact.outputs.download-path }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            core.debug("Listing downloaded files:");
+            const downloadedFiles = fs.readdirSync(process.env.DOWNLOADED_PATH);
+            for (const file of downloadedFiles) {
+                core.debug(`- ${file}`);
+                // Move json files to application/src/data/resume/
+                if (file.endsWith('.json')){
+                    const sourcePath = path.join(process.env.DOWNLOADED_PATH, file);
+                    const destPath = path.join(process.cwd(), 'application', 'src', 'data', 'resume', file);
+                    fs.copyFileSync(sourcePath, destPath);
+                    core.info(`Copied JSON resume file to ${destPath}`);
+                    continue;
+                }
+
+                // Move pdf files to application/public/resumes/
+                if (file.endsWith('.pdf')){
+                    const sourcePath = path.join(process.env.DOWNLOADED_PATH, file);
+                    const destPath = path.join(process.cwd(), 'application', 'public', 'resumes', file);
+                    fs.copyFileSync(sourcePath, destPath);
+                    core.info(`Copied PDF resume file to ${destPath}`);
+                    continue;
+                }
+
+                return core.setFailed(`Unexpected file type for file: ${file}`);
+            }
+
+      - name: Create pull request with updated assets
+        uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@753288393de1f3d92f687a6761d236ca800f5306 # 0.28.1
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          branch: resumes-update
+          commit-message: |
+            chore: update resumes assets
+          title: "chore: update resumes assets"
+          body: |
+            This PR updates the resume JSON and PDF files from the canonical source.

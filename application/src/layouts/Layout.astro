@@ -1,7 +1,8 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale, MetaCopy } from '../../i18n.config';
-import { LOCALE_LABELS, SITE_NAME, SUPPORTED_LOCALES } from '../../i18n.config';
+import { LOCALE_LABELS, RESUME_PDFS, SECTION_LINKS, SITE_NAME, SUPPORTED_LOCALES } from '../../i18n.config';
+import LogoMark from '../components/ui/LogoMark.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -9,7 +10,49 @@ interface Props {
 	meta: MetaCopy;
 }
 
+const normalizeBasePath = (value?: string) => {
+	if (!value || value === '/') {
+		return '/';
+	}
+	const withLeadingSlash = value.startsWith('/') ? value : `/${value}`;
+	return withLeadingSlash.endsWith('/') ? withLeadingSlash.slice(0, -1) : withLeadingSlash;
+};
+
+const normalizedBasePath = normalizeBasePath(import.meta.env.BASE_URL);
+
+const stripBaseFromPath = (pathname: string) => {
+	if (normalizedBasePath === '/' || normalizedBasePath === '') {
+		return pathname;
+	}
+	if (pathname.startsWith(normalizedBasePath)) {
+		const stripped = pathname.slice(normalizedBasePath.length) || '/';
+		return stripped.startsWith('/') ? stripped : `/${stripped}`;
+	}
+	return pathname;
+};
+
+const escapeForRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const stripLocalePrefix = (pathname: string, activeLocale: Locale) => {
+	const pattern = new RegExp(`^/${escapeForRegex(activeLocale)}(?=/|$)`);
+	const cleaned = pathname.replace(pattern, '') || '/';
+	return cleaned === '' ? '/' : cleaned;
+};
+
+const trimSlashes = (value: string) => value.replace(/^\/+/, '').replace(/\/+$/, '');
+
+const getLocaleNeutralPath = (pathname: string, activeLocale: Locale) => {
+	const withoutBase = stripBaseFromPath(pathname);
+	const withoutLocale = stripLocalePrefix(withoutBase, activeLocale);
+	if (withoutLocale === '/' || withoutLocale === '') {
+		return '';
+	}
+	return trimSlashes(withoutLocale);
+};
+
 const { locale, meta } = Astro.props;
+const sectionLinks = SECTION_LINKS[locale];
+const localeNeutralPath = getLocaleNeutralPath(Astro.url.pathname, locale);
 ---
 
 <!doctype html>
@@ -21,39 +64,70 @@ const { locale, meta } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{meta.title}</title>
 		<meta name="description" content={meta.description} />
-		<!-- Font: Inter for body, Space Grotesk for headings -->
+		<!-- Font: Source Sans Pro per ESCEMI branding -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-black text-white antialiased overflow-x-hidden font-[Inter]">
+	<body class="bg-surface antialiased overflow-x-hidden font-sans">
 		<!-- Futuristic fixed header -->
-		<header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-cyan-500/20">
+		<header data-scroll-header class="fixed top-0 left-0 right-0 z-50 bg-brand-primary-strong/90 backdrop-blur-xl border-b border-brand-secondary/30 transition-all duration-500">
 			<div class="max-w-7xl mx-auto px-6 py-5">
-				<div class="flex items-center justify-between">
+				<div class="flex flex-wrap items-center gap-6 justify-between">
 					<!-- Brand with neon effect -->
-					<strong class="text-3xl font-black tracking-tight font-['Space_Grotesk']">
-						<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-							{SITE_NAME}
-						</span>
-					</strong>
+					<div class="flex items-center gap-4">
+						<LogoMark size={42} />
+						<strong class="text-3xl font-black tracking-tight">
+							<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft">
+								{SITE_NAME}
+							</span>
+						</strong>
+					</div>
+
+					<!-- Section navigation -->
+					<nav aria-label="Primary" class="order-3 w-full md:order-none md:w-auto">
+						<ul class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--color-text-muted)]">
+							{sectionLinks.map((link) => (
+								<li>
+									<a 
+										href={link.href}
+										class="px-4 py-2 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300"
+									>
+										{link.label}
+									</a>
+								</li>
+							))}
+							<li>
+								<a 
+									href={RESUME_PDFS[locale]}
+									download
+									class="inline-flex items-center gap-2 rounded-full border border-brand-secondary/50 px-4 py-2 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong transition-colors"
+								>
+									<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14" />
+									</svg>
+									<span class="tracking-[0.3em]">CV</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
 					
 					<!-- Language selector with futuristic style -->
-					<nav aria-label="Language selector">
+					<nav aria-label="Language selector" class="ml-auto">
 						<ul class="flex gap-3">
 							{SUPPORTED_LOCALES.map((code) => (
 								<li>
 									{code === locale ? (
 										<span 
 											aria-current="true" 
-											class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold uppercase text-sm tracking-wider border border-cyan-400/50 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+											class="px-5 py-2.5 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft text-brand-primary-strong font-bold uppercase text-sm tracking-wider border border-brand-secondary-soft shadow-[0_0_20px_rgba(236,184,7,0.25)]"
 										>
 											{LOCALE_LABELS[code]}
 										</span>
 									) : (
 										<a 
-											href={getRelativeLocaleUrl(code, Astro.url.pathname)}
-											class="px-5 py-2.5 border border-gray-700 text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 font-bold uppercase text-sm tracking-wider transition-all duration-300"
+											href={getRelativeLocaleUrl(code, localeNeutralPath)}
+											class="px-5 py-2.5 border border-[color:var(--color-border-subtle)] text-[color:var(--color-text-muted)] hover:text-brand-secondary hover:border-brand-secondary font-bold uppercase text-sm tracking-wider transition-all duration-300"
 										>
 											{LOCALE_LABELS[code]}
 										</a>
@@ -71,18 +145,19 @@ const { locale, meta } = Astro.props;
 		</main>
 
 		<!-- Futuristic footer -->
-		<footer class="relative bg-black border-t border-gray-800 py-16 overflow-hidden">
+		<footer class="relative bg-brand-primary-strong border-t border-[color:var(--color-border-subtle)] py-16 overflow-hidden">
 			<!-- Subtle glow effect -->
-			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(6,182,212,0.1),transparent_50%)]"></div>
+			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(236,184,7,0.12),transparent_55%)]"></div>
 			
 			<div class="relative z-10 max-w-7xl mx-auto px-6">
-				<div class="text-center mb-8">
-					<div class="text-4xl font-black mb-4 font-['Space_Grotesk']">
-						<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+				<div class="text-center mb-8 flex flex-col items-center gap-4">
+					<LogoMark size={56} />
+					<div class="text-4xl font-black">
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft">
 							{SITE_NAME}
 						</span>
 					</div>
-					<p class="text-gray-500 text-sm">© {new Date().getFullYear()} All rights reserved.</p>
+					<p class="text-[color:var(--color-text-muted)] text-sm">© {new Date().getFullYear()} All rights reserved.</p>
 				</div>
 
 				<div class="flex justify-center gap-8">
@@ -90,7 +165,7 @@ const { locale, meta } = Astro.props;
 						href="https://github.com/escemi-tech" 
 						target="_blank" 
 						rel="noopener noreferrer" 
-						class="text-gray-500 hover:text-cyan-400 transition-colors font-semibold"
+						class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold"
 					>
 						GitHub
 					</a>
@@ -98,7 +173,7 @@ const { locale, meta } = Astro.props;
 						href="https://www.linkedin.com/company/escemi" 
 						target="_blank" 
 						rel="noopener noreferrer" 
-						class="text-gray-500 hover:text-cyan-400 transition-colors font-semibold"
+						class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold"
 					>
 						LinkedIn
 					</a>
@@ -106,16 +181,53 @@ const { locale, meta } = Astro.props;
 			</div>
 		</footer>
 
-		<!-- Performance: Load fonts asynchronously -->
-		<style is:global>
-			/* Apply fonts globally */
-			h1, h2, h3, h4, h5, h6 {
-				font-family: 'Space Grotesk', sans-serif;
+		<script is:inline>
+		(() => {
+			const globalWindow = typeof window !== 'undefined' ? window : undefined;
+			if (!globalWindow) {
+				return;
 			}
-			
-			body {
-				font-family: 'Inter', sans-serif;
+
+			const header = document.querySelector('[data-scroll-header]');
+			if (!header) {
+				return;
 			}
-		</style>
+
+			let lastScrollY = globalWindow.scrollY;
+			let ticking = false;
+			const threshold = 12;
+			const revealOffset = 80;
+
+			const updateHeaderState = () => {
+				const currentY = globalWindow.scrollY;
+				const scrollingDown = currentY > lastScrollY + threshold;
+				const nearTop = currentY <= revealOffset;
+
+				if (scrollingDown && !nearTop) {
+					header.setAttribute('data-header-hidden', 'true');
+				} else if (currentY < lastScrollY - threshold || nearTop) {
+					header.removeAttribute('data-header-hidden');
+				}
+
+				lastScrollY = currentY;
+				ticking = false;
+			};
+
+			const handleScroll = () => {
+				if (ticking) {
+					return;
+				}
+				ticking = true;
+				globalWindow.requestAnimationFrame(updateHeaderState);
+			};
+
+			globalWindow.addEventListener('scroll', handleScroll, { passive: true });
+			globalWindow.addEventListener('astro:page-load', () => {
+				lastScrollY = globalWindow.scrollY;
+				updateHeaderState();
+			});
+		})();
+		</script>
+
 	</body>
 </html>

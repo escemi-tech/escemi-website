@@ -1,18 +1,16 @@
 # build output
 application/dist/
 application/.output/
+application/coverage/
 
 # dependencies
 application/node_modules/
-.github/actions/**/node_modules/
-.github/actions/**/coverage/
 
 # logs
 application/npm-debug.log*
 application/yarn-debug.log*
 application/yarn-error.log*
 application/pnpm-debug.log*
-
 
 # environment variables
 application/.env

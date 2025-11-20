@@ -11,19 +11,19 @@ const cardClass = isLarge ? 'md:row-span-2' : '';
 ---
 
 <div 
-	class={`group relative p-10 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 transform hover:-translate-y-2 ${cardClass}`}
+	class={`group relative p-10 bg-gradient-to-br from-brand-primary-strong to-brand-primary border border-[color:var(--color-border-subtle)] hover:border-brand-secondary/60 transition-all duration-500 transform hover:-translate-y-2 ${cardClass}`}
 	style={`animation-delay: ${index * 100}ms`}
 >
 	<!-- Neon corner accents -->
-	<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-400/50 group-hover:border-cyan-400 transition-colors duration-300"></div>
-	<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/50 group-hover:border-blue-400 transition-colors duration-300"></div>
+	<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-brand-secondary/40 group-hover:border-brand-secondary transition-colors duration-300"></div>
+	<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-brand-secondary/30 group-hover:border-brand-secondary-soft transition-colors duration-300"></div>
 
 	<!-- Service number -->
-	<div class="text-8xl font-black text-gray-800/50 absolute top-4 right-4 group-hover:text-cyan-900/50 transition-colors">
+	<div class="text-8xl font-black text-brand-primary-soft/30 absolute top-4 right-4 group-hover:text-brand-secondary/40 transition-colors">
 		0{index + 1}
 	</div>
 
-	<h3 class="relative text-3xl font-bold text-cyan-400 mb-6 z-10">
+	<h3 class="relative text-3xl font-bold text-brand-secondary mb-6 z-10">
 		{title}
 	</h3>
 	<p class="relative text-gray-300 text-lg leading-relaxed z-10">
@@ -31,5 +31,5 @@ const cardClass = isLarge ? 'md:row-span-2' : '';
 	</p>
 
 	<!-- Glow effect on hover -->
-	<div class="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
+	<div class="absolute inset-0 bg-gradient-to-r from-brand-secondary/0 to-brand-secondary-soft/0 group-hover:from-brand-secondary/10 group-hover:to-brand-secondary-soft/10 transition-all duration-500"></div>
 </div>

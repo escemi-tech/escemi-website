@@ -1,0 +1,538 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/escemi-tech/.github/main/resume/resume.fr.json",
+    "version": "2025.11.16.6",
+    "lastModified": "2025-11-16T11:15:00Z",
+    "impact": [
+      {
+        "label": "Gain de vélocité",
+        "value": "+35%",
+        "description": "Accélération moyenne constatée après déploiement des playbooks DevX (moyenne 3 mois)"
+      },
+      {
+        "label": "Dette technique",
+        "value": "-40%",
+        "description": "Réduction mesurée après refonte architecturale et mentorat des équipes"
+      },
+      {
+        "label": "Temps de déploiement",
+        "value": "-70%",
+        "description": "Baisse du lead time grâce aux pipelines CI/CD unifiés"
+      },
+      {
+        "label": "Mentorat d'équipes",
+        "value": "15+",
+        "description": "Coaching structuré Clean Architecture & DevX augmentant l'autonomie et la qualité de livraison des équipes encadrées."
+      }
+    ]
+  },
+  "basics": {
+    "name": "Emilien Escalle",
+    "label": "CTO à la demande & Expert DevX - Lead Developer Senior",
+    "baseline": "Expert Node.js & PHP · Cloud Native · Coach DevX",
+    "signatureNumbers": [
+      "16 ans d'expérience",
+      "15+ équipes mentorées",
+      "20+ plateformes livrées"
+    ],
+    "pitch": [
+      "J'aide les entreprises à industrialiser leur développement et à élever le niveau technique de leurs équipes.",
+      "CTO à la demande et Lead Dev Senior pour les missions qui exigent structure, vélocité et exécution propre.",
+      "Expert Node.js & PHP avec une maîtrise approfondie de NestJS, Symfony et Laravel."
+    ],
+    "url": "https://www.escemi.com",
+    "image": "https://raw.githubusercontent.com/escemi-tech/.github/main/headshots/primary.jpg",
+    "summary": "J'allie coaching technique, excellence DevX et modernisation cloud-native pour transformer la qualité produit tout en gardant des équipes autonomes et responsables.",
+    "location": {
+      "city": "Aix-en-Provence",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "countryCode": "FR"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "emilienescalle",
+        "url": "https://www.linkedin.com/in/emilienescalle/"
+      },
+      {
+        "network": "GitHub",
+        "username": "neilime",
+        "url": "https://github.com/neilime"
+      },
+      {
+        "network": "Collective",
+        "username": "emilien-escalle",
+        "url": "https://app.collective.work/collective/emilien-escalle"
+      },
+      {
+        "network": "Malt",
+        "username": "emilienescalle",
+        "url": "https://www.malt.fr/profile/emilienescalle"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Build & Run - Fractional CTO / Expert DevX",
+      "location": "Remote · France",
+      "position": "Fractional CTO & Expert DevX",
+      "url": "https://www.build-and-run.fr/",
+      "startDate": "2022-10",
+      "type": "freelance",
+      "featured": false,
+      "summary": "CTO fractionné au sein du collectif Build & Run, parachuté chez des scale-ups qui ont besoin de structure, de DevX moderne et d'un leadership senior. Je conçois des architectures cloud-native de référence, des stacks CI/CD mutualisées et des rituels de gouvernance qui alignent les squads sur des indicateurs mesurables.",
+      "highlights": [
+        "Défi : delivery multi-squads ralentie par stacks hétérogènes et releases manuelles",
+        "Actions : blueprints Kubernetes/Terraform, templates GitHub/GitLab CI/CD réutilisables, scorecards DevX et rituels de leadership",
+        "Résultats : +35% de vélocité, -40% de dette, releases x5, onboarding 4 semaines → 1 avec <5% de change failure rate"
+      ]
+    },
+    {
+      "name": "ESCEMI - Partenaire technique stratégique",
+      "location": "Aix-en-Provence, France",
+      "position": "CTO à la demande & Lead Dev Senior",
+      "url": "https://www.escemi.com",
+      "startDate": "2019-09",
+      "type": "freelance",
+      "featured": true,
+      "summary": "Partenaire stratégique indépendant pour PME et scale-ups qui doivent industrialiser leur delivery sans CTO permanent. J'architecture des plateformes SOLID, j'adapte CI/CD et observabilité à chaque contexte client et j'ancre des rituels de coaching pour rendre les équipes autonomes.",
+      "highlights": [
+        "Défi : roadmaps ambitieuses exécutées par des équipes sous-structurées",
+        "Actions : plateformes API SOLID, stacks CI/CD + IaC sur mesure, revues FinOps, coaching immersif",
+        "Résultats : 90% de contrôles automatisés, déploiements <30 min, économies 80-150 K€/an, équipes prêtes pour trafic x10"
+      ]
+    },
+    {
+      "name": "Ouistiti - Co-fondateur & CTO",
+      "location": "Aix-en-Provence, France",
+      "position": "Chief Technical Officer",
+      "startDate": "2018-09",
+      "endDate": "2019-09",
+      "type": "founder",
+      "featured": true,
+      "summary": "Co-fondé Ouistiti pour lancer une plateforme d'inspiration voyage sans dette technique, en dirigeant l'ingénierie produit du concept à la croissance. Stack JAMStack/serverless sur AWS, boucles UX continues et pilotage data des leviers acquisition (SEA, CRM, analytics).",
+      "highlights": [
+        "Défi : lancer un MVP inspiration voyage <3 mois avec objectifs d'acquisition élevés",
+        "Actions : stack JAMStack/serverless sur AWS, boucles UX rapides, funnels CRM/SEA pilotés par la donnée, dashboards produit",
+        "Résultats : MVP livré en 12 semaines, <500 ms de chargement, 5K MAU en 6 mois, +40% d'engagement, 300+ inscriptions/semaine à 2,50€ CPA"
+      ]
+    },
+    {
+      "name": "Qwamplify Group - Directeur technique & Architecte SI",
+      "location": "Rousset, France",
+      "position": "Directeur technique & Architecte SI",
+      "url": "https://www.qwamplify.com/",
+      "startDate": "2013-09",
+      "endDate": "2018-08",
+      "type": "employee",
+      "featured": true,
+      "summary": "Pilotage du programme de modernisation sur 3 ans de Qwamplify : consolidation de 8 entités, domestication d'un legacy PHP et maintien d'un rythme campagne élevé. Responsable du schéma directeur IT, des standards d'architecture et de la gouvernance delivery pour 25 ingénieurs.",
+      "highlights": [
+        "Défi : stack PHP fragmentée bloquant la consolidation de 8 entités et la cadence campagne",
+        "Actions : schéma directeur 3 ans, blueprint SOA/microservices, environnements standardisés, gouvernance CI/CD + observabilité",
+        "Résultats : cycle release 4 sem → 1, défauts prod -55%, sprints fiables à 85%, 200 K€/an d'économies de maintenance"
+      ]
+    },
+    {
+      "name": "Logicielnet",
+      "location": "Aix-en-Provence, Provence-Alpes-Côte d'Azur, France · Sur site",
+      "position": "Responsable systèmes applicatifs",
+      "startDate": "2010-09",
+      "endDate": "2013-09",
+      "type": "employee",
+      "featured": true,
+      "summary": "En charge de l'évolution de la suite applicative SaaS modulaire : définition des cahiers des charges, pilotage des évolutions structurantes et coordination de l'équipe de développement jusqu'à la validation client.",
+      "highlights": [
+        "Structuré la roadmap de la suite SaaS et livré 20+ évolutions majeures/an en arbitrant innovations clients et dette technique",
+        "Animé une équipe pluridisciplinaire (dévs, QA, support) et instauré revues de code + socle Zend Framework commun pour fiabiliser les releases",
+        "Mis en place un suivi bout-en-bout (cadrage → recettage) réduisant de 30% le temps entre expression de besoin et mise en production"
+      ]
+    },
+    {
+      "name": "Logicielnet",
+      "location": "Aix-en-Provence, Provence-Alpes-Côte d'Azur, France · Sur site",
+      "position": "Ingénieur R&D",
+      "startDate": "2009-09",
+      "endDate": "2010-09",
+      "type": "apprenticeship",
+      "featured": true,
+      "summary": "Conception et développement d'un module Web Callback (Click-to-call) afin d'améliorer la relation client au sein du panel applicatif de l'éditeur.",
+      "highlights": [
+        "Conçu le module Web Callback sur Zend Framework/PHP avec intégration VoIP, réduisant de 40% le temps de traitement des demandes",
+        "Créé des composants JavaScript réutilisables et sécurisés pour exposer le click-to-call dans 100% des écrans clients",
+        "Industrialisation : documentation technique + transferts vers l'équipe support permettant un déploiement sans régression"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Cloud Native Aix-Marseille",
+      "position": "Co-organisateur & Speaker",
+      "url": "https://www.cloudnative.aixmarseille.tech/",
+      "startDate": "2022-10",
+      "summary": "Promotion des technologies cloud-native dans la région Aix-Marseille en collaboration avec la communauté CNCF, avec 60+ meetups animant 1 200+ membres sur Meetup.",
+      "highlights": [
+        "Co-organisé 60+ meetups Cloud Native (61 événements passés) réunissant 1 200+ membres inscrits sur Meetup dans la région Aix/Marseille",
+        "Présenté 6 talks techniques sur Kubernetes, GitOps et pratiques DevOps, maintenant une note de 4,8★ basée sur 250 avis Meetup"
+      ]
+    },
+    {
+      "organization": "Aix-Marseille Université",
+      "position": "Intervenant professionnel",
+      "url": "https://www.univ-amu.fr/",
+      "startDate": "2019-01",
+      "summary": "Enseignement des architectures logicielles et des bonnes pratiques de développement web.",
+      "highlights": [
+        "Enseigné le cours d'architecture logicielle à 60+ étudiants de Master annuellement, couvrant les applications pratiques de Clean Architecture, SOLID et design patterns",
+        "Développé un curriculum hands-on avec 10+ études de cas réelles, atteignant 90% de satisfaction étudiante et 85% de taux de réussite",
+        "Mentoré 15+ étudiants sur des projets de thèse implémentant des architectures modernes, avec 80% obtenant des postes de développeur dans les 3 mois suivant l'obtention du diplôme"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Université Aix-Marseille III Paul Cézanne",
+      "area": "MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)",
+      "studyType": "Master 2",
+      "url": "https://www.univ-amu.fr/",
+      "startDate": "2007-09",
+      "endDate": "2010-06"
+    },
+    {
+      "institution": "IUT GEA Gap",
+      "area": "GEA (Gestion des Entreprises et des Administrations)",
+      "studyType": "DUT",
+      "url": "https://iut.univ-amu.fr/",
+      "startDate": "2005-09",
+      "endDate": "2007-06"
+    }
+  ],
+  "awards": [],
+  "certificates": [
+    {
+      "name": "LFC102: Inclusive Open Source Community Orientation",
+      "issuer": "The Linux Foundation",
+      "date": "2024-11-01",
+      "url": "https://www.credly.com/badges/336e21aa-95f6-4025-8ddf-17ffda9953f7/",
+      "summary": "Formation dédiée à la création de communautés open source inclusives, couvrant gouvernance, pratiques d'allié et santé communautaire."
+    }
+  ],
+  "publications": [],
+  "skills": [
+    {
+      "name": "🧠 Méthodes & Leadership",
+      "level": "Expert",
+      "keywords": [
+        "Coaching technique · DevX",
+        "Software craftsmanship",
+        "Lean · Agile · Vélocité d'équipe"
+      ]
+    },
+    {
+      "name": "🎯 Techniques",
+      "level": "Expert",
+      "keywords": [
+        "Node.js (NestJS)",
+        "PHP (Symfony, Laravel)",
+        "TypeScript / JavaScript",
+        "Clean Architecture · DDD · TDD"
+      ]
+    },
+    {
+      "name": "☁️ DevOps & Cloud",
+      "level": "Expert",
+      "keywords": [
+        "GitHub Actions · GitLab CI",
+        "Docker · AWS",
+        "Observabilité · OpenTelemetry"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "🇫🇷 Français",
+      "fluency": "Natif"
+    },
+    {
+      "language": "🇬🇧 Anglais",
+      "fluency": "Professionnel (C1)"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technologies Cloud Native",
+      "keywords": ["Kubernetes", "Serverless", "Microservices", "CNCF"]
+    },
+    {
+      "name": "Expérience Développeur",
+      "keywords": ["DevX", "CI/CD", "Automatisation", "Outils de productivité"]
+    },
+    {
+      "name": "Architecture Logicielle",
+      "keywords": [
+        "Clean Architecture",
+        "Design Patterns",
+        "Domain-Driven Design"
+      ]
+    },
+    {
+      "name": "Open Source",
+      "keywords": ["Contribution OSS", "Communautés", "Collaboration"]
+    },
+    {
+      "name": "Transmission & Pédagogie",
+      "keywords": [
+        "Mentorat",
+        "Enseignement",
+        "Partage de connaissances",
+        "Conférences"
+      ]
+    },
+    {
+      "name": "Méthodologies Lean & Agile",
+      "keywords": [
+        "Amélioration continue",
+        "Dynamiques d'équipe",
+        "Excellence de livraison"
+      ]
+    }
+  ],
+  "references": [],
+  "projects": [
+    {
+      "name": "Air Corsica - Ingénierie de plateforme DevX",
+      "featured": true,
+      "description": "Modernisation de l'expérience développeur et de la sécurité transactionnelle de la plateforme de réservation aérienne via un écosystème CI/CD GitHub Actions, mentorat hands-on, et architecture proxy résiliente NestJS/RabbitMQ.",
+      "highlights": [
+        "Réduit le temps de déploiement de 80% (de ~2 jours manuels à <30 min automatisées) via workflows GitHub Actions réutilisables avec canary et rollbacks automatiques",
+        "Augmenté la fréquence de release x5 (de mensuelle à hebdomadaire) grâce à l'infrastructure-as-code (Terraform + ArgoCD) assurant la parité staging/production",
+        "Amélioré la fiabilité transactionnelle à 99,9% de disponibilité avec 90% moins d'échecs tiers en architecturant un proxy NestJS avec RabbitMQ, implémentant circuit breakers, politiques de retry et garanties d'idempotence",
+        "Réduit le temps d'onboarding développeur de 70% (de plusieurs jours à <1 jour de productivité) via workflows standardisés, guides de style vivants et mises à jour automatiques des dépendances",
+        "Mentoré l'équipe distribuée (interne + contractants) sur Clean Architecture et principes SOLID via ateliers hebdomadaires, élevant la qualité du code et établissant des seuils de couverture de tests unitaires",
+        "Déployé un microservice résilient dans Docker avec monitoring OpenTelemetry, intégration Datadog et health checks zero-downtime pour les flux critiques de réservation/paiement"
+      ],
+      "keywords": [
+        "DevX",
+        "GitHub Actions",
+        "CI/CD",
+        "NestJS",
+        "RabbitMQ",
+        "Clean Architecture",
+        "SOLID",
+        "Terraform",
+        "ArgoCD",
+        "Docker",
+        "Datadog",
+        "Mentorat"
+      ],
+      "startDate": "2023-01",
+      "url": "https://www.youtube.com/watch?v=Xb8PKOdTilA",
+      "roles": ["DevX Lead", "Ingénieur plateforme", "Mentor technique"],
+      "entity": "Air Corsica",
+      "type": "consulting"
+    },
+    {
+      "name": "Plateforme Gateway IoT pour Infrastructure Critique",
+      "featured": true,
+      "description": "Gateway IoT haute performance pour fournisseur SaaS mondial d'infrastructure intelligente, unifiant l'intégration d'appareils hétérogènes dans les datacenters et bâtiments intelligents avec résilience Redis, CI/CD automatisé et observabilité OpenTelemetry.",
+      "highlights": [
+        "Atteint 99,99% de disponibilité en production via cache Redis, file d'attente edge et stratégies de retry automatiques avec backoff exponentiel",
+        "Réduit les incidents de perte de données de 85% grâce à des mécanismes de fallback résilients qui bufferisent les messages durant les pannes de la plateforme SaaS",
+        "Accéléré l'onboarding de nouveaux appareils de 81% (de 3 semaines à 4 jours) via décodeurs centralisés, validation basée sur schéma et pipeline de payload normalisé",
+        "Scalé pour gérer une augmentation de trafic x10 (100K+ événements/minute par gateway) sans matériel supplémentaire grâce aux worker pools et au cache en mémoire optimisé",
+        "Réduit le temps de cycle de déploiement de 70% avec automatisation GitLab CI intégrant tests unitaires, d'intégration et E2E, plus releases canary et déploiements progressifs",
+        "Construit une API REST unifiée avec spécification OpenAPI pour la gestion du cycle de vie des appareils, permettant enregistrement à distance, mises à jour et monitoring temps réel",
+        "Intégré OpenTelemetry pour observabilité complète avec logs, métriques et alerting liés à la santé des appareils et aux KPI de flux de données"
+      ],
+      "keywords": [
+        "Node.js",
+        "TypeScript",
+        "NestJS",
+        "Redis",
+        "OpenTelemetry",
+        "OpenAPI",
+        "GitLab CI",
+        "Docker",
+        "IoT",
+        "Gateway Architecture",
+        "Device Management",
+        "High Availability",
+        "CI/CD"
+      ],
+      "startDate": "2023-01",
+      "endDate": "2024-08",
+      "roles": ["Architecte plateforme IoT", "Lead Développeur"],
+      "entity": "Fournisseur SaaS d'infrastructure intelligente",
+      "type": "consulting"
+    },
+    {
+      "name": "TestUnMetier - Accompagnement CTO",
+      "featured": true,
+      "description": "Mission de conseil stratégique pour une plateforme d'orientation professionnelle. Audit IT complet suivi d'un accompagnement CTO mensuel couvrant roadmap produit, recrutement technique et interface avec prestataires infrastructure/sécurité.",
+      "highlights": [
+        "Mené un audit IT d'une semaine sur architecture applicative, pratiques de développement et organisation, priorisant 12 améliorations réduisant les risques techniques de 60%",
+        "Structuré des interviews avec 8 parties prenantes (product, project, tech leads) pour cartographier dépendances et goulots, réduisant les délais de livraison de ~40%",
+        "Élaboré 5 fiches de poste techniques alignées sur la stratégie produit, accélérant le processus de recrutement de 3 mois à 6 semaines et améliorant le matching candidat/poste de 45%",
+        "Défini une roadmap technique sur 12 mois priorisant 15+ initiatives selon impact business et faisabilité, alignant les investissements tech avec les objectifs de croissance (+30% d'utilisateurs visés)",
+        "Piloté les relations avec 3 prestataires externes (infrastructure cloud, PSSI), négociant des SLA garantissant 99,5% de disponibilité et réduisant les coûts d'infrastructure de ~25%",
+        "Établi un cadre de gouvernance technique (comités mensuels, KPIs de vélocité, dashboards de qualité) améliorant la visibilité des équipes et réduisant le time-to-market de 35%"
+      ],
+      "keywords": [
+        "CTO Accompaniment",
+        "IT Audit",
+        "Technical Strategy",
+        "Roadmap Planning",
+        "Team Building",
+        "Vendor Management",
+        "Technical Governance",
+        "Recruitment"
+      ],
+      "startDate": "2021-11",
+      "endDate": "2022-05",
+      "url": "https://www.testunmetier.com/",
+      "roles": ["CTO Consultant", "Strategic Advisor"],
+      "entity": "TestUnMetier",
+      "type": "consulting"
+    },
+    {
+      "name": "Tekkare - Mentorat technique et bootstrap architectural",
+      "featured": true,
+      "description": "Accompagnement hands-on d'une équipe de développement d'une plateforme de gestion de services techniques, accélérant leur montée en compétences sur l'architecture GraphQL/API backend moderne et optimisant leurs pratiques de développement.",
+      "highlights": [
+        "Réduit le temps de développement des fonctionnalités de 40% grâce à une architecture GraphQL NestJS qui remplace les endpoints REST multiples par des requêtes typées unifiées",
+        "Accéléré l'onboarding des nouveaux développeurs de ~2 semaines à ~5 jours grâce à la documentation architecturale vivante, patterns réutilisables et exemples de code commentés",
+        "Amélioré la maintenabilité du code de 50% en implémentant Clean Architecture et principes SOLID avec séparation claire des couches (domaine, application, infrastructure)",
+        "Optimisé les performances de requêtes base de données de 60% (de ~800ms à ~300ms en moyenne) via optimisation ORM Postgres, indexation stratégique et résolution N+1 queries",
+        "Établi un pipeline de qualité avec tests automatisés (unit, intégration, E2E) réduisant les régressions en production de 70% et augmentant la confiance de déploiement",
+        "Mentoré l'équipe sur les best practices GraphQL (dataloaders, pagination, error handling) et patterns NestJS via pair programming et code reviews structurées"
+      ],
+      "keywords": [
+        "GraphQL",
+        "NestJS",
+        "Node.js",
+        "PostgreSQL",
+        "ORM",
+        "TypeScript",
+        "Clean Architecture",
+        "SOLID",
+        "Mentorat",
+        "API Design",
+        "Backend Architecture"
+      ],
+      "startDate": "2022-04",
+      "endDate": "2022-06",
+      "url": "https://tekkare.com/",
+      "roles": ["Mentor technique", "Architecte backend"],
+      "entity": "Tekkare",
+      "type": "consulting"
+    },
+    {
+      "name": "Atlas des Régions Naturelles (ARN) - Architecture backend",
+      "featured": true,
+      "description": "Conception et développement de l'architecture backend pour la plateforme d'archive photographique ARN, documentant 15 000+ images des paysages et bâtis français via une stack NestJS/Laravel optimisée pour la performance et la scalabilité.",
+      "highlights": [
+        "Architecturé une plateforme d'archive photo gérant 15 000+ images haute résolution avec filtrage multi-critères (région, typologie, matériau, période), assurant <300ms de temps de réponse et 99,9% de disponibilité",
+        "Implémenté un système de catégorisation hybride avec indexation full-text permettant de traiter 10 000+ requêtes de recherche quotidiennes avec navigation géographique, thématique et historique",
+        "Optimisé le pipeline de traitement d'images réduisant le temps d'upload et de génération de miniatures de 60% (de ~5min à ~2min par lot de 50 images) via parallélisation et compression intelligente",
+        "Conçu une API REST/GraphQL unifiée avec cache distribué réduisant la charge serveur de 70% et permettant l'intégration avec expositions physiques et publications imprimées",
+        "Déployé infrastructure cloud-native avec CDN géographiquement distribué réduisant les coûts de bande passante de 40% tout en améliorant les temps de chargement internationaux de 55%",
+        "Établi pipeline CI/CD avec tests automatisés assurant la qualité des métadonnées (géolocalisation, taxonomie régionale) et réduisant les erreurs de catalogage de 80%"
+      ],
+      "keywords": [
+        "NestJS",
+        "Laravel",
+        "Backend Architecture",
+        "API REST",
+        "GraphQL",
+        "Image Processing",
+        "Full-text Search",
+        "CDN",
+        "Cloud Native",
+        "CI/CD"
+      ],
+      "startDate": "2022-06",
+      "endDate": "2023-12",
+      "url": "https://www.archive-arn.fr/",
+      "roles": ["Architecte backend", "Lead développeur"],
+      "entity": "Atlas des Régions Naturelles",
+      "type": "consulting"
+    },
+    {
+      "name": "Tekoway / Eukles - Standardisation d'architecture",
+      "featured": true,
+      "description": "Accompagnement stratégique technique de 3 ans auprès d'équipes de développement européennes, standardisant l'architecture et boostant l'efficacité de livraison pour les projets PHP/Symfony et Node.js/NestJS avant et après l'intégration de Tekoway dans Eukles.",
+      "highlights": [
+        "Réduit le temps de bootstrap de projet de 45% (de ~10 à ~5,5 jours) via des blueprints d'architecture partagés appliquant Clean Architecture et principes SOLID sur les stacks Symfony et NestJS",
+        "Accéléré l'onboarding développeur x2 fois (de ~3 semaines à 1,5 semaine) grâce à des templates de projets unifiés, scripts de configuration automatisés et outillage commun entre les sites européens",
+        "Réduit le taux de bugs post-release de 30% après implémentation de workflows QA standardisés et pipelines DevOps inter-pays utilisant Docker, GitLab CI et ArgoCD",
+        "Amélioré la satisfaction développeur de 35% sur les enquêtes internes concernant la clarté architecturale et l'outillage via cliniques d'architecture, ateliers et documentation",
+        "Mentoré des équipes distribuées à distance dans plusieurs pays européens, établissant un langage technique partagé et une culture d'ingénierie unifiée qui a scallé sans friction à travers l'évolution de Tekoway vers Eukles",
+        "Créé des boilerplates multi-stack intégrant structures de dossiers DDD, injection de dépendances, logging, monitoring et hooks d'observabilité pour une qualité de livraison constante quel que soit la localisation de l'équipe"
+      ],
+      "keywords": [
+        "PHP",
+        "Symfony",
+        "Node.js",
+        "NestJS",
+        "Clean Architecture",
+        "DevOps",
+        "Docker",
+        "GitLab CI",
+        "ArgoCD",
+        "Mentorat"
+      ],
+      "startDate": "2020-01",
+      "endDate": "2023-01",
+      "url": "https://www.tekoway.com",
+      "roles": ["Mentor technique", "Responsable architecture"],
+      "entity": "Tekoway / Eukles",
+      "type": "consulting"
+    },
+    {
+      "name": "twbs-helper-module",
+      "featured": false,
+      "description": "Module Laminas (ex Zend Framework) qui accélère l'intégration des composants Twitter Bootstrap.",
+      "highlights": [
+        "21+ étoiles GitHub et plus de 20 forks adoptés par des portails et design systems d'entreprise",
+        "Fournit des helpers réutilisables pour formulaires, grilles, navigation et layouts responsives",
+        "Documentation complète, pipelines CI et versionning sémantique pour assurer la compatibilité"
+      ],
+      "keywords": ["PHP", "Laminas", "Bootstrap", "Open Source"],
+      "url": "https://github.com/neilime/twbs-helper-module",
+      "roles": ["Créateur", "Mainteneur"],
+      "entity": "Communauté Open Source",
+      "type": "open-source"
+    },
+    {
+      "name": "php-css-lint",
+      "featured": false,
+      "description": "CLI et package Composer qui impose des gardes-fous CSS directement depuis les projets PHP.",
+      "highlights": [
+        "11 étoiles GitHub et utilisation dans des pipelines CI multi-marques",
+        "S'appuie sur les spécifications MDN et W3C pour remonter des erreurs actionnables",
+        "Binaire sans dépendance et documentation GitHub Pages pour une prise en main rapide"
+      ],
+      "keywords": ["PHP", "CSS", "Linting", "Composer"],
+      "url": "https://github.com/neilime/php-css-lint",
+      "roles": ["Créateur", "Mainteneur"],
+      "entity": "Communauté Open Source",
+      "type": "open-source"
+    },
+    {
+      "name": "ubuntu-config",
+      "featured": false,
+      "description": "Bootstrap orienté infrastructure-as-code qui standardise mes postes de travail Ubuntu.",
+      "highlights": [
+        "Automatise l'installation de Docker, Node.js, toolchains PHP et outils desktop via des scripts",
+        "Capitalise des étapes reproductibles pour démarrer chaque mission avec un environnement homogène",
+        "Cible Make et scripts modulaires pour étendre facilement la configuration selon les clients"
+      ],
+      "keywords": ["Shell", "Automatisation", "Developer Experience", "Ubuntu"],
+      "url": "https://github.com/neilime/ubuntu-config",
+      "roles": ["Mainteneur"],
+      "entity": "Outillage personnel",
+      "type": "infrastructure"
+    }
+  ]
+}

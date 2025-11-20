@@ -28,6 +28,7 @@ npm run preview --prefix application
 - `make lint-fix` – Apply automated fixes via npm audit + Dockerized linter
 - `make build` – Run `astro check` and produce a production build
 - `make ci` – Run prepare, lint, and build sequentially
+- `npm run test --prefix application` – Execute the Vitest unit test suite
 - `npm run preview --prefix application` – Serve the built site for QA
 
 Most changes should happen inside `application/`. See `AGENTS.md` for detailed automation guardrails.
