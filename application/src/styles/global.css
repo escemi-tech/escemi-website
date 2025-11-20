@@ -1,2 +1,348 @@
 @import "tailwindcss";
 @import "./animations.css";
+
+@theme {
+  --font-sans:
+    "Source Sans Pro", "Helvetica Neue", "Segoe UI", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  --color-brand-primary: #1c3144;
+  --color-brand-primary-strong: #0f1f2e;
+  --color-brand-primary-soft: #274660;
+  --color-brand-secondary: #ecb807;
+  --color-brand-secondary-strong: #c69205;
+  --color-brand-secondary-soft: #ffd95a;
+  --color-surface: #0b1622;
+  --color-surface-elevated: #142538;
+  --color-surface-muted: #20354d;
+  --color-text-primary: #f5f8ff;
+  --color-text-muted: #cbd3e1;
+  --color-border-subtle: #2c455d;
+}
+
+@layer base {
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+
+  :root {
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .project-flip-card {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    transition:
+      border-color 0.4s ease,
+      transform 0.4s ease;
+    z-index: 0;
+    overflow: visible;
+    isolation: isolate;
+  }
+
+  .project-flip-card:not([open]) {
+    overflow: hidden;
+  }
+
+  .project-flip-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      120deg,
+      rgba(236, 184, 7, 0.35),
+      rgba(255, 217, 90, 0),
+      rgba(236, 184, 7, 0.35)
+    );
+    opacity: 0;
+    filter: blur(9px);
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: -1;
+    clip-path: inset(0 round 1.75rem);
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])::before {
+    opacity: 0.25;
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open]) {
+    transform: translateY(-0.35rem) scale(1.005);
+    border-color: rgba(236, 184, 7, 0.3);
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])
+    .project-flip-card__front {
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(
+      135deg,
+      rgba(20, 36, 52, 0.95),
+      rgba(30, 53, 74, 0.95)
+    );
+  }
+
+  .project-flip-card:focus-within {
+    border-color: rgba(236, 184, 7, 0.7);
+  }
+
+  .project-flip-card[open] {
+    z-index: 80;
+  }
+
+  .project-flip-card__front,
+  .project-flip-card__back {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 31, 46, 0.9),
+      rgba(28, 49, 68, 0.9)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.25rem;
+    min-height: 26rem;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .project-flip-card__front::-webkit-details-marker {
+    display: none;
+  }
+
+  .project-flip-card__front {
+    cursor: pointer;
+    flex: 1 1 auto;
+    transition:
+      transform 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.4s ease;
+    transform: perspective(1600px) rotateY(0deg);
+  }
+
+  .project-flip-card[open] .project-flip-card__front {
+    transform: perspective(1600px) rotateY(-180deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .project-flip-card__back {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(820px, calc(100vw - 2.5rem));
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    background: linear-gradient(
+      150deg,
+      rgba(15, 31, 46, 0.97),
+      rgba(39, 70, 96, 0.97)
+    );
+    padding-bottom: 3rem;
+    overflow: visible;
+    border-radius: 1.75rem;
+    transform: perspective(1600px) translate3d(-50%, -50%, 0) rotateY(180deg);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-flip-card[open] .project-flip-card__back {
+    transform: perspective(1600px) translate3d(-50%, -50%, 0) rotateY(0deg);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .project-flip-card__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 8, 14, 0.82);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: none;
+    z-index: 95;
+    cursor: pointer;
+  }
+
+  .project-flip-card[open] .project-flip-card__overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .project-flip-card__hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: rgba(236, 184, 7, 0.7);
+    transition:
+      color 0.3s ease,
+      letter-spacing 0.3s ease;
+  }
+
+  .project-flip-card__hint svg,
+  .project-flip-card__hint span {
+    transition: transform 0.35s ease;
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])
+    .project-flip-card__hint {
+    color: var(--color-brand-secondary);
+    letter-spacing: 0.45em;
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])
+    .project-flip-card__hint
+    span {
+    transform: translateX(0.2rem);
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])
+    .project-flip-card__hint
+    svg {
+    transform: translateX(0.4rem);
+  }
+
+  .project-flip-card__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .project-flip-card__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(236, 184, 7, 0.12);
+    border: 1px solid rgba(236, 184, 7, 0.4);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .project-flip-card__chip--ghost {
+    background: transparent;
+    border-style: dashed;
+    color: rgba(236, 184, 7, 0.8);
+  }
+
+  .project-flip-card__body {
+    flex: 0 0 auto;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .project-flip-card__backActions {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .project-flip-card__close {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.05);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .project-flip-card__close:hover {
+    background: rgba(236, 184, 7, 0.15);
+    border-color: rgba(236, 184, 7, 0.5);
+  }
+
+  .project-flip-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-brand-secondary);
+  }
+
+  .project-flip-card__cta:hover {
+    color: var(--color-brand-secondary-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-flip-card,
+    .project-flip-card * {
+      transition-duration: 0.01ms !important;
+    }
+
+    .project-flip-card__front,
+    .project-flip-card__back {
+      transform: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  [data-scroll-header] {
+    transition-property: opacity, transform, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-scroll-header][data-header-hidden="true"] {
+    opacity: 0;
+    transform: translateY(-1.5rem);
+    pointer-events: none;
+  }
+}

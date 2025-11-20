@@ -4,25 +4,214 @@ interface Props {
 	role: string;
 	description: string;
 	tags: string[];
+	highlights: string[];
+	url?: string;
+	entity?: string;
+	timeframe?: string;
+	index?: number;
 }
 
-const { name, role, description, tags } = Astro.props;
+const { name, role, description, tags, highlights, url, entity, timeframe, index = 0 } = Astro.props;
+const highlightItems = highlights ?? [];
+const tagPreview = tags.slice(0, 3);
+const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 ---
+<details class={`project-flip-card group h-full animate-fade-in-up`} style={`animation-delay: ${index * 120}ms;`}>
+	<summary class="project-flip-card__front">
+		<div class="flex flex-col gap-3">
+			<p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
+				{entity ?? 'Featured Mission'}
+			</p>
+			<h3 class="text-2xl md:text-3xl font-black text-white leading-tight">
+				{name}
+			</h3>
+			<p class="text-base text-gray-300/90">
+				{role}
+			</p>
+			{timeframe && (
+				<span class="project-flip-card__pill">
+					{timeframe}
+				</span>
+			)}
+		</div>
 
-<div class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 border border-gray-700 hover:border-cyan-400/50 transition-all duration-500 overflow-hidden">
-	<!-- Animated background on hover -->
-	<div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
-	
-	<div class="relative z-10">
-		<h3 class="text-2xl font-bold text-cyan-400 mb-2">{name}</h3>
-		<p class="text-sm font-semibold text-blue-400 mb-4 uppercase tracking-wider">{role}</p>
-		<p class="text-gray-300 text-sm leading-relaxed mb-6">
+		<p class="text-base text-gray-200/80 leading-relaxed">
 			{description}
 		</p>
+
 		<div class="flex flex-wrap gap-2">
-			{tags.map((tag) => (
-				<span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-medium border border-cyan-500/30">{tag}</span>
+			{tagPreview.map((tag) => (
+				<span class="project-flip-card__chip">
+					{tag}
+				</span>
 			))}
+			{extraTagCount > 0 && (
+				<span class="project-flip-card__chip project-flip-card__chip--ghost">
+					+{extraTagCount}
+				</span>
+			)}
+		</div>
+
+		<div class="project-flip-card__hint">
+			<span>Flip for the playbook</span>
+			<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" />
+			</svg>
+		</div>
+	</summary>
+
+	<div 
+		class="project-flip-card__overlay" 
+		role="button" 
+		aria-label={`Close ${name} case study`}
+		tabindex="0"
+		data-project-card-overlay
+	></div>
+
+	<div class="project-flip-card__back" role="group" aria-label={`${name} case study details`}>
+		<div class="project-flip-card__body space-y-5 text-gray-100/90">
+			<div class="flex flex-wrap items-center gap-3 justify-between">
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
+						Scope & impact
+					</p>
+					<p class="text-lg font-semibold text-white/90">
+						{role}
+					</p>
+				</div>
+				{timeframe && (
+					<span class="project-flip-card__pill">
+						{timeframe}
+					</span>
+				)}
+			</div>
+
+			<p class="text-base leading-relaxed text-gray-200/90">
+				{description}
+			</p>
+
+			{highlightItems.length > 0 && (
+				<div class="space-y-3">
+					<p class="text-sm font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">Highlights</p>
+					<ul class="space-y-3">
+						{highlightItems.map((item) => (
+							<li class="flex items-start gap-3 text-sm text-gray-100/90">
+								<span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-secondary"></span>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+
+			{tags.length > 0 && (
+				<div class="flex flex-wrap gap-2">
+					{tags.map((tag) => (
+						<span class="project-flip-card__chip">
+							{tag}
+						</span>
+					))}
+				</div>
+			)}
+		</div>
+
+		<div class="project-flip-card__backActions">
+			<button 
+				type="button"
+				class="project-flip-card__close"
+				data-project-card-close
+				aria-label={`Return to front of ${name}`}
+			>
+				<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+				</svg>
+				<span>Back</span>
+			</button>
+			{url && (
+				<a 
+					href={url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="project-flip-card__cta"
+				>
+					<span>Open full case study</span>
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" />
+					</svg>
+				</a>
+			)}
 		</div>
 	</div>
-</div>
+</details>
+
+<script is:inline>
+(() => {
+	const globalWindow = typeof window !== 'undefined' ? window : undefined;
+
+	if (globalWindow) {
+		const typedWindow = globalWindow;
+		if (!typedWindow.__escemiProjectCardHandlers) {
+			const closeProjectCard = (origin, source) => {
+				const details = origin.closest('.project-flip-card');
+				if (details?.hasAttribute('open')) {
+					console.log(`[ProjectCard] ${source} closing`, { origin });
+					details.removeAttribute('open');
+				}
+			};
+
+			const handleClick = (event) => {
+				const target = event.target;
+				if (!(target instanceof HTMLElement)) {
+					return;
+				}
+
+				if (target.matches('[data-project-card-overlay]')) {
+					event.preventDefault();
+					event.stopPropagation();
+					closeProjectCard(target, 'overlay click');
+					return;
+				}
+
+				const closeTrigger = target.closest('[data-project-card-close]');
+				if (closeTrigger instanceof HTMLElement) {
+					event.preventDefault();
+					event.stopPropagation();
+					closeProjectCard(closeTrigger, 'close button');
+					return;
+				}
+
+				const openCards = Array.from(document.querySelectorAll('.project-flip-card[open]'));
+				if (openCards.length === 0) {
+					return;
+				}
+
+				const clickedCard = target.closest('.project-flip-card');
+				if (!clickedCard || !openCards.includes(clickedCard)) {
+					openCards.forEach((card) => closeProjectCard(card, 'document outside click'));
+				}
+			};
+
+			const handleKeydown = (event) => {
+				const target = event.target;
+				if (target instanceof HTMLElement && target.matches('[data-project-card-overlay]') && (event.key === 'Enter' || event.key === ' ')) {
+					event.preventDefault();
+					event.stopPropagation();
+					closeProjectCard(target, 'overlay keypress');
+				}
+
+				if (event.key === 'Escape') {
+					const openCards = document.querySelectorAll<HTMLDetailsElement>('.project-flip-card[open]');
+					if (openCards.length > 0) {
+						console.log('[ProjectCard] escape pressed, closing all open cards');
+					}
+					openCards.forEach((card) => card.removeAttribute('open'));
+				}
+			};
+
+			document.addEventListener('click', handleClick, true);
+			document.addEventListener('keydown', handleKeydown, true);
+			typedWindow.__escemiProjectCardHandlers = true;
+		}
+	}
+})();
+</script>

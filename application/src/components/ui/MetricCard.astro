@@ -7,28 +7,200 @@ interface Props {
 }
 
 const { value, label, description, index } = Astro.props;
+
+const parseMetricValue = (source: string) => {
+	const match = source.match(/^([^0-9+\-.]*)([+-]?\d+(?:[.,]\d+)?)(.*)$/);
+	if (!match) {
+		return {
+			prefix: '',
+			suffix: '',
+			forcePlus: false,
+			numericValue: null,
+			decimals: 0,
+		};
+	}
+
+	const [, prefix = '', numericRaw = '', suffix = ''] = match;
+	const normalizedNumeric = numericRaw.replace(',', '.');
+	const numericValue = Number.parseFloat(normalizedNumeric);
+	if (!Number.isFinite(numericValue)) {
+		return {
+			prefix,
+			suffix,
+			forcePlus: false,
+			numericValue: null,
+			decimals: 0,
+		};
+	}
+
+	const decimals = (normalizedNumeric.split('.')[1] ?? '').length;
+	const forcePlus = numericRaw.trim().startsWith('+');
+	return {
+		prefix,
+		suffix,
+		forcePlus,
+		numericValue,
+		decimals,
+	};
+};
+
+const parsedMetric = parseMetricValue(value);
+const shouldAnimate = typeof parsedMetric.numericValue === 'number';
+const metricAttributes = shouldAnimate
+	? {
+		'data-metric-counter': true,
+		'data-metric-value': parsedMetric.numericValue?.toString() ?? '',
+		'data-metric-prefix': parsedMetric.prefix ?? '',
+		'data-metric-suffix': parsedMetric.suffix ?? '',
+		'data-metric-decimals': parsedMetric.decimals?.toString() ?? '0',
+		'data-metric-force-plus': parsedMetric.forcePlus ? 'true' : 'false',
+		'data-metric-original': value,
+	}
+	: {};
 ---
 
 <div 
 	class="group text-center transform hover:scale-110 transition-transform duration-300"
+	data-metric-card
 	style={`animation-delay: ${index * 150}ms`}
 >
 	<!-- Metric value with neon glow -->
 	<div class="relative inline-block mb-6">
-		<div class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-blue-500 group-hover:from-cyan-300 group-hover:to-blue-400 transition-all duration-300">
+		<div 
+			class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-brand-secondary to-brand-secondary-soft group-hover:from-brand-secondary-soft group-hover:to-brand-secondary transition-all duration-300"
+			{...metricAttributes}
+		>
 			{value}
 		</div>
 		<!-- Glow effect -->
-		<div class="absolute inset-0 text-7xl md:text-8xl font-black text-cyan-400 blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+		<div class="absolute inset-0 text-7xl md:text-8xl font-black text-brand-secondary blur-xl opacity-40 group-hover:opacity-70 transition-opacity"></div>
 	</div>
 
 	<div class="text-2xl font-bold text-white mb-3 tracking-wide">
 		{label}
 	</div>
-	<p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+	<p class="text-[color:var(--color-text-muted)] text-sm leading-relaxed max-w-xs mx-auto">
 		{description}
 	</p>
 
 	<!-- Decorative line -->
-	<div class="mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+	<div class="mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-brand-secondary to-transparent"></div>
 </div>
+
+<script is:inline>
+(() => {
+	const globalWindow = typeof window !== 'undefined' ? window : undefined;
+	if (!globalWindow) {
+		return;
+	}
+
+	const existingNamespace = globalWindow.__escemiMetricCounters;
+
+	if (existingNamespace && typeof existingNamespace.register === 'function') {
+		existingNamespace.register();
+		return;
+	}
+
+	const animationHandles = new WeakMap();
+	const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+	const formatValue = (value, decimals, forcePlus) => {
+		const formatted = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toString();
+		if (forcePlus && value >= 0) {
+			return `+${formatted}`;
+		}
+		return formatted;
+	};
+
+	const cancelAnimation = (element) => {
+		const handle = animationHandles.get(element);
+		if (typeof handle === 'number') {
+			globalWindow.cancelAnimationFrame(handle);
+			animationHandles.delete(element);
+		}
+		element.dataset.metricAnimating = 'false';
+	};
+
+	const resetDisplay = (element) => {
+		cancelAnimation(element);
+		const original = element.dataset.metricOriginal;
+		if (typeof original === 'string') {
+			element.textContent = original;
+		}
+	};
+
+	const animateCounter = (element) => {
+		const targetValue = Number.parseFloat(element.dataset.metricValue ?? '0');
+		if (!Number.isFinite(targetValue)) {
+			return;
+		}
+
+		const decimals = Number.parseInt(element.dataset.metricDecimals ?? '0', 10) || 0;
+		const prefix = element.dataset.metricPrefix ?? '';
+		const suffix = element.dataset.metricSuffix ?? '';
+		const forcePlus = element.dataset.metricForcePlus === 'true';
+		const duration = 1600;
+		const startValue = 0;
+		const startTime = performance.now();
+
+		element.dataset.metricAnimating = 'true';
+		element.textContent = `${prefix}${formatValue(startValue, decimals, forcePlus)}${suffix}`;
+
+		const updateFrame = (timestamp) => {
+			const elapsed = Math.min((timestamp - startTime) / duration, 1);
+			const easedProgress = easeOutCubic(elapsed);
+			const currentValue = startValue + (targetValue - startValue) * easedProgress;
+			element.textContent = `${prefix}${formatValue(currentValue, decimals, forcePlus)}${suffix}`;
+
+			if (elapsed < 1) {
+				const handle = globalWindow.requestAnimationFrame(updateFrame);
+				animationHandles.set(element, handle);
+			} else {
+				element.textContent = `${prefix}${formatValue(targetValue, decimals, forcePlus)}${suffix}`;
+				element.dataset.metricAnimating = 'false';
+				animationHandles.delete(element);
+			}
+		};
+
+		const handle = globalWindow.requestAnimationFrame(updateFrame);
+		animationHandles.set(element, handle);
+	};
+
+	const registerCounters = () => {
+		const cards = globalWindow.document.querySelectorAll('[data-metric-card]');
+		cards.forEach((card) => {
+			if (!(card instanceof HTMLElement)) {
+				return;
+			}
+			if (card.dataset.metricHoverBound === 'true') {
+				return;
+			}
+			const metricElement = card.querySelector('[data-metric-counter]');
+			if (!(metricElement instanceof HTMLElement)) {
+				card.dataset.metricHoverBound = 'true';
+				return;
+			}
+
+			const handleEnter = () => {
+				if (metricElement.dataset.metricAnimating === 'true') {
+					return;
+				}
+				animateCounter(metricElement);
+			};
+
+			const handleLeave = () => {
+				resetDisplay(metricElement);
+			};
+
+			card.addEventListener('mouseenter', handleEnter);
+			card.addEventListener('focusin', handleEnter);
+			card.addEventListener('mouseleave', handleLeave);
+			card.addEventListener('focusout', handleLeave);
+			card.dataset.metricHoverBound = 'true';
+		});
+	};
+
+	globalWindow.__escemiMetricCounters = { register: registerCounters };
+	registerCounters();
+	globalWindow.addEventListener('astro:page-load', registerCounters);
+})();
+</script>
