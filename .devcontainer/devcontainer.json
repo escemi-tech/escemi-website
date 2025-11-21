@@ -6,7 +6,10 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "forwardPorts": [4321, 5432],
+  "forwardPorts": [
+    4321,
+    5432
+  ],
   "secrets": {
     "COPILOT_MCP_OPENAI_API_KEY": {
       "description": "OpenAI's key to run GPT.",
@@ -33,15 +36,23 @@
         "servers": {
           "playwright": {
             "command": "npx",
-            "args": ["@playwright/mcp@latest"]
+            "args": [
+              "@playwright/mcp@latest"
+            ]
           },
           "lighthouse": {
             "command": "npx",
-            "args": ["lighthouse-mcp"]
+            "args": [
+              "lighthouse-mcp"
+            ]
           },
           "image-generator-gpt-image": {
             "command": "npx",
-            "args": ["imagegen-mcp", "--models", "gpt-image-1"],
+            "args": [
+              "imagegen-mcp",
+              "--models",
+              "gpt-image-1"
+            ],
             "env": {
               "OPENAI_API_KEY": "COPILOT_MCP_OPENAI_API_KEY"
             }
