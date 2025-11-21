@@ -63,6 +63,7 @@ export type LocaleCopy = {
     };
     experience: {
         title: string;
+        description: string;
         cta: string;
     };
     contact: {
@@ -85,7 +86,7 @@ type LocaleTranslations = {
     hero: { greeting: string; cta: string };
     services: { title: string };
     impact: { title: string };
-    experience: { title: string; cta: string };
+    experience: { title: string; description: string; cta: string };
     contact: {
         title: string;
         description: string;
@@ -99,7 +100,12 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
         hero: { greeting: 'Bonjour, je suis', cta: 'Discutons de votre projet' },
         services: { title: 'Expertise & Services' },
         impact: { title: 'Impact Mesurable' },
-        experience: { title: 'Projets & Réalisations', cta: 'Voir mon profil complet' },
+        experience: {
+            title: 'Projets & Réalisations',
+            description:
+                'Parcourez une sélection de cas clients. Retournez chaque projet pour révéler le playbook mission, les temps forts et un accès vers le récit complet.',
+            cta: 'Voir mon profil complet',
+        },
         contact: {
             title: 'Prêt à transformer vos projets ?',
             description:
@@ -115,7 +121,12 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
         hero: { greeting: "Hi, I'm", cta: "Let's discuss your project" },
         services: { title: 'Expertise & Services' },
         impact: { title: 'Measurable Impact' },
-        experience: { title: 'Projects & Achievements', cta: 'View full profile' },
+        experience: {
+            title: 'Projects & Achievements',
+            description:
+                'Dive into a curated set of case studies. Flip any project to reveal the mission playbook, highlight reel, and a jump to the full external write-up.',
+            cta: 'View full profile',
+        },
         contact: {
             title: 'Ready to transform your projects?',
             description:
@@ -217,6 +228,7 @@ function createLocaleCopy(locale: Locale): LocaleCopy {
         },
         experience: {
             title: translations.experience.title,
+            description: translations.experience.description,
             cta: translations.experience.cta,
         },
         contact: {
