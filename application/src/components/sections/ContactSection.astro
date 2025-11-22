@@ -1,0 +1,146 @@
+---
+import PrimaryButton from '../ui/PrimaryButton.astro';
+import type { LocaleCopy } from '../../../i18n.config';
+import type { ContactButton, ContactButtonIcon } from '../../lib/constants';
+
+interface Props {
+	contact: LocaleCopy['contact'];
+	contactButtons: ContactButton[];
+	ctaHref: string;
+	ctaIsExternal: boolean;
+}
+
+const { contact, contactButtons, ctaHref, ctaIsExternal } = Astro.props;
+
+const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[] }> = {
+	linkedin: {
+		viewBox: '0 0 24 24',
+		paths: ['M4 3c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4zm3.2 14H5.3V10h1.9zm-.95-9.1a1.1 1.1 0 111.1-1.1 1.1 1.1 0 01-1.1 1.1zM18.5 17H16.6v-4.3c0-1-.02-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V17h-1.9V10h1.8v1.1h.03c.25-.5.95-1.3 2.3-1.3 2.45 0 2.9 1.6 2.9 3.6z'],
+	},
+	collective: {
+		viewBox: '0 0 24 24',
+		paths: [
+			'M6 9a2 2 0 110-4 2 2 0 010 4z',
+			'M18 9a2 2 0 110-4 2 2 0 010 4z',
+			'M12 21a3.5 3.5 0 100-7 3.5 3.5 0 000 7z',
+			'M5 21v-2c0-2.2 4.7-3.2 7-3.2s7 1 7 3.2v2H5z',
+		],
+	},
+	malt: {
+		viewBox: '0 0 24 24',
+		paths: [
+			'M12 3l6 4v6l-6 4-6-4V7z',
+			'M6 8l12 0',
+			'M9 10l0 7',
+			'M15 10l0 7',
+		],
+	},
+	github: {
+		viewBox: '0 0 24 24',
+		paths: [
+			'M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.85.09-.68.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.74-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.04A9.29 9.29 0 0112 6.8a9.2 9.2 0 012.5.35c1.9-1.32 2.74-1.04 2.74-1.04.55 1.41.2 2.45.1 2.71.64.71 1.03 1.62 1.03 2.74 0 3.94-2.35 4.81-4.59 5.06.36.32.68.94.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.07 10.07 0 0022 12.26C22 6.58 17.52 2 12 2z',
+		],
+	},
+};
+---
+
+<section id="roles" class="relative py-32 bg-gradient-to-b from-brand-primary via-brand-primary-strong to-brand-primary-strong overflow-hidden scroll-mt-32">
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,184,7,0.15),transparent_55%)]"></div>
+
+	<div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+		<h2 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
+			{contact.title}
+		</h2>
+		<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+			{contact.description}
+		</p>
+
+		<div class="mb-16 flex justify-center">
+			<PrimaryButton 
+				href={ctaHref}
+				text={contact.cta}
+				external={ctaIsExternal}
+			/>
+		</div>
+
+		{contact.resumeLinks?.length > 0 && (
+			<div class="mb-12 flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-brand-secondary">
+				{contact.resumeLinks.map((resumeLink) => (
+					<a 
+						href={resumeLink.href}
+						download
+						class="inline-flex items-center gap-3 rounded-full border border-brand-secondary/60 bg-transparent px-6 py-3 text-brand-secondary transition-colors hover:bg-brand-secondary hover:text-brand-primary-strong"
+					>
+						<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14" />
+						</svg>
+						<span>{resumeLink.label}</span>
+					</a>
+				))}
+			</div>
+		)}
+
+		{contact.positions?.length > 0 && (
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16 text-left">
+				{contact.positions.map((position, index) => (
+					<div class="relative h-full rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur flex flex-col gap-4">
+						<span class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
+							{String(index + 1).padStart(2, '0')}
+						</span>
+						<h3 class="text-2xl font-black text-white leading-snug">
+							{position.title}
+						</h3>
+						<p class="text-sm text-gray-200/90 leading-relaxed">
+							{position.description}
+						</p>
+					</div>
+				))}
+			</div>
+		)}
+
+		<div class="flex flex-wrap justify-center gap-6">
+			{contactButtons.map((button) => {
+				const icon = BUTTON_ICONS[button.icon];
+				const isDisabled = !button.url;
+				const target = button.url ? '_blank' : undefined;
+				const rel = button.url ? 'noopener noreferrer' : undefined;
+				const disabledClasses = isDisabled ? 'pointer-events-none opacity-40' : '';
+
+				const iconMarkup = (
+					<svg class="w-5 h-5" viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
+						{icon.paths.map((path) => (
+							<path d={path}></path>
+						))}
+					</svg>
+				);
+
+				return button.outlined ? (
+					<a 
+						href={button.url ?? '#'}
+						target={target}
+						rel={rel}
+						aria-disabled={isDisabled}
+						class={`px-12 py-6 bg-transparent border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${disabledClasses}`}
+					>
+						{iconMarkup}
+						<span>{button.text}</span>
+					</a>
+				) : (
+					<a 
+						href={button.url ?? '#'}
+						target={target}
+						rel={rel}
+						aria-disabled={isDisabled}
+						class={`group relative px-12 py-6 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft hover:from-brand-secondary-soft hover:to-brand-secondary text-brand-primary-strong font-bold text-lg transition-all duration-300 shadow-[0_0_35px_rgba(236,184,7,0.35)] hover:shadow-[0_0_55px_rgba(236,184,7,0.45)] overflow-hidden flex items-center justify-center gap-3 ${disabledClasses}`}
+					>
+						<span class="relative z-10 flex items-center justify-center gap-3">
+							{iconMarkup}
+							<span>{button.text}</span>
+						</span>
+						<div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+					</a>
+				);
+			})}
+		</div>
+	</div>
+</section>

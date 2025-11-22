@@ -1,0 +1,60 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ProjectCard from '../ui/ProjectCard.astro';
+import type { LocaleCopy } from '../../../i18n.config';
+import type { FeaturedProjectCard } from '../../lib/constants';
+
+interface Props {
+	experience: LocaleCopy['experience'];
+	projects: FeaturedProjectCard[];
+	ctaHref: string;
+}
+
+const { experience, projects, ctaHref } = Astro.props;
+---
+
+<section id="projects" class="relative py-32 bg-brand-primary scroll-mt-32">
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+			<SectionHeader title={experience.title} />
+			<p class="text-base md:text-lg text-gray-200 max-w-2xl">
+				{experience.description}
+			</p>
+		</div>
+
+		<div class="grid gap-8 lg:grid-cols-2">
+			{projects.map((project, index) => (
+				<ProjectCard 
+					name={project.name}
+					role={project.role}
+					description={project.description}
+					tags={project.tags}
+					highlights={project.highlights}
+					url={project.url}
+					entity={project.entity}
+					timeframe={project.timeframe}
+					index={index}
+					flipHint={experience.flipHint}
+					backLabel={experience.backLabel}
+					openLabel={experience.openLabel}
+					scopeLabel={experience.scopeLabel}
+					highlightsLabel={experience.highlightsLabel}
+				/>
+			))}
+		</div>
+
+		<div class="mt-16 text-center">
+			<a 
+				href={ctaHref}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 text-brand-secondary hover:text-brand-secondary-soft font-bold text-lg transition-colors group"
+			>
+				<span>{experience.cta}</span>
+				<svg class="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>

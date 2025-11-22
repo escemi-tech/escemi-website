@@ -14,9 +14,23 @@ export const EXTERNAL_URLS = {
 } as const;
 
 
-const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
+const MONTH_LABELS: Record<ResumeLocale, readonly string[]> = {
+	en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+	fr: ['Janv.', 'Févr.', 'Mars', 'Avr.', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+} as const;
 
-type FeaturedProjectCard = {
+const PRESENT_LABEL: Record<ResumeLocale, string> = {
+	en: 'Present',
+	fr: 'Présent',
+} as const;
+
+const FALLBACK_RESUME_LOCALE: ResumeLocale = 'en';
+
+function resolveResumeLocale(locale?: ResumeLocale): ResumeLocale {
+	return locale && MONTH_LABELS[locale] ? locale : FALLBACK_RESUME_LOCALE;
+}
+
+export type FeaturedProjectCard = {
 	name: string;
 	role: string;
 	description: string;
@@ -27,7 +41,7 @@ type FeaturedProjectCard = {
 	timeframe?: string;
 };
 
-function formatMonthYear(value?: string | null): string | undefined {
+function formatMonthYear(value: string | null | undefined, locale?: ResumeLocale): string | undefined {
 	if (!value) {
 		return undefined;
 	}
@@ -39,13 +53,16 @@ function formatMonthYear(value?: string | null): string | undefined {
 		return year;
 	}
 	const monthIndex = Number(month) - 1;
-	const monthLabel = MONTH_LABELS[monthIndex];
+	const resolvedLocale = resolveResumeLocale(locale);
+	const monthLabel = MONTH_LABELS[resolvedLocale]?.[monthIndex];
 	return monthLabel ? `${monthLabel} ${year}` : year;
 }
 
-function formatProjectTimeframe(project: ResumeProject): string | undefined {
-	const start = formatMonthYear(project.startDate);
-	const end = formatMonthYear(project.endDate) ?? (project.endDate ? undefined : 'Present');
+function formatProjectTimeframe(project: ResumeProject, locale?: ResumeLocale): string | undefined {
+	const resolvedLocale = resolveResumeLocale(locale);
+	const start = formatMonthYear(project.startDate, resolvedLocale);
+	const end =
+		formatMonthYear(project.endDate, resolvedLocale) ?? (project.endDate ? undefined : PRESENT_LABEL[resolvedLocale]);
 	if (!start && !end) {
 		return undefined;
 	}
@@ -69,6 +86,7 @@ export type ContactButton = {
 
 // Project data configuration
 export function getFeaturedProjectCards(locale?: ResumeLocale, limit = 4): FeaturedProjectCard[] {
+	const resolvedLocale = resolveResumeLocale(locale);
 	return getFeaturedProjects(locale, limit).map((project) => ({
 		name: project.name,
 		role: project.roles?.[0] ?? project.entity ?? project.type ?? '',
@@ -77,7 +95,7 @@ export function getFeaturedProjectCards(locale?: ResumeLocale, limit = 4): Featu
 		highlights: project.highlights ?? [],
 		url: project.url,
 		entity: project.entity,
-		timeframe: formatProjectTimeframe(project),
+		timeframe: formatProjectTimeframe(project, resolvedLocale),
 	}));
 }
 

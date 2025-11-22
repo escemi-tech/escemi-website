@@ -2,11 +2,7 @@
 interface Props {
 	value: string;
 	label: string;
-	description: string;
-	index: number;
 }
-
-const { value, label, description, index } = Astro.props;
 
 const parseMetricValue = (source: string) => {
 	const match = source.match(/^([^0-9+\-.]*)([+-]?\d+(?:[.,]\d+)?)(.*)$/);
@@ -44,6 +40,7 @@ const parseMetricValue = (source: string) => {
 	};
 };
 
+const { value, label } = Astro.props;
 const parsedMetric = parseMetricValue(value);
 const shouldAnimate = typeof parsedMetric.numericValue === 'number';
 const metricAttributes = shouldAnimate
@@ -60,42 +57,28 @@ const metricAttributes = shouldAnimate
 ---
 
 <div 
-	class="group text-center transform hover:scale-110 transition-transform duration-300"
-	data-metric-card
-	style={`animation-delay: ${index * 150}ms`}
+	class="signature-stat-card group relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 px-6 py-8 backdrop-blur transition-all duration-300 hover:border-brand-secondary/60 hover:bg-white/10"
+	data-signature-stat-card
 >
-	<!-- Metric value with neon glow -->
-	<div class="relative inline-block mb-6">
-		<div 
-			class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-brand-secondary to-brand-secondary-soft group-hover:from-brand-secondary-soft group-hover:to-brand-secondary transition-all duration-300"
-			{...metricAttributes}
-		>
+	<div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-brand-secondary/25 via-brand-secondary-soft/20 to-transparent transition-opacity duration-500"></div>
+	<div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-80 animate-none group-hover:animate-[stat-shimmer_2.8s_ease-in-out_infinite] transition-opacity"></div>
+	<div class="relative z-10 flex flex-col gap-2 text-left">
+		<span class="stat-number text-4xl md:text-5xl font-black text-white tracking-tight" {...metricAttributes}>
 			{value}
-		</div>
-		<!-- Glow effect -->
-		<div class="absolute inset-0 text-7xl md:text-8xl font-black text-brand-secondary blur-xl opacity-40 group-hover:opacity-70 transition-opacity"></div>
+		</span>
+		<span class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-secondary-soft">
+			{label}
+		</span>
 	</div>
-
-	<div class="text-2xl font-bold text-white mb-3 tracking-wide">
-		{label}
-	</div>
-	<p class="text-[color:var(--color-text-muted)] text-sm leading-relaxed max-w-xs mx-auto">
-		{description}
-	</p>
-
-	<!-- Decorative line -->
-	<div class="mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-brand-secondary to-transparent"></div>
 </div>
 
 <script is:inline>
 (() => {
 	const globalWindow = typeof window !== 'undefined' ? window : undefined;
-	if (!globalWindow) {
+	if (!globalWindow)
 		return;
-	}
 
-	const existingNamespace = globalWindow.__escemiMetricCounters;
-
+	const existingNamespace = globalWindow.__escemiSignatureStatCards;
 	if (existingNamespace && typeof existingNamespace.register === 'function') {
 		existingNamespace.register();
 		return;
@@ -105,43 +88,22 @@ const metricAttributes = shouldAnimate
 	const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 	const formatValue = (value, decimals, forcePlus) => {
 		const formatted = decimals > 0 ? value.toFixed(decimals) : Math.round(value).toString();
-		if (forcePlus && value >= 0) {
+		if (forcePlus && value >= 0)
 			return `+${formatted}`;
-		}
 		return formatted;
-	};
-
-	const cancelAnimation = (element) => {
-		const handle = animationHandles.get(element);
-		if (typeof handle === 'number') {
-			globalWindow.cancelAnimationFrame(handle);
-			animationHandles.delete(element);
-		}
-		element.dataset.metricAnimating = 'false';
-	};
-
-	const resetDisplay = (element) => {
-		cancelAnimation(element);
-		const original = element.dataset.metricOriginal;
-		if (typeof original === 'string') {
-			element.textContent = original;
-		}
 	};
 
 	const animateCounter = (element) => {
 		const targetValue = Number.parseFloat(element.dataset.metricValue ?? '0');
-		if (!Number.isFinite(targetValue)) {
+		if (!Number.isFinite(targetValue))
 			return;
-		}
-
 		const decimals = Number.parseInt(element.dataset.metricDecimals ?? '0', 10) || 0;
 		const prefix = element.dataset.metricPrefix ?? '';
 		const suffix = element.dataset.metricSuffix ?? '';
 		const forcePlus = element.dataset.metricForcePlus === 'true';
 		const duration = 1600;
 		const startValue = 0;
-		const startTime = performance.now();
-
+		const startTime = globalWindow.performance.now();
 		element.dataset.metricAnimating = 'true';
 		element.textContent = `${prefix}${formatValue(startValue, decimals, forcePlus)}${suffix}`;
 
@@ -166,68 +128,39 @@ const metricAttributes = shouldAnimate
 	};
 
 	const observer = new IntersectionObserver(
-		(entries) => {
+		(entries, obs) => {
 			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
+				if (!entry.isIntersecting)
 					return;
-				}
 				const card = entry.target;
-				if (!(card instanceof HTMLElement)) {
+				if (!(card instanceof HTMLElement))
 					return;
-				}
+				card.classList.add('is-visible');
 				const metricElement = card.querySelector('[data-metric-counter]');
-				if (metricElement instanceof HTMLElement) {
-					if (metricElement.dataset.metricAnimating !== 'true' && metricElement.dataset.metricAnimated !== 'true') {
-						animateCounter(metricElement);
-						metricElement.dataset.metricAnimated = 'true';
-					}
+				if (metricElement instanceof HTMLElement && metricElement.dataset.metricAnimated !== 'true') {
+					animateCounter(metricElement);
+					metricElement.dataset.metricAnimated = 'true';
 				}
-				observer.unobserve(card);
+				obs.unobserve(card);
 			});
 		},
 		{ threshold: 0.4 }
 	);
 
-	const registerCounters = () => {
-		const cards = globalWindow.document.querySelectorAll('[data-metric-card]');
+	const register = () => {
+		const cards = globalWindow.document.querySelectorAll('[data-signature-stat-card]');
 		cards.forEach((card) => {
-			if (!(card instanceof HTMLElement)) {
+			if (!(card instanceof HTMLElement))
 				return;
-			}
-			if (card.dataset.metricHoverBound !== 'true') {
-				const metricElement = card.querySelector('[data-metric-counter]');
-				if (metricElement instanceof HTMLElement) {
-					const handleEnter = () => {
-						if (metricElement.dataset.metricAnimating === 'true') {
-							return;
-						}
-						animateCounter(metricElement);
-					};
-
-					const handleLeave = () => {
-						resetDisplay(metricElement);
-						metricElement.dataset.metricAnimated = 'false';
-					};
-
-					card.addEventListener('mouseenter', handleEnter);
-					card.addEventListener('focusin', handleEnter);
-					card.addEventListener('mouseleave', handleLeave);
-					card.addEventListener('focusout', handleLeave);
-					card.dataset.metricHoverBound = 'true';
-				} else {
-					card.dataset.metricHoverBound = 'true';
-				}
-			}
-
-			if (card.dataset.metricObserved !== 'true') {
-				observer.observe(card);
-				card.dataset.metricObserved = 'true';
-			}
+			if (card.dataset.signatureStatRegistered === 'true')
+				return;
+			card.dataset.signatureStatRegistered = 'true';
+			observer.observe(card);
 		});
 	};
 
-	globalWindow.__escemiMetricCounters = { register: registerCounters };
-	registerCounters();
-	globalWindow.addEventListener('astro:page-load', registerCounters);
+	globalWindow.__escemiSignatureStatCards = { register };
+	register();
+	globalWindow.addEventListener('astro:page-load', register);
 })();
 </script>

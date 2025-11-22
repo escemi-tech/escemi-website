@@ -101,6 +101,21 @@
   }
 }
 
+@keyframes stat-number-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Animation classes */
 .animate-radar-pulse {
   animation: radar-pulse 4s ease-in-out infinite;
@@ -144,6 +159,15 @@
 
 .animate-stat-shimmer {
   animation: stat-shimmer 2.8s ease-in-out infinite;
+}
+
+.signature-stat-card .stat-number {
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+}
+
+.signature-stat-card.is-visible .stat-number {
+  animation: stat-number-pop 0.65s ease-out forwards;
 }
 
 .bg-size-300 {

@@ -1,0 +1,32 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import type { LocaleCopy } from '../../../i18n.config';
+
+interface Props {
+	services: LocaleCopy['services'];
+}
+
+const { services } = Astro.props;
+---
+
+<section id="expertise" class="relative py-32 bg-brand-primary-strong overflow-hidden scroll-mt-32">
+	<div class="absolute inset-0 opacity-10">
+		<div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(236,184,7,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,184,7,0.12)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+	</div>
+
+	<div class="relative z-10 max-w-7xl mx-auto px-6">
+		<SectionHeader title={services.title} />
+
+		<div class="grid md:grid-cols-2 gap-6">
+			{services.items.map((service, index) => (
+				<ServiceCard 
+					title={service.title}
+					description={service.description}
+					index={index}
+					isLarge={index === 0}
+				/>
+			))}
+		</div>
+	</div>
+</section>

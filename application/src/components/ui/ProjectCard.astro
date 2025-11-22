@@ -9,9 +9,29 @@ interface Props {
 	entity?: string;
 	timeframe?: string;
 	index?: number;
+	flipHint?: string;
+	backLabel?: string;
+	openLabel?: string;
+	scopeLabel?: string;
+	highlightsLabel?: string;
 }
 
-const { name, role, description, tags, highlights, url, entity, timeframe, index = 0 } = Astro.props;
+const {
+	name,
+	role,
+	description,
+	tags,
+	highlights,
+	url,
+	entity,
+	timeframe,
+	index = 0,
+	flipHint = 'Flip for the playbook',
+	backLabel = 'Back',
+	openLabel = 'Open full case study',
+	scopeLabel = 'Scope & impact',
+	highlightsLabel = 'Highlights',
+} = Astro.props;
 const highlightItems = highlights ?? [];
 const tagPreview = tags.slice(0, 3);
 const extraTagCount = Math.max(0, tags.length - tagPreview.length);
@@ -53,7 +73,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 		</div>
 
 		<div class="project-flip-card__hint">
-			<span>Flip for the playbook</span>
+			<span>{flipHint}</span>
 			<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" />
 			</svg>
@@ -73,7 +93,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 			<div class="flex flex-wrap items-center gap-3 justify-between">
 				<div>
 					<p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
-						Scope & impact
+						{scopeLabel}
 					</p>
 					<p class="text-lg font-semibold text-white/90">
 						{role}
@@ -92,7 +112,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 
 			{highlightItems.length > 0 && (
 				<div class="space-y-3">
-					<p class="text-sm font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">Highlights</p>
+					<p class="text-sm font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">{highlightsLabel}</p>
 					<ul class="space-y-3">
 						{highlightItems.map((item) => (
 							<li class="flex items-start gap-3 text-sm text-gray-100/90">
@@ -125,7 +145,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 				<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 				</svg>
-				<span>Back</span>
+				<span>{backLabel}</span>
 			</button>
 			{url && (
 				<a 
@@ -134,7 +154,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 					rel="noopener noreferrer"
 					class="project-flip-card__cta"
 				>
-					<span>Open full case study</span>
+					<span>{openLabel}</span>
 					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" />
 					</svg>

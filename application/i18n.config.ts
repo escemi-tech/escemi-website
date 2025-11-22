@@ -64,6 +64,11 @@ export type LocaleCopy = {
     experience: {
         title: string;
         description: string;
+        flipHint: string;
+        backLabel: string;
+        openLabel: string;
+        scopeLabel: string;
+        highlightsLabel: string;
         cta: string;
     };
     contact: {
@@ -80,18 +85,33 @@ export type LocaleCopy = {
             href: string;
         }>;
     };
+    footer: {
+        rights: string;
+    };
 };
 
 type LocaleTranslations = {
     hero: { greeting: string; cta: string };
     services: { title: string };
     impact: { title: string };
-    experience: { title: string; description: string; cta: string };
+    experience: {
+        title: string;
+        description: string;
+        flipHint: string;
+        backLabel: string;
+        openLabel: string;
+        scopeLabel: string;
+        highlightsLabel: string;
+        cta: string;
+    };
     contact: {
         title: string;
         description: string;
         cta: string;
         resumeLinkLabels: Record<Locale, string>;
+    };
+    footer: {
+        rights: string;
     };
 };
 
@@ -104,6 +124,11 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
             title: 'Projets & Réalisations',
             description:
                 'Parcourez une sélection de cas clients. Retournez chaque projet pour révéler le playbook mission, les temps forts et un accès vers le récit complet.',
+            flipHint: 'Retournez pour découvrir le playbook',
+            backLabel: 'Retour',
+            openLabel: 'Lire l’étude complète',
+            scopeLabel: 'Périmètre & impact',
+            highlightsLabel: 'Temps forts',
             cta: 'Voir mon profil complet',
         },
         contact: {
@@ -116,6 +141,9 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
                 en: 'Télécharger le CV (EN)',
             },
         },
+        footer: {
+            rights: 'Tous droits réservés.',
+        },
     },
     en: {
         hero: { greeting: "Hi, I'm", cta: "Let's discuss your project" },
@@ -125,6 +153,11 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
             title: 'Projects & Achievements',
             description:
                 'Dive into a curated set of case studies. Flip any project to reveal the mission playbook, highlight reel, and a jump to the full external write-up.',
+            flipHint: 'Flip for the playbook',
+            backLabel: 'Back',
+            openLabel: 'Open full case study',
+            scopeLabel: 'Scope & impact',
+            highlightsLabel: 'Highlights',
             cta: 'View full profile',
         },
         contact: {
@@ -136,6 +169,9 @@ const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
                 fr: 'Download resume (FR)',
                 en: 'Download resume (EN)',
             },
+        },
+        footer: {
+            rights: 'All rights reserved.',
         },
     },
 };
@@ -229,6 +265,11 @@ function createLocaleCopy(locale: Locale): LocaleCopy {
         experience: {
             title: translations.experience.title,
             description: translations.experience.description,
+            flipHint: translations.experience.flipHint,
+            backLabel: translations.experience.backLabel,
+            openLabel: translations.experience.openLabel,
+            scopeLabel: translations.experience.scopeLabel,
+            highlightsLabel: translations.experience.highlightsLabel,
             cta: translations.experience.cta,
         },
         contact: {
@@ -237,6 +278,9 @@ function createLocaleCopy(locale: Locale): LocaleCopy {
             positions: CONTACT_POSITIONS[locale],
             cta: translations.contact.cta,
             resumeLinks,
+        },
+        footer: {
+            rights: translations.footer.rights,
         },
     };
 }

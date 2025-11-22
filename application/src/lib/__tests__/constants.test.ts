@@ -76,10 +76,10 @@ describe('getFeaturedProjectCards', () => {
         expect(cards).toHaveLength(mockProjects.length);
 
         expect(cards.map((card) => ({ name: card.name, timeframe: card.timeframe }))).toEqual([
-            { name: 'Alpha', timeframe: 'Jan 2024 — Apr 2024' },
-            { name: 'Beta', timeframe: 'Jun 2024 — Present' },
-            { name: 'Gamma', timeframe: 'May 2024' },
-            { name: 'Delta', timeframe: 'Dec 2023' },
+            { name: 'Alpha', timeframe: 'Janv. 2024 — Avr. 2024' },
+            { name: 'Beta', timeframe: 'Juin 2024 — Présent' },
+            { name: 'Gamma', timeframe: 'Mai 2024' },
+            { name: 'Delta', timeframe: 'Déc. 2023' },
         ]);
     });
 
