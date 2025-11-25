@@ -1,4 +1,4 @@
-import { getImpactMetrics, getPitchLines, getResume, getSkillSummaries } from './src/data/resumes';
+import { getImpactMetrics, getResume, getSkillSummaries } from './src/data/resumes';
 
 export const SUPPORTED_LOCALES = ['fr', 'en'] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
@@ -42,7 +42,7 @@ export type LocaleCopy = {
         title: string;
         baseline: string;
         cta: string;
-        pitch: string[];
+        summary: string;
         signatureNumbers: string[];
         image?: string;
     };
@@ -221,9 +221,8 @@ const CONTACT_POSITIONS: Record<Locale, ContactPosition[]> = {
 function createLocaleCopy(locale: Locale): LocaleCopy {
     const translations = TRANSLATIONS[locale];
     const resume = getResume(locale);
-    const heroBaseline = resume.basics?.baseline ?? resume.basics?.pitch?.[0] ?? resume.basics.summary;
+    const heroBaseline = resume.basics?.baseline ?? '';
     const signatureNumbers = (resume.basics?.signatureNumbers ?? []).filter((item) => Boolean(item?.trim?.()));
-    const pitchLines = getPitchLines(locale);
     const contactDescription = translations.contact.description;
     const serviceItems = getSkillSummaries(locale).map((skill) => ({
         title: skill.name,
@@ -250,7 +249,7 @@ function createLocaleCopy(locale: Locale): LocaleCopy {
             title: resume.basics.label,
             baseline: heroBaseline,
             cta: translations.hero.cta,
-            pitch: pitchLines,
+            summary: resume.basics.summary,
             signatureNumbers,
             image: resume.basics.image,
         },

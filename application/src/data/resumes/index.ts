@@ -64,7 +64,3 @@ export function getFeaturedProjects(locale?: ResumeLocale, limit?: number): Resu
 export function getSkillSummaries(locale?: ResumeLocale): ResumeSkill[] {
     return getResume(locale).skills ?? [];
 }
-
-export function getPitchLines(locale?: ResumeLocale): string[] {
-    return getResume(locale).basics?.pitch ?? [];
-}

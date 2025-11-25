@@ -36,14 +36,9 @@
       "15+ teams mentored",
       "20+ platforms delivered"
     ],
-    "pitch": [
-      "I help companies industrialize their development and elevate their teams' technical capabilities.",
-      "On-demand CTO and Senior Lead Dev for missions that need structure, velocity, and clean execution.",
-      "Node.js & PHP expert with deep mastery of NestJS, Symfony, and Laravel frameworks."
-    ],
     "url": "https://www.escemi.com",
     "image": "https://raw.githubusercontent.com/escemi-tech/.github/main/headshots/primary.jpg",
-    "summary": "I combine technical coaching, DevX excellence, and cloud-native modernization to transform product quality and velocity while keeping teams autonomous and accountable.",
+    "summary": "I combine technical coaching, DevX excellence, and cloud-native modernization to transform product quality and velocity while keeping teams autonomous and accountable.\n\nI help companies industrialize their development and elevate their teams' technical capabilities.\nOn-demand CTO and Senior Lead Dev for missions that need structure, velocity, and clean execution.\nNode.js & PHP expert with deep mastery of NestJS, Symfony, and Laravel frameworks.",
     "location": {
       "city": "Aix-en-Provence",
       "region": "Provence-Alpes-Côte d'Azur",
@@ -81,10 +76,10 @@
       "startDate": "2022-10",
       "type": "freelance",
       "featured": false,
-      "summary": "Fractional CTO within the Build & Run collective, parachuted into scale-ups needing structure, modern DevX, and senior guidance. Designed reference cloud-native architectures, reusable CI/CD stacks, and leadership rituals that align squads around measurable delivery outcomes.",
+      "summary": "Fractional CTO within the Build & Run collective, parachuted into scale-ups needing structure, modern DevX, and senior guidance. Designed reference cloud-native applications, reusable CI/CD stacks, and leadership rituals that align squads around measurable delivery outcomes.",
       "highlights": [
         "Challenge: multi-squad delivery slowed by heterogeneous stacks and manual releases",
-        "Actions: standardized Kubernetes/Terraform blueprints, reusable GitHub/GitLab CI/CD templates, DevX scorecards, and leadership rituals",
+        "Actions: standardized \"12 factors Application\" blueprints, reusable GitHub/GitLab CI/CD templates, DevX scorecards, and leadership rituals",
         "Results: +35% velocity, -40% debt, 5x releases, onboarding cut from 4 weeks to 1 with <5% change failure rate"
       ]
     },
