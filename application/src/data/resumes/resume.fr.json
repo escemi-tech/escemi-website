@@ -4,6 +4,7 @@
     "canonical": "https://raw.githubusercontent.com/escemi-tech/.github/main/resume/resume.fr.json",
     "version": "2025.11.16.6",
     "lastModified": "2025-11-16T11:15:00Z",
+    "locale": "fr",
     "impact": [
       {
         "label": "Gain de vélocité",
@@ -76,7 +77,7 @@
       "startDate": "2022-10",
       "type": "freelance",
       "featured": false,
-      "summary": "CTO fractionné au sein du collectif Build & Run, parachuté chez des scale-ups qui ont besoin de structure, de DevX moderne et d'un leadership senior. Je conçois des applications cloud-native de référence, des stacks CI/CD mutualisées et des rituels de gouvernance qui alignent les squads sur des indicateurs mesurables.",
+      "summary": "CTO Freelance au sein du collectif Build & Run, engagé chez des scale-ups qui ont besoin de structure, de DevX moderne et d'un leadership senior. Je conçois des applications cloud-native de référence, des stacks CI/CD mutualisées et des rituels de gouvernance qui alignent les squads sur des indicateurs mesurables.",
       "highlights": [
         "Défi : delivery multi-squads ralentie par stacks hétérogènes et releases manuelles",
         "Actions : blueprints \"12 factors Application\", templates GitHub/GitLab CI/CD réutilisables, scorecards DevX et rituels de leadership",
