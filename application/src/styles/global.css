@@ -35,12 +35,229 @@
     color: var(--color-text-primary);
   }
 
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
   :root {
     color: var(--color-text-primary);
   }
 }
 
 @layer components {
+  [data-scroll-link][aria-current="true"] {
+    color: var(--color-brand-secondary);
+    border-color: rgba(236, 184, 7, 0.4);
+  }
+
+  .project-parallax-decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .project-parallax-decor__grid {
+    position: absolute;
+    inset: -50% 0;
+    background-image:
+      linear-gradient(rgba(236, 184, 7, 0.08) 1px, transparent 1px),
+      linear-gradient(to right, rgba(236, 184, 7, 0.06) 1px, transparent 1px);
+    background-size: 160px 160px;
+    opacity: 0.35;
+  }
+
+  .project-parallax-decor__beam {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 217, 90, 0.5),
+      transparent
+    );
+    filter: blur(0.5px);
+    opacity: 0.5;
+  }
+
+  .project-parallax-decor__beam--one {
+    top: 20%;
+  }
+
+  .project-parallax-decor__beam--two {
+    bottom: 15%;
+  }
+
+  .project-parallax-decor__orb {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 999px;
+    filter: blur(120px);
+  }
+
+  .project-parallax-decor__orb--left {
+    top: 5%;
+    left: -10%;
+    background: radial-gradient(
+      circle,
+      rgba(236, 184, 7, 0.35),
+      transparent 65%
+    );
+  }
+
+  .project-parallax-decor__orb--right {
+    bottom: 0;
+    right: -8%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 217, 90, 0.28),
+      transparent 70%
+    );
+  }
+
+  .project-parallax-rail {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-parallax-rail__line {
+    width: 1px;
+    height: 130%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(236, 184, 7, 0.3) 15%,
+      rgba(236, 184, 7, 0.7) 55%,
+      transparent
+    );
+    opacity: 0.4;
+  }
+
+  .project-parallax-rail__glow {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    margin-top: 40px;
+    background: radial-gradient(
+      circle,
+      rgba(236, 184, 7, 0.45),
+      transparent 70%
+    );
+    filter: blur(12px);
+    opacity: 0.35;
+  }
+
+  .project-parallax-grid {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    z-index: 1;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .project-parallax-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+  }
+
+  .project-card-wrapper {
+    position: relative;
+    padding-top: 1.25rem;
+  }
+
+  .project-card-wrapper::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(236, 184, 7, 0.3),
+      transparent
+    );
+    opacity: 0.4;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .project-card-wrapper::before {
+      display: block;
+    }
+  }
+
+  .project-card-wrapper--offset {
+    margin-top: 4rem;
+  }
+
+  .project-card-seq {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: rgba(236, 184, 7, 0.65);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-lede {
+    position: relative;
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 31, 46, 0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (min-width: 1024px) {
+    .project-lede {
+      grid-template-columns: 1fr 1.25fr;
+      align-items: center;
+    }
+  }
+
+  .project-lede__body p {
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .project-cta {
+    position: relative;
+    z-index: 2;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
   .project-flip-card {
     position: relative;
     display: block;
@@ -103,7 +320,7 @@
   }
 
   .project-flip-card[open] {
-    z-index: 80;
+    z-index: 900;
   }
 
   .project-flip-card__front,
@@ -164,7 +381,7 @@
     overflow: visible;
     border-radius: 1.75rem;
     transform: perspective(1600px) translate3d(-50%, -50%, 0) rotateY(180deg);
-    z-index: 100;
+    z-index: 1000;
     opacity: 0;
     pointer-events: none;
     transition:
@@ -172,6 +389,20 @@
       opacity 0.4s ease;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 35px 120px rgba(0, 0, 0, 0.6),
+      0 0 60px rgba(12, 22, 34, 0.85);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.35);
+      opacity: 0.8;
+    }
   }
 
   .project-flip-card[open] .project-flip-card__back {
@@ -183,14 +414,24 @@
   .project-flip-card__overlay {
     position: fixed;
     inset: 0;
-    background: rgba(4, 8, 14, 0.82);
-    backdrop-filter: blur(12px);
+    background:
+      radial-gradient(
+        circle at 50% 35%,
+        rgba(255, 255, 255, 0.22),
+        transparent 55%
+      ),
+      linear-gradient(140deg, rgba(11, 18, 30, 0.5), rgba(2, 5, 11, 0.32));
+    backdrop-filter: blur(12px) saturate(1.2);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      background 0.4s ease,
+      backdrop-filter 0.4s ease;
     border: none;
-    z-index: 95;
+    z-index: 950;
     cursor: pointer;
+    box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.35);
   }
 
   .project-flip-card[open] .project-flip-card__overlay {

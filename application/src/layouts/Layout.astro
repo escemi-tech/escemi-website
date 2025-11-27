@@ -70,7 +70,7 @@ const footerRights = getCopyForLocale(locale).footer.rights;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-surface antialiased overflow-x-hidden font-sans">
+	<body class="bg-surface antialiased overflow-x-hidden font-sans" data-scroll-root>
 		<!-- Futuristic fixed header -->
 		<header data-scroll-header class="fixed top-0 left-0 right-0 z-50 bg-brand-primary-strong/90 backdrop-blur-xl border-b border-brand-secondary/30 transition-all duration-500">
 			<div class="max-w-7xl mx-auto px-6 py-5">
@@ -92,6 +92,7 @@ const footerRights = getCopyForLocale(locale).footer.rights;
 								<li>
 									<a 
 										href={link.href}
+										data-scroll-link={link.href}
 										class="px-4 py-2 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300"
 									>
 										{link.label}
@@ -181,54 +182,6 @@ const footerRights = getCopyForLocale(locale).footer.rights;
 				</div>
 			</div>
 		</footer>
-
-		<script is:inline>
-		(() => {
-			const globalWindow = typeof window !== 'undefined' ? window : undefined;
-			if (!globalWindow) {
-				return;
-			}
-
-			const header = document.querySelector('[data-scroll-header]');
-			if (!header) {
-				return;
-			}
-
-			let lastScrollY = globalWindow.scrollY;
-			let ticking = false;
-			const threshold = 12;
-			const revealOffset = 80;
-
-			const updateHeaderState = () => {
-				const currentY = globalWindow.scrollY;
-				const scrollingDown = currentY > lastScrollY + threshold;
-				const nearTop = currentY <= revealOffset;
-
-				if (scrollingDown && !nearTop) {
-					header.setAttribute('data-header-hidden', 'true');
-				} else if (currentY < lastScrollY - threshold || nearTop) {
-					header.removeAttribute('data-header-hidden');
-				}
-
-				lastScrollY = currentY;
-				ticking = false;
-			};
-
-			const handleScroll = () => {
-				if (ticking) {
-					return;
-				}
-				ticking = true;
-				globalWindow.requestAnimationFrame(updateHeaderState);
-			};
-
-			globalWindow.addEventListener('scroll', handleScroll, { passive: true });
-			globalWindow.addEventListener('astro:page-load', () => {
-				lastScrollY = globalWindow.scrollY;
-				updateHeaderState();
-			});
-		})();
-		</script>
 
 	</body>
 </html>

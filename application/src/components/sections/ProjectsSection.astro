@@ -11,39 +11,66 @@ interface Props {
 }
 
 const { experience, projects, ctaHref } = Astro.props;
+const formatSequenceNumber = (index: number) => String(index + 1).padStart(2, '0');
 ---
 
-<section id="projects" class="relative py-32 bg-brand-primary scroll-mt-32">
-	<div class="max-w-7xl mx-auto px-6">
-		<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-			<SectionHeader title={experience.title} />
-			<p class="text-base md:text-lg text-gray-200 max-w-2xl">
-				{experience.description}
-			</p>
+<section id="projects" data-scroll-section="#projects" class="relative py-32 bg-brand-primary scroll-mt-32 overflow-hidden">
+	<div class="project-parallax-decor" aria-hidden="true">
+		<div class="project-parallax-decor__grid" data-parallax-speed="0.2"></div>
+		<div class="project-parallax-decor__beam project-parallax-decor__beam--one" data-parallax-speed="0.35"></div>
+		<div class="project-parallax-decor__beam project-parallax-decor__beam--two" data-parallax-speed="0.55"></div>
+		<div class="project-parallax-decor__orb project-parallax-decor__orb--left" data-parallax-speed="0.65"></div>
+		<div class="project-parallax-decor__orb project-parallax-decor__orb--right" data-parallax-speed="0.45"></div>
+	</div>
+
+	<div class="project-parallax-rail" aria-hidden="true">
+		<div class="project-parallax-rail__line" data-parallax-speed="0.25"></div>
+		<div class="project-parallax-rail__glow" data-parallax-speed="0.4"></div>
+	</div>
+
+	<div class="relative z-10 max-w-7xl mx-auto px-6">
+		<div class="project-lede" data-animate="fade-up">
+			<div class="project-lede__title">
+				<SectionHeader title={experience.title} />
+			</div>
+			<div class="project-lede__body">
+				<p>
+					{experience.description}
+				</p>
+			</div>
 		</div>
 
-		<div class="grid gap-8 lg:grid-cols-2">
+		<div class="project-parallax-grid">
 			{projects.map((project, index) => (
-				<ProjectCard 
-					name={project.name}
-					role={project.role}
-					description={project.description}
-					tags={project.tags}
-					highlights={project.highlights}
-					url={project.url}
-					entity={project.entity}
-					timeframe={project.timeframe}
-					index={index}
-					flipHint={experience.flipHint}
-					backLabel={experience.backLabel}
-					openLabel={experience.openLabel}
-					scopeLabel={experience.scopeLabel}
-					highlightsLabel={experience.highlightsLabel}
-				/>
+				<div 
+					class={`project-card-wrapper ${index % 2 === 1 ? 'project-card-wrapper--offset' : ''}`}
+					data-animate="slide-up"
+					data-animate-delay={String(index * 0.05)}
+				>
+					<span class="project-card-seq" aria-hidden="true">
+						{formatSequenceNumber(index)}
+					</span>
+					<ProjectCard 
+						name={project.name}
+						role={project.role}
+						description={project.description}
+						tags={project.tags}
+						highlights={project.highlights}
+						url={project.url}
+						entity={project.entity}
+						timeframe={project.timeframe}
+						index={index}
+						flipHint={experience.flipHint}
+						backLabel={experience.backLabel}
+						openLabel={experience.openLabel}
+						scopeLabel={experience.scopeLabel}
+						highlightsLabel={experience.highlightsLabel}
+					/>
+				</div>
 			))}
 		</div>
 
-		<div class="mt-16 text-center">
+		<div class="project-cta" data-animate="fade-up">
 			<a 
 				href={ctaHref}
 				target="_blank"
