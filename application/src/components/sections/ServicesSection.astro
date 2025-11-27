@@ -10,17 +10,17 @@ interface Props {
 const { services } = Astro.props;
 ---
 
-<section id="expertise" data-scroll-section="#expertise" class="relative py-32 bg-brand-primary-strong overflow-hidden scroll-mt-32">
+<section id="expertise" data-scroll-section="#expertise" class="relative py-16 sm:py-32 bg-brand-primary-strong overflow-hidden scroll-mt-24 sm:scroll-mt-32">
 	<div class="absolute inset-0 opacity-10" data-parallax-speed="0.4">
 		<div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(236,184,7,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,184,7,0.12)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 	</div>
 
-	<div class="relative z-10 max-w-7xl mx-auto px-6">
+	<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 		<div data-animate="fade-up">
 			<SectionHeader title={services.title} />
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 			{services.items.map((service, index) => (
 				<div data-animate="fade-up" data-animate-delay={String(index * 0.08)}>
 					<ServiceCard 

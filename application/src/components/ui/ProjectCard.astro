@@ -38,14 +38,14 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 ---
 <details class={`project-flip-card group h-full animate-fade-in-up`} style={`animation-delay: ${index * 120}ms;`}>
 	<summary class="project-flip-card__front">
-		<div class="flex flex-col gap-3">
-			<p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
+		<div class="flex flex-col gap-2 sm:gap-3">
+			<p class="text-xs font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-brand-secondary-soft">
 				{entity ?? 'Featured Mission'}
 			</p>
-			<h3 class="text-2xl md:text-3xl font-black text-white leading-tight">
+			<h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">
 				{name}
 			</h3>
-			<p class="text-base text-gray-300/90">
+			<p class="text-sm sm:text-base text-gray-300/90">
 				{role}
 			</p>
 			{timeframe && (
@@ -55,11 +55,11 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 			)}
 		</div>
 
-		<p class="text-base text-gray-200/80 leading-relaxed">
+		<p class="text-sm sm:text-base text-gray-200/80 leading-relaxed">
 			{description}
 		</p>
 
-		<div class="flex flex-wrap gap-2">
+		<div class="flex flex-wrap gap-1.5 sm:gap-2">
 			{tagPreview.map((tag) => (
 				<span class="project-flip-card__chip">
 					{tag}
@@ -74,7 +74,7 @@ const extraTagCount = Math.max(0, tags.length - tagPreview.length);
 
 		<div class="project-flip-card__hint">
 			<span>{flipHint}</span>
-			<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+			<svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 5l7 7-7 7" />
 			</svg>
 		</div>

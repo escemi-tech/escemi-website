@@ -2,6 +2,7 @@
 application/dist/
 application/.output/
 application/coverage/
+application/astro-check-report.txt
 
 # dependencies
 application/node_modules/
