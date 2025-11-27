@@ -81,7 +81,7 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 		)}
 
 		{contact.positions?.length > 0 && (
-			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16 text-left">
+			<div class="grid gap-8 md:grid-cols-2 mb-16 text-left">
 				{contact.positions.map((position, index) => (
 					<div class="relative h-full rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur flex flex-col gap-4">
 						<span class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
@@ -90,9 +90,16 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 						<h3 class="text-2xl font-black text-white leading-snug">
 							{position.title}
 						</h3>
-						<p class="text-sm text-gray-200/90 leading-relaxed">
-							{position.description}
-						</p>
+						{position.summary && (
+							<p class="text-base font-semibold text-brand-secondary leading-relaxed">
+								{position.summary}
+							</p>
+						)}
+						{position.description && (
+							<p class="text-sm text-gray-200/90 leading-relaxed">
+								{position.description}
+							</p>
+						)}
 					</div>
 				))}
 			</div>

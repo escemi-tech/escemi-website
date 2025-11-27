@@ -12,6 +12,7 @@ export type ResumeProfile = Resume['basics']['profiles'][number];
 export type ResumeImpactMetric = NonNullable<Resume['meta']>['impact'][number];
 export type ResumeProject = Resume['projects'][number];
 export type ResumeSkill = Resume['skills'][number];
+export type ResumeService = NonNullable<Resume['meta']>['services'][number];
 
 const DEFAULT_LOCALE: ResumeLocale = 'fr';
 
@@ -63,4 +64,8 @@ export function getFeaturedProjects(locale?: ResumeLocale, limit?: number): Resu
 
 export function getSkillSummaries(locale?: ResumeLocale): ResumeSkill[] {
     return getResume(locale).skills ?? [];
+}
+
+export function getServices(locale?: ResumeLocale): ResumeService[] {
+    return getResume(locale).meta?.services ?? [];
 }

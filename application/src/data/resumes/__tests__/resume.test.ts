@@ -6,6 +6,7 @@ import {
 	getImpactMetrics,
 	getProfileUrl,
 	getResume,
+	getServices,
 	getSkillSummaries,
 } from '../index';
 
@@ -43,5 +44,10 @@ describe('resume data helpers', () => {
 	it('returns impact metrics and skills from resume metadata', () => {
 		expect(getImpactMetrics('en')).toEqual(resumeEn.meta?.impact ?? []);
 		expect(getSkillSummaries('fr')).toEqual(resumeFr.skills ?? []);
+	});
+
+	it('returns services sourced from resume metadata', () => {
+		expect(getServices('en')).toEqual(resumeEn.meta?.services ?? []);
+		expect(getServices('fr')).toEqual(resumeFr.meta?.services ?? []);
 	});
 });
