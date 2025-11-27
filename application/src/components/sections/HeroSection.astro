@@ -17,14 +17,14 @@ const [firstName, lastName] = hero.name.split(' ');
 	<HeroBackground />
 
 	<!-- Hero Content -->
-	<div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+	<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:py-32 w-full">
 		<div class="max-w-4xl">
-			<p class="text-lg font-mono text-brand-secondary mb-6 tracking-[0.3em] uppercase animate-glow" data-parallax-speed="0.6">
+			<p class="text-sm sm:text-lg font-mono text-brand-secondary mb-4 sm:mb-6 tracking-[0.2em] sm:tracking-[0.3em] uppercase animate-glow" data-parallax-speed="0.6">
 				{hero.greeting}
 			</p>
 
-			<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 mb-10">
-				<h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-none tracking-tight" data-animate="fade-up">
+			<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-10 mb-6 sm:mb-10">
+				<h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white leading-none tracking-tight" data-animate="fade-up">
 					<span class="inline-block hover:scale-105 transition-transform duration-300" data-parallax-speed="0.85">
 						{firstName}
 					</span>
@@ -35,7 +35,7 @@ const [firstName, lastName] = hero.name.split(' ');
 				</h1>
 
 				{hero.image && (
-					<div class="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 shrink-0" data-parallax-speed="0.65">
+					<div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 shrink-0" data-parallax-speed="0.65">
 						<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-secondary/40 to-brand-secondary-soft/20 blur-3xl"></div>
 						<div class="relative w-full h-full rounded-full border-2 border-white/30 bg-white/5 backdrop-blur shadow-2xl overflow-hidden">
 							<img 
@@ -51,16 +51,16 @@ const [firstName, lastName] = hero.name.split(' ');
 				)}
 			</div>
 
-			<p class="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary-soft to-brand-secondary mb-8 tracking-wide" data-parallax-speed="0.9">
+			<p class="text-lg sm:text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary-soft to-brand-secondary mb-6 sm:mb-8 tracking-wide leading-snug" data-parallax-speed="0.9">
 				{hero.title}
 			</p>
 
-			<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl leading-relaxed font-light" data-animate="fade-up" data-animate-delay="0.1">
+			<p class="text-base sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl leading-relaxed font-light" data-animate="fade-up" data-animate-delay="0.1">
 				{hero.baseline}
 			</p>
 
 			{hero.summary.length > 0 && (
-				<div class="space-y-4 text-lg md:text-xl text-gray-200 max-w-4xl mb-12" data-animate="fade-up" data-animate-delay="0.2">
+				<div class="space-y-4 text-base sm:text-lg md:text-xl text-gray-200 max-w-4xl mb-8 sm:mb-12" data-animate="fade-up" data-animate-delay="0.2">
 					<p class="leading-relaxed text-gray-200/90">
 						{hero.summary}
 					</p>
@@ -72,7 +72,7 @@ const [firstName, lastName] = hero.name.split(' ');
 			</div>
 
 			{hero.signatureNumbers.length > 0 && (
-				<div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl" data-parallax-speed="0.6">
+				<div class="mt-10 sm:mt-16 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl" data-parallax-speed="0.6">
 					{hero.signatureNumbers.map((stat) => {
 						const [value, ...rest] = stat.split(' ');
 						const label = rest.join(' ') || stat;
@@ -84,8 +84,8 @@ const [firstName, lastName] = hero.name.split(' ');
 	</div>
 
 	<!-- Scroll indicator -->
-	<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce" data-parallax-speed="0.3">
-		<svg class="w-8 h-8 text-brand-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+	<div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce" data-parallax-speed="0.3">
+		<svg class="w-6 h-6 sm:w-8 sm:h-8 text-brand-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
 	</div>

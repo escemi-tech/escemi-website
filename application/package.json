@@ -10,7 +10,7 @@
     "astro": "astro",
     "lint": "astro check",
     "lint:fix": "astro check --fix",
-    "lint:ci": "astro check --json",
+    "lint:ci": "astro check --json | tee astro-check-report.txt",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ci": "vitest run --coverage.enabled true --coverage.report=text --coverage.reporter=lcov"

@@ -11,22 +11,22 @@ const cardClass = isLarge ? 'md:row-span-2' : '';
 ---
 
 <div 
-	class={`group relative p-10 bg-gradient-to-br from-brand-primary-strong to-brand-primary border border-[color:var(--color-border-subtle)] hover:border-brand-secondary/60 transition-all duration-500 transform hover:-translate-y-2 ${cardClass}`}
+	class={`group relative p-6 sm:p-10 bg-gradient-to-br from-brand-primary-strong to-brand-primary border border-[color:var(--color-border-subtle)] hover:border-brand-secondary/60 transition-all duration-500 transform hover:-translate-y-2 ${cardClass}`}
 	style={`animation-delay: ${index * 100}ms`}
 >
 	<!-- Neon corner accents -->
-	<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-brand-secondary/40 group-hover:border-brand-secondary transition-colors duration-300"></div>
-	<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-brand-secondary/30 group-hover:border-brand-secondary-soft transition-colors duration-300"></div>
+	<div class="absolute top-0 left-0 w-12 sm:w-16 h-12 sm:h-16 border-t-2 border-l-2 border-brand-secondary/40 group-hover:border-brand-secondary transition-colors duration-300"></div>
+	<div class="absolute bottom-0 right-0 w-12 sm:w-16 h-12 sm:h-16 border-b-2 border-r-2 border-brand-secondary/30 group-hover:border-brand-secondary-soft transition-colors duration-300"></div>
 
 	<!-- Service number -->
-	<div class="text-8xl font-black text-brand-primary-soft/30 absolute top-4 right-4 group-hover:text-brand-secondary/40 transition-colors">
+	<div class="text-5xl sm:text-8xl font-black text-brand-primary-soft/30 absolute top-2 sm:top-4 right-2 sm:right-4 group-hover:text-brand-secondary/40 transition-colors">
 		0{index + 1}
 	</div>
 
-	<h3 class="relative text-3xl font-bold text-brand-secondary mb-6 z-10">
+	<h3 class="relative text-xl sm:text-3xl font-bold text-brand-secondary mb-4 sm:mb-6 z-10 pr-12 sm:pr-0">
 		{title}
 	</h3>
-	<p class="relative text-gray-300 text-lg leading-relaxed z-10">
+	<p class="relative text-gray-300 text-base sm:text-lg leading-relaxed z-10">
 		{description}
 	</p>
 

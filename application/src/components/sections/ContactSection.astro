@@ -44,18 +44,18 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 };
 ---
 
-<section id="roles" data-scroll-section="#roles" class="relative py-32 bg-gradient-to-b from-brand-primary via-brand-primary-strong to-brand-primary-strong overflow-hidden scroll-mt-32">
+<section id="roles" data-scroll-section="#roles" class="relative py-16 sm:py-32 bg-gradient-to-b from-brand-primary via-brand-primary-strong to-brand-primary-strong overflow-hidden scroll-mt-24 sm:scroll-mt-32">
 	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,184,7,0.15),transparent_55%)]" data-parallax-speed="0.35"></div>
 
-	<div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-		<h2 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight" data-animate="fade-up">
+	<div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+		<h2 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-tight tracking-tight" data-animate="fade-up">
 			{contact.title}
 		</h2>
-		<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light" data-animate="fade-up" data-animate-delay="0.1">
+		<p class="text-base sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light" data-animate="fade-up" data-animate-delay="0.1">
 			{contact.description}
 		</p>
 
-		<div class="mb-16 flex justify-center" data-animate="fade-up" data-animate-delay="0.2">
+		<div class="mb-10 sm:mb-16 flex justify-center" data-animate="fade-up" data-animate-delay="0.2">
 			<PrimaryButton 
 				href={ctaHref}
 				text={contact.cta}
@@ -64,12 +64,12 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 		</div>
 
 		{contact.resumeLinks?.length > 0 && (
-			<div class="mb-12 flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.35em] text-brand-secondary" data-animate="fade-up" data-animate-delay="0.25">
+			<div class="mb-8 sm:mb-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.35em] text-brand-secondary" data-animate="fade-up" data-animate-delay="0.25">
 				{contact.resumeLinks.map((resumeLink) => (
 					<a 
 						href={resumeLink.href}
 						download
-						class="inline-flex items-center gap-3 rounded-full border border-brand-secondary/60 bg-transparent px-6 py-3 text-brand-secondary transition-colors hover:bg-brand-secondary hover:text-brand-primary-strong"
+						class="inline-flex items-center gap-2 sm:gap-3 rounded-full border border-brand-secondary/60 bg-transparent px-4 sm:px-6 py-2 sm:py-3 text-brand-secondary transition-colors hover:bg-brand-secondary hover:text-brand-primary-strong"
 					>
 						<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14" />
@@ -81,22 +81,22 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 		)}
 
 		{contact.positions?.length > 0 && (
-				<div class="grid gap-8 md:grid-cols-2 mb-16 text-left">
+				<div class="grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 mb-10 sm:mb-16 text-left">
 				{contact.positions.map((position, index) => (
-						<div class="relative h-full rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur flex flex-col gap-4" data-animate="fade-up" data-animate-delay={String(index * 0.1)}>
+						<div class="relative h-full rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-5 sm:p-8 backdrop-blur flex flex-col gap-3 sm:gap-4" data-animate="fade-up" data-animate-delay={String(index * 0.1)}>
 						<span class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-secondary-soft">
 							{String(index + 1).padStart(2, '0')}
 						</span>
-						<h3 class="text-2xl font-black text-white leading-snug">
+						<h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
 							{position.title}
 						</h3>
 						{position.summary && (
-							<p class="text-base font-semibold text-brand-secondary leading-relaxed">
+							<p class="text-sm sm:text-base font-semibold text-brand-secondary leading-relaxed">
 								{position.summary}
 							</p>
 						)}
 						{position.description && (
-							<p class="text-sm text-gray-200/90 leading-relaxed">
+							<p class="text-xs sm:text-sm text-gray-200/90 leading-relaxed">
 								{position.description}
 							</p>
 						)}
@@ -105,7 +105,7 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 			</div>
 		)}
 
-		<div class="flex flex-wrap justify-center gap-6" data-animate="fade-up" data-animate-delay="0.3">
+		<div class="flex flex-wrap justify-center gap-3 sm:gap-6" data-animate="fade-up" data-animate-delay="0.3">
 			{contactButtons.map((button) => {
 				const icon = BUTTON_ICONS[button.icon];
 				const isDisabled = !button.url;
@@ -114,7 +114,7 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 				const disabledClasses = isDisabled ? 'pointer-events-none opacity-40' : '';
 
 				const iconMarkup = (
-					<svg class="w-5 h-5" viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
+					<svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
 						{icon.paths.map((path) => (
 							<path d={path}></path>
 						))}
@@ -127,7 +127,7 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 						target={target}
 						rel={rel}
 						aria-disabled={isDisabled}
-						class={`px-12 py-6 bg-transparent border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${disabledClasses}`}
+						class={`px-4 py-3 sm:px-12 sm:py-6 bg-transparent border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong font-bold text-sm sm:text-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 ${disabledClasses}`}
 					>
 						{iconMarkup}
 						<span>{button.text}</span>
@@ -138,9 +138,9 @@ const BUTTON_ICONS: Record<ContactButtonIcon, { viewBox: string; paths: string[]
 						target={target}
 						rel={rel}
 						aria-disabled={isDisabled}
-						class={`group relative px-12 py-6 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft hover:from-brand-secondary-soft hover:to-brand-secondary text-brand-primary-strong font-bold text-lg transition-all duration-300 shadow-[0_0_35px_rgba(236,184,7,0.35)] hover:shadow-[0_0_55px_rgba(236,184,7,0.45)] overflow-hidden flex items-center justify-center gap-3 ${disabledClasses}`}
+						class={`group relative px-4 py-3 sm:px-12 sm:py-6 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft hover:from-brand-secondary-soft hover:to-brand-secondary text-brand-primary-strong font-bold text-sm sm:text-lg transition-all duration-300 shadow-[0_0_35px_rgba(236,184,7,0.35)] hover:shadow-[0_0_55px_rgba(236,184,7,0.45)] overflow-hidden flex items-center justify-center gap-2 sm:gap-3 ${disabledClasses}`}
 					>
-						<span class="relative z-10 flex items-center justify-center gap-3">
+						<span class="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
 							{iconMarkup}
 							<span>{button.text}</span>
 						</span>
