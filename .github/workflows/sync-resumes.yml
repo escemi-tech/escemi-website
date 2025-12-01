@@ -142,7 +142,7 @@ jobs:
             }
 
       - name: Create pull request with updated assets
-        uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@c314229c3ca6914f7023ffca7afc26753ab99b41 # 0.30.1
+        uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@2d3c39a47c6af3b9d57a230bcaf57d03093e96db # 0.31.2
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           branch: resumes-update
