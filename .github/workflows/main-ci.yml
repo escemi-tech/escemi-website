@@ -5,11 +5,11 @@ on:
     branches: [main]
     tags: ["*"]
 
-permissions: {}
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions: {}
 
 jobs:
   ci:
@@ -35,7 +35,7 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@0.15.2
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@0.17.3
         with:
           build-path: application/dist
           build-artifact-id: ${{ needs.ci.outputs.build-artifact-id }}
