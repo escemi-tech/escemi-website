@@ -16,7 +16,7 @@
     "test:ci": "vitest run --coverage.enabled true --coverage.report=text --coverage.reporter=lcov"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.4",
     "gsap": "^3.13.0",
     "lenis": "^1.3.15",
