@@ -1,16 +1,93 @@
+import resumeCommon from './resume.common.json';
 import resumeEn from './resume.en.json';
 import resumeFr from './resume.fr.json';
 
-const RESUMES = {
-    en: resumeEn,
-    fr: resumeFr,
-} as const;
+type ResumeCommon = typeof resumeCommon;
+type ResumeLocaleData = typeof resumeEn;
+type ResumeBasics = ResumeCommon['basics'] & ResumeLocaleData['basics'];
+type ResumeProjectMerged = ResumeCommon['projects'][number] & ResumeLocaleData['projects'][number];
+type ResumeWorkMerged = ResumeCommon['work'][number] & ResumeLocaleData['work'][number];
+type ResumeCertificateMerged = ResumeCommon['certificates'][number] & ResumeLocaleData['certificates'][number];
 
-export type ResumeLocale = keyof typeof RESUMES;
-export type Resume = (typeof RESUMES)[ResumeLocale];
-export type ResumeProfile = Resume['basics']['profiles'][number];
+type ResumeMerged = Omit<ResumeCommon, 'basics' | 'projects' | 'work' | 'certificates'> &
+    Omit<ResumeLocaleData, 'basics' | 'projects' | 'work' | 'certificates'> & {
+        basics: ResumeBasics;
+        projects: ResumeProjectMerged[];
+        work: ResumeWorkMerged[];
+        certificates: ResumeCertificateMerged[];
+    };
+
+type ResumeArrayItem = Record<string, unknown> & { id?: string | null };
+
+function mergeArray(base: readonly ResumeArrayItem[] = [], override: readonly ResumeArrayItem[] = []): ResumeArrayItem[] {
+    if (!base.length) {
+        return [...override];
+    }
+    if (!override.length) {
+        return [...base];
+    }
+
+    const hasId = (item: ResumeArrayItem): item is ResumeArrayItem & { id: string } => typeof item.id === 'string';
+
+    if (base.every(hasId) && override.every(hasId)) {
+        const baseMap = new Map(base.map((item) => [item.id, item]));
+        const merged = override.map((item) => ({
+            ...baseMap.get(item.id),
+            ...item,
+        }));
+        const overrideIds = new Set(override.map((item) => item.id));
+        base.forEach((item) => {
+            if (!overrideIds.has(item.id)) {
+                merged.push(item);
+            }
+        });
+        return merged;
+    }
+
+    return override
+        .map((item, index) => ({
+            ...(base[index] ?? {}),
+            ...item,
+        }))
+        .concat(base.slice(override.length));
+}
+
+function mergeResumeData(base: ResumeCommon, override: ResumeLocaleData): ResumeMerged {
+    const baseLocale = base as unknown as Partial<ResumeLocaleData>;
+    return {
+        ...base,
+        ...override,
+        basics: {
+            ...base.basics,
+            ...override.basics,
+        },
+        meta: {
+            ...(baseLocale.meta ?? {}),
+            ...(override.meta ?? {}),
+        },
+        awards: mergeArray(baseLocale.awards ?? [], override.awards ?? []) as ResumeMerged['awards'],
+        certificates: mergeArray(base.certificates ?? [], override.certificates ?? []) as ResumeMerged['certificates'],
+        education: mergeArray(baseLocale.education ?? [], override.education ?? []) as ResumeMerged['education'],
+        interests: mergeArray(baseLocale.interests ?? [], override.interests ?? []) as ResumeMerged['interests'],
+        publications: mergeArray(baseLocale.publications ?? [], override.publications ?? []) as ResumeMerged['publications'],
+        references: mergeArray(baseLocale.references ?? [], override.references ?? []) as ResumeMerged['references'],
+        skills: mergeArray(baseLocale.skills ?? [], override.skills ?? []) as ResumeMerged['skills'],
+        volunteer: mergeArray(baseLocale.volunteer ?? [], override.volunteer ?? []) as ResumeMerged['volunteer'],
+        work: mergeArray(base.work ?? [], override.work ?? []) as ResumeMerged['work'],
+        projects: mergeArray(base.projects ?? [], override.projects ?? []) as ResumeMerged['projects'],
+    };
+}
+
+export type ResumeLocale = 'en' | 'fr';
+
+const RESUMES: Record<ResumeLocale, ResumeMerged> = {
+    en: mergeResumeData(resumeCommon, resumeEn),
+    fr: mergeResumeData(resumeCommon, resumeFr),
+};
+export type Resume = ResumeMerged;
+export type ResumeProfile = ResumeBasics['profiles'][number];
 export type ResumeImpactMetric = NonNullable<Resume['meta']>['impact'][number];
-export type ResumeProject = Resume['projects'][number];
+export type ResumeProject = ResumeProjectMerged;
 export type ResumeSkill = Resume['skills'][number];
 export type ResumeService = NonNullable<Resume['meta']>['services'][number];
 

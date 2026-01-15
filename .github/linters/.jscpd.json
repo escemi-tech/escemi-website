@@ -8,6 +8,7 @@
     "**/.git/**",
     "**/.pnpm-store/**",
     "**/pnpm-lock.yaml",
-    "**/astro-check-report.txt"
+    "**/astro-check-report.txt",
+    "**/application/src/data/resumes/*.json"
   ]
 }
