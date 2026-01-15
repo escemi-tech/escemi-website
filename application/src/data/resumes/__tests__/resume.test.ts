@@ -1,6 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import resumeEn from '../resume.en.json';
-import resumeFr from '../resume.fr.json';
 import {
 	getFeaturedProjects,
 	getImpactMetrics,
@@ -11,6 +9,9 @@ import {
 } from '../index';
 
 describe('resume data helpers', () => {
+	const resumeFr = getResume('fr');
+	const resumeEn = getResume('en');
+
 	it('returns the default (fr) resume when locale is missing or invalid', () => {
 		expect(getResume()).toBe(resumeFr);
 		expect(getResume('fr')).toBe(resumeFr);
