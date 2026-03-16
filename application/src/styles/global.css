@@ -1,10 +1,8 @@
 @import "tailwindcss";
 @import "./animations.css";
 
-@theme {
-  --font-sans:
-    "Source Sans Pro", "Helvetica Neue", "Segoe UI", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
+@theme inline {
+  --font-sans: var(--font-source-sans-3);
   --color-brand-primary: #1c3144;
   --color-brand-primary-strong: #0f1f2e;
   --color-brand-primary-soft: #274660;

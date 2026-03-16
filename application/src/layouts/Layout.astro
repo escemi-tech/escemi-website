@@ -1,53 +1,65 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import type { Locale, MetaCopy } from '../../i18n.config';
-import { LOCALE_LABELS, RESUME_PDFS, SECTION_LINKS, SITE_NAME, SUPPORTED_LOCALES, getCopyForLocale } from '../../i18n.config';
-import LogoMark from '../components/ui/LogoMark.astro';
-import '../styles/global.css';
+import { Font } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Locale, MetaCopy } from "../../i18n.config";
+import {
+  LOCALE_LABELS,
+  RESUME_PDFS,
+  SECTION_LINKS,
+  SITE_NAME,
+  SUPPORTED_LOCALES,
+  getCopyForLocale,
+} from "../../i18n.config";
+import LogoMark from "../components/ui/LogoMark.astro";
+import "../styles/global.css";
 
 interface Props {
-	locale: Locale;
-	meta: MetaCopy;
+  locale: Locale;
+  meta: MetaCopy;
 }
 
 const normalizeBasePath = (value?: string) => {
-	if (!value || value === '/') {
-		return '/';
-	}
-	const withLeadingSlash = value.startsWith('/') ? value : `/${value}`;
-	return withLeadingSlash.endsWith('/') ? withLeadingSlash.slice(0, -1) : withLeadingSlash;
+  if (!value || value === "/") {
+    return "/";
+  }
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  return withLeadingSlash.endsWith("/")
+    ? withLeadingSlash.slice(0, -1)
+    : withLeadingSlash;
 };
 
 const normalizedBasePath = normalizeBasePath(import.meta.env.BASE_URL);
 
 const stripBaseFromPath = (pathname: string) => {
-	if (normalizedBasePath === '/' || normalizedBasePath === '') {
-		return pathname;
-	}
-	if (pathname.startsWith(normalizedBasePath)) {
-		const stripped = pathname.slice(normalizedBasePath.length) || '/';
-		return stripped.startsWith('/') ? stripped : `/${stripped}`;
-	}
-	return pathname;
+  if (normalizedBasePath === "/" || normalizedBasePath === "") {
+    return pathname;
+  }
+  if (pathname.startsWith(normalizedBasePath)) {
+    const stripped = pathname.slice(normalizedBasePath.length) || "/";
+    return stripped.startsWith("/") ? stripped : `/${stripped}`;
+  }
+  return pathname;
 };
 
-const escapeForRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeForRegex = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const stripLocalePrefix = (pathname: string, activeLocale: Locale) => {
-	const pattern = new RegExp(`^/${escapeForRegex(activeLocale)}(?=/|$)`);
-	const cleaned = pathname.replace(pattern, '') || '/';
-	return cleaned === '' ? '/' : cleaned;
+  const pattern = new RegExp(`^/${escapeForRegex(activeLocale)}(?=/|$)`);
+  const cleaned = pathname.replace(pattern, "") || "/";
+  return cleaned === "" ? "/" : cleaned;
 };
 
-const trimSlashes = (value: string) => value.replace(/^\/+/, '').replace(/\/+$/, '');
+const trimSlashes = (value: string) =>
+  value.replace(/^\/+/, "").replace(/\/+$/, "");
 
 const getLocaleNeutralPath = (pathname: string, activeLocale: Locale) => {
-	const withoutBase = stripBaseFromPath(pathname);
-	const withoutLocale = stripLocalePrefix(withoutBase, activeLocale);
-	if (withoutLocale === '/' || withoutLocale === '') {
-		return '';
-	}
-	return trimSlashes(withoutLocale);
+  const withoutBase = stripBaseFromPath(pathname);
+  const withoutLocale = stripLocalePrefix(withoutBase, activeLocale);
+  if (withoutLocale === "/" || withoutLocale === "") {
+    return "";
+  }
+  return trimSlashes(withoutLocale);
 };
 
 const { locale, meta } = Astro.props;
@@ -58,234 +70,303 @@ const footerRights = getCopyForLocale(locale).footer.rights;
 
 <!doctype html>
 <html lang={locale} class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{meta.title}</title>
-		<meta name="description" content={meta.description} />
-		<!-- Font: Source Sans Pro per ESCEMI branding -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-surface antialiased overflow-x-hidden font-sans" data-scroll-root>
-		<!-- Futuristic fixed header -->
-		<header data-scroll-header class="fixed top-0 left-0 right-0 z-50 bg-brand-primary-strong/90 backdrop-blur-xl border-b border-brand-secondary/30 transition-all duration-500">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-5">
-				<div class="flex items-center justify-between gap-4">
-					<!-- Brand with neon effect -->
-					<div class="flex items-center gap-2 sm:gap-4">
-						<LogoMark size={32} />
-						<strong class="text-xl sm:text-3xl font-black tracking-tight">
-							<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft">
-								{SITE_NAME}
-							</span>
-						</strong>
-					</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <Font cssVariable="--font-source-sans-3" preload />
+  </head>
+  <body
+    class="bg-surface antialiased overflow-x-hidden font-sans"
+    data-scroll-root
+  >
+    <!-- Futuristic fixed header -->
+    <header
+      data-scroll-header
+      class="fixed top-0 left-0 right-0 z-50 bg-brand-primary-strong/90 backdrop-blur-xl border-b border-brand-secondary/30 transition-all duration-500"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-5">
+        <div class="flex items-center justify-between gap-4">
+          <!-- Brand with neon effect -->
+          <div class="flex items-center gap-2 sm:gap-4">
+            <LogoMark size={32} />
+            <strong class="text-xl sm:text-3xl font-black tracking-tight">
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft"
+              >
+                {SITE_NAME}
+              </span>
+            </strong>
+          </div>
 
-					<!-- Mobile menu button -->
-					<button 
-						type="button"
-						id="mobile-menu-button"
-						class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary/10 transition-colors"
-						aria-expanded="false"
-						aria-controls="mobile-menu"
-						aria-label="Toggle navigation menu"
-					>
-						<svg class="w-6 h-6 menu-icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-						</svg>
-						<svg class="w-6 h-6 menu-icon-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-						</svg>
-					</button>
+          <!-- Mobile menu button -->
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary/10 transition-colors"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              class="w-6 h-6 menu-icon-open"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg
+              class="w-6 h-6 menu-icon-close hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
 
-					<!-- Desktop navigation -->
-					<nav aria-label="Primary" class="hidden md:block">
-						<ul class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--color-text-muted)]">
-							{sectionLinks.map((link) => (
-								<li>
-									<a 
-										href={link.href}
-										data-scroll-link={link.href}
-										class="px-4 py-2 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300"
-									>
-										{link.label}
-									</a>
-								</li>
-							))}
-							<li>
-								<a 
-									href={RESUME_PDFS[locale]}
-									download
-									class="inline-flex items-center gap-2 rounded-full border border-brand-secondary/50 px-4 py-2 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong transition-colors"
-								>
-									<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14" />
-									</svg>
-									<span class="tracking-[0.3em]">CV</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-					
-					<!-- Language selector (desktop) -->
-					<nav aria-label="Language selector" class="hidden md:block">
-						<ul class="flex gap-3">
-							{SUPPORTED_LOCALES.map((code) => (
-								<li>
-									{code === locale ? (
-										<span 
-											aria-current="true" 
-											class="px-5 py-2.5 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft text-brand-primary-strong font-bold uppercase text-sm tracking-wider border border-brand-secondary-soft shadow-[0_0_20px_rgba(236,184,7,0.25)]"
-										>
-											{LOCALE_LABELS[code]}
-										</span>
-									) : (
-										<a 
-											href={getRelativeLocaleUrl(code, localeNeutralPath)}
-											class="px-5 py-2.5 border border-[color:var(--color-border-subtle)] text-[color:var(--color-text-muted)] hover:text-brand-secondary hover:border-brand-secondary font-bold uppercase text-sm tracking-wider transition-all duration-300"
-										>
-											{LOCALE_LABELS[code]}
-										</a>
-									)}
-								</li>
-							))}
-						</ul>
-					</nav>
-				</div>
+          <!-- Desktop navigation -->
+          <nav aria-label="Primary" class="hidden md:block">
+            <ul
+              class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold uppercase tracking-[0.35em] text-[color:var(--color-text-muted)]"
+            >
+              {
+                sectionLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      data-scroll-link={link.href}
+                      class="px-4 py-2 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
+              <li>
+                <a
+                  href={RESUME_PDFS[locale]}
+                  download
+                  class="inline-flex items-center gap-2 rounded-full border border-brand-secondary/50 px-4 py-2 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong transition-colors"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14"></path>
+                  </svg>
+                  <span class="tracking-[0.3em]">CV</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-				<!-- Mobile menu -->
-				<nav 
-					id="mobile-menu" 
-					class="md:hidden hidden mt-4 pb-4 border-t border-brand-secondary/20 pt-4"
-					aria-label="Mobile navigation"
-				>
-					<ul class="flex flex-col gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--color-text-muted)]">
-						{sectionLinks.map((link) => (
-							<li>
-								<a 
-									href={link.href}
-									data-scroll-link={link.href}
-									class="block px-4 py-3 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300 rounded-lg"
-								>
-									{link.label}
-								</a>
-							</li>
-						))}
-						<li>
-							<a 
-								href={RESUME_PDFS[locale]}
-								download
-								class="flex items-center gap-2 px-4 py-3 rounded-lg border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong transition-colors"
-							>
-								<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14" />
-								</svg>
-								<span class="tracking-[0.2em]">CV</span>
-							</a>
-						</li>
-					</ul>
-					<!-- Mobile language selector -->
-					<div class="mt-4 pt-4 border-t border-brand-secondary/20">
-						<ul class="flex gap-2 justify-center">
-							{SUPPORTED_LOCALES.map((code) => (
-								<li>
-									{code === locale ? (
-										<span 
-											aria-current="true" 
-											class="px-4 py-2 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft text-brand-primary-strong font-bold uppercase text-xs tracking-wider border border-brand-secondary-soft rounded-lg"
-										>
-											{LOCALE_LABELS[code]}
-										</span>
-									) : (
-										<a 
-											href={getRelativeLocaleUrl(code, localeNeutralPath)}
-											class="px-4 py-2 border border-[color:var(--color-border-subtle)] text-[color:var(--color-text-muted)] hover:text-brand-secondary hover:border-brand-secondary font-bold uppercase text-xs tracking-wider transition-all duration-300 rounded-lg"
-										>
-											{LOCALE_LABELS[code]}
-										</a>
-									)}
-								</li>
-							))}
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</header>
+          <!-- Language selector (desktop) -->
+          <nav aria-label="Language selector" class="hidden md:block">
+            <ul class="flex gap-3">
+              {
+                SUPPORTED_LOCALES.map((code) => (
+                  <li>
+                    {code === locale ? (
+                      <span
+                        aria-current="true"
+                        class="px-5 py-2.5 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft text-brand-primary-strong font-bold uppercase text-sm tracking-wider border border-brand-secondary-soft shadow-[0_0_20px_rgba(236,184,7,0.25)]"
+                      >
+                        {LOCALE_LABELS[code]}
+                      </span>
+                    ) : (
+                      <a
+                        href={getRelativeLocaleUrl(code, localeNeutralPath)}
+                        class="px-5 py-2.5 border border-[color:var(--color-border-subtle)] text-[color:var(--color-text-muted)] hover:text-brand-secondary hover:border-brand-secondary font-bold uppercase text-sm tracking-wider transition-all duration-300"
+                      >
+                        {LOCALE_LABELS[code]}
+                      </a>
+                    )}
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
 
-		<!-- Mobile menu script -->
-		<script is:inline>
-		(() => {
-			const menuButton = document.getElementById('mobile-menu-button');
-			const mobileMenu = document.getElementById('mobile-menu');
-			const openIcon = menuButton?.querySelector('.menu-icon-open');
-			const closeIcon = menuButton?.querySelector('.menu-icon-close');
+        <!-- Mobile menu -->
+        <nav
+          id="mobile-menu"
+          class="md:hidden hidden mt-4 pb-4 border-t border-brand-secondary/20 pt-4"
+          aria-label="Mobile navigation"
+        >
+          <ul
+            class="flex flex-col gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[color:var(--color-text-muted)]"
+          >
+            {
+              sectionLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    data-scroll-link={link.href}
+                    class="block px-4 py-3 border border-transparent hover:border-brand-secondary hover:text-brand-secondary transition-all duration-300 rounded-lg"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+            <li>
+              <a
+                href={RESUME_PDFS[locale]}
+                download
+                class="flex items-center gap-2 px-4 py-3 rounded-lg border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary-strong transition-colors"
+              >
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 5v12m0 0l-4-4m4 4l4-4M5 19h14"></path>
+                </svg>
+                <span class="tracking-[0.2em]">CV</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Mobile language selector -->
+          <div class="mt-4 pt-4 border-t border-brand-secondary/20">
+            <ul class="flex gap-2 justify-center">
+              {
+                SUPPORTED_LOCALES.map((code) => (
+                  <li>
+                    {code === locale ? (
+                      <span
+                        aria-current="true"
+                        class="px-4 py-2 bg-gradient-to-r from-brand-secondary to-brand-secondary-soft text-brand-primary-strong font-bold uppercase text-xs tracking-wider border border-brand-secondary-soft rounded-lg"
+                      >
+                        {LOCALE_LABELS[code]}
+                      </span>
+                    ) : (
+                      <a
+                        href={getRelativeLocaleUrl(code, localeNeutralPath)}
+                        class="px-4 py-2 border border-[color:var(--color-border-subtle)] text-[color:var(--color-text-muted)] hover:text-brand-secondary hover:border-brand-secondary font-bold uppercase text-xs tracking-wider transition-all duration-300 rounded-lg"
+                      >
+                        {LOCALE_LABELS[code]}
+                      </a>
+                    )}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-			if (menuButton && mobileMenu && openIcon && closeIcon) {
-				menuButton.addEventListener('click', () => {
-					const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-					menuButton.setAttribute('aria-expanded', String(!isExpanded));
-					mobileMenu.classList.toggle('hidden');
-					openIcon.classList.toggle('hidden');
-					closeIcon.classList.toggle('hidden');
-				});
+    <!-- Mobile menu script -->
+    <script is:inline>
+      (() => {
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = menuButton?.querySelector(".menu-icon-open");
+        const closeIcon = menuButton?.querySelector(".menu-icon-close");
 
-				// Close menu when clicking a link
-				mobileMenu.querySelectorAll('a').forEach(link => {
-					link.addEventListener('click', () => {
-						menuButton.setAttribute('aria-expanded', 'false');
-						mobileMenu.classList.add('hidden');
-						openIcon.classList.remove('hidden');
-						closeIcon.classList.add('hidden');
-					});
-				});
-			}
-		})();
-		</script>
+        if (menuButton && mobileMenu && openIcon && closeIcon) {
+          menuButton.addEventListener("click", () => {
+            const isExpanded =
+              menuButton.getAttribute("aria-expanded") === "true";
+            menuButton.setAttribute("aria-expanded", String(!isExpanded));
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+          });
 
-		<main class="pt-0">
-			<slot />
-		</main>
+          // Close menu when clicking a link
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              menuButton.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              openIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+            });
+          });
+        }
+      })();
+    </script>
 
-		<!-- Futuristic footer -->
-		<footer class="relative bg-brand-primary-strong border-t border-[color:var(--color-border-subtle)] py-10 sm:py-16 overflow-hidden">
-			<!-- Subtle glow effect -->
-			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(236,184,7,0.12),transparent_55%)]"></div>
-			
-			<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-				<div class="text-center mb-6 sm:mb-8 flex flex-col items-center gap-3 sm:gap-4">
-					<LogoMark size={42} />
-					<div class="text-2xl sm:text-4xl font-black">
-						<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft">
-							{SITE_NAME}
-						</span>
-					</div>
-					<p class="text-[color:var(--color-text-muted)] text-xs sm:text-sm">© {new Date().getFullYear()} {footerRights}</p>
-				</div>
+    <main class="pt-0">
+      <slot />
+    </main>
 
-				<div class="flex justify-center gap-6 sm:gap-8">
-					<a 
-						href="https://github.com/escemi-tech" 
-						target="_blank" 
-						rel="noopener noreferrer" 
-						class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold text-sm sm:text-base"
-					>
-						GitHub
-					</a>
-					<a 
-						href="https://www.linkedin.com/company/escemi" 
-						target="_blank" 
-						rel="noopener noreferrer" 
-						class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold text-sm sm:text-base"
-					>
-						LinkedIn
-					</a>
-				</div>
-			</div>
-		</footer>
+    <!-- Futuristic footer -->
+    <footer
+      class="relative bg-brand-primary-strong border-t border-[color:var(--color-border-subtle)] py-10 sm:py-16 overflow-hidden"
+    >
+      <!-- Subtle glow effect -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(236,184,7,0.12),transparent_55%)]"
+      >
+      </div>
 
-	</body>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div
+          class="text-center mb-6 sm:mb-8 flex flex-col items-center gap-3 sm:gap-4"
+        >
+          <LogoMark size={42} />
+          <div class="text-2xl sm:text-4xl font-black">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-secondary-soft"
+            >
+              {SITE_NAME}
+            </span>
+          </div>
+          <p class="text-[color:var(--color-text-muted)] text-xs sm:text-sm">
+            © {new Date().getFullYear()}
+            {footerRights}
+          </p>
+        </div>
+
+        <div class="flex justify-center gap-6 sm:gap-8">
+          <a
+            href="https://github.com/escemi-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold text-sm sm:text-base"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/company/escemi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[color:var(--color-text-muted)] hover:text-brand-secondary transition-colors font-semibold text-sm sm:text-base"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
