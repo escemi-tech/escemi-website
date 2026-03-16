@@ -2,6 +2,10 @@
   "name": "application",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=9.6.5"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev --host",
@@ -17,7 +21,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.18.0",
+    "astro": "^6.0.4",
     "gsap": "^3.14.2",
     "lenis": "^1.3.18",
     "tailwindcss": "^4.1.17"

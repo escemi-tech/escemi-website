@@ -1,6 +1,6 @@
 # ESCEMI site
 
-Marketing site powered by Astro 5 with built-in internationalization for French (default) and English content.
+Marketing site powered by Astro 6 with built-in internationalization for French (default) and English content.
 
 ## 🚀 Project Structure
 

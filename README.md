@@ -1,10 +1,10 @@
 # ESCEMI Landing Page
 
-Marketing site for ESCEMI, built with [Astro](https://astro.build/) 5 and Tailwind CSS. The production code lives under `application/` and is packaged for deployment as a static site.
+Marketing site for ESCEMI, built with [Astro](https://astro.build/) 6 and Tailwind CSS. The production code lives under `application/` and is packaged for deployment as a static site.
 
 ## Requirements
 
-- Node.js 18.17+ (or 20.3+/21+)
+- Node.js 22.12+
 - npm 9+
 - Docker (optional, used by linting workflow)
 
