@@ -41,7 +41,7 @@ jobs:
 
       - name: Parse inputs
         id: parse-inputs
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           REPOSITORY_INPUT: ${{ inputs.repository }}
           RUN_ID_INPUT: ${{ inputs.run-id }}
@@ -83,7 +83,7 @@ jobs:
             core.info(`  Repository: ${repository}`);
             core.info(`  Run ID: ${runId}`);
 
-      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+      - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
         id: generate-token
         with:
           app-id: ${{ vars.CI_BOT_APP_ID }}
@@ -101,7 +101,7 @@ jobs:
           path: ${{ runner.temp }}/resumes-assets-${{ steps.parse-inputs.outputs.run-id }}-${{ steps.parse-inputs.outputs.artifact-id }}
 
       - name: Copy resume files
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           DOWNLOADED_PATH: ${{ steps.download-artifact.outputs.download-path }}
         with:
@@ -143,7 +143,7 @@ jobs:
             }
 
       - name: Create pull request with updated assets
-        uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@4b53189212d5810f710bed89711002626977215b # 0.33.0
+        uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@03a5a2a3626b03434b19b79cdd2e141bea410bae # 0.34.1
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           branch: resumes-update
