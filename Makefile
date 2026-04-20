@@ -9,25 +9,25 @@ help: ## Show help message
 include .env
 
 prepare: ## Prepare stack to run
-	cd application && npm install
+	npm --prefix application install
 
 start: ## Start application in dev mode
-	cd application && npm run start
+	npm --prefix application run start
 
 lint: ## Run linters
-	cd application && npm run lint -- $(filter-out $@,$(MAKECMDGOALS))
+	npm --prefix application run lint -- $(filter-out $@,$(MAKECMDGOALS))
 	$(call run_linter,)
 
 lint-fix: ## Run linters
-	cd application && npm audit fix
-	cd application && npm run lint:fix
+	npm --prefix application audit fix || true
+	npm --prefix application run lint:fix
 	$(MAKE) linter-fix
 
 build: ## Build libs and applications
-	cd application && npm run build
+	npm --prefix application run build
 
 test: ## Run unit tests
-	cd application && npm run test:ci -- $(filter-out $@,$(MAKECMDGOALS))
+	npm --prefix application run test:ci -- $(filter-out $@,$(MAKECMDGOALS))
 
 ci: ## Run tests in CI mode
 	$(MAKE) lint-fix
