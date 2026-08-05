@@ -6,6 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 const locales = [...SUPPORTED_LOCALES];
 
 export default defineConfig({
+  compressHTML: true,
+
   i18n: {
     defaultLocale: DEFAULT_LOCALE,
     locales,

@@ -11,7 +11,7 @@ Marketing site for ESCEMI, built with [Astro](https://astro.build/) 6 and Tailwi
 ## Getting Started
 
 ```bash
-make prepare   # Install npm dependencies in application/
+make setup     # Install npm dependencies in application/
 make start     # Run Astro dev server on http://localhost:4321
 ```
 
@@ -27,7 +27,7 @@ npm run preview --prefix application
 - `make lint` – Run Prettier and Astro checks (accepts globs: `make lint src/pages`)
 - `make lint-fix` – Apply automated fixes via npm audit + Dockerized linter
 - `make build` – Run `astro check` and produce a production build
-- `make ci` – Run prepare, lint, and build sequentially
+- `make ci` – Run setup, lint, and build sequentially
 - `npm run test --prefix application` – Execute the Vitest unit test suite
 - `npm run preview --prefix application` – Serve the built site for QA
 

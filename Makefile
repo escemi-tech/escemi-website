@@ -8,7 +8,7 @@ help: ## Show help message
 
 include .env
 
-prepare: ## Prepare stack to run
+setup: ## Prepare stack to run
 	npm --prefix application install
 
 start: ## Start application in dev mode
