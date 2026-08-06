@@ -3,63 +3,63 @@ import { Font } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import type { Locale, MetaCopy } from "../../i18n.config";
 import {
-  LOCALE_LABELS,
-  RESUME_PDFS,
-  SECTION_LINKS,
-  SITE_NAME,
-  SUPPORTED_LOCALES,
-  getCopyForLocale,
+	LOCALE_LABELS,
+	RESUME_PDFS,
+	SECTION_LINKS,
+	SITE_NAME,
+	SUPPORTED_LOCALES,
+	getCopyForLocale,
 } from "../../i18n.config";
 import LogoMark from "../components/ui/LogoMark.astro";
 import "../styles/global.css";
 
 interface Props {
-  locale: Locale;
-  meta: MetaCopy;
+	locale: Locale;
+	meta: MetaCopy;
 }
 
 const normalizeBasePath = (value?: string) => {
-  if (!value || value === "/") {
-    return "/";
-  }
-  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
-  return withLeadingSlash.endsWith("/")
-    ? withLeadingSlash.slice(0, -1)
-    : withLeadingSlash;
+	if (!value || value === "/") {
+		return "/";
+	}
+	const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+	return withLeadingSlash.endsWith("/")
+		? withLeadingSlash.slice(0, -1)
+		: withLeadingSlash;
 };
 
 const normalizedBasePath = normalizeBasePath(import.meta.env.BASE_URL);
 
 const stripBaseFromPath = (pathname: string) => {
-  if (normalizedBasePath === "/" || normalizedBasePath === "") {
-    return pathname;
-  }
-  if (pathname.startsWith(normalizedBasePath)) {
-    const stripped = pathname.slice(normalizedBasePath.length) || "/";
-    return stripped.startsWith("/") ? stripped : `/${stripped}`;
-  }
-  return pathname;
+	if (normalizedBasePath === "/" || normalizedBasePath === "") {
+		return pathname;
+	}
+	if (pathname.startsWith(normalizedBasePath)) {
+		const stripped = pathname.slice(normalizedBasePath.length) || "/";
+		return stripped.startsWith("/") ? stripped : `/${stripped}`;
+	}
+	return pathname;
 };
 
 const escapeForRegex = (value: string) =>
-  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const stripLocalePrefix = (pathname: string, activeLocale: Locale) => {
-  const pattern = new RegExp(`^/${escapeForRegex(activeLocale)}(?=/|$)`);
-  const cleaned = pathname.replace(pattern, "") || "/";
-  return cleaned === "" ? "/" : cleaned;
+	const pattern = new RegExp(`^/${escapeForRegex(activeLocale)}(?=/|$)`);
+	const cleaned = pathname.replace(pattern, "") || "/";
+	return cleaned === "" ? "/" : cleaned;
 };
 
 const trimSlashes = (value: string) =>
-  value.replace(/^\/+/, "").replace(/\/+$/, "");
+	value.replace(/^\/+/, "").replace(/\/+$/, "");
 
 const getLocaleNeutralPath = (pathname: string, activeLocale: Locale) => {
-  const withoutBase = stripBaseFromPath(pathname);
-  const withoutLocale = stripLocalePrefix(withoutBase, activeLocale);
-  if (withoutLocale === "/" || withoutLocale === "") {
-    return "";
-  }
-  return trimSlashes(withoutLocale);
+	const withoutBase = stripBaseFromPath(pathname);
+	const withoutLocale = stripLocalePrefix(withoutBase, activeLocale);
+	if (withoutLocale === "/" || withoutLocale === "") {
+		return "";
+	}
+	return trimSlashes(withoutLocale);
 };
 
 const { locale, meta } = Astro.props;

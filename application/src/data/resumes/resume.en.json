@@ -1,516 +1,516 @@
 {
-  "extends": "./resume.common.json",
-  "meta": {
-    "canonical": "https://raw.githubusercontent.com/escemi-tech/.github/main/resume/resume.en.json",
-    "version": "2025.11.16.5",
-    "lastModified": "2025-11-16T11:30:00Z",
-    "locale": "en",
-    "impact": [
-      {
-        "label": "Velocity gain",
-        "value": "+35%",
-        "description": "Average sprint acceleration after DevX playbooks (3-month rolling avg)"
-      },
-      {
-        "label": "Technical debt",
-        "value": "-40%",
-        "description": "Debt paydown after architecture refactors and mentoring"
-      },
-      {
-        "label": "Deployment time",
-        "value": "-70%",
-        "description": "Lead time drop thanks to unified CI/CD pipelines"
-      },
-      {
-        "label": "Mentoring teams",
-        "value": "15+",
-        "description": "Structured coaching on Clean Architecture & DevX increasing autonomy and delivery quality of mentored teams."
-      }
-    ],
-    "services": [
-      {
-        "name": "Fractional CTO (Operational & Advisory)",
-        "summary": "I translate business objectives into an execution plan that keeps multi-squad releases predictable during fast growth phases.",
-        "description": "I audit legacy stacks, prioritize a 12-month roadmap, and roll out shared GitHub/GitLab CI/CD pipelines to shrink deployment time from hours to <30 minutes while securing 90% automated quality gates."
-      },
-      {
-        "name": "Senior Lead Dev PHP & Node.js",
-        "summary": "Senior backend lead who stabilizes critical Node.js/PHP platforms and uplevels squads through hands-on mentoring.",
-        "description": "I design Cloud-Native architectures in Node.js (NestJS) / PHP (Symfony, Laravel), formalize contract-tested APIs, and run automated unit/E2E suites that cut technical debt by 40% and keep platforms ready for 10x traffic."
-      },
-      {
-        "name": "Engineering Manager",
-        "summary": "Engineering leader structuring rituals and indicators to keep multi-squad delivery predictable.",
-        "description": "I deploy pragmatic Agile/Lean workflows, steer DORA metrics, and run operational reviews. Results: +35% velocity on average, -55% production defects, and rituals aligned with product KPIs."
-      },
-      {
-        "name": "Staff Engineer",
-        "summary": "Technical expert ensuring architecture/product coherence and driving critical RFC/design decisions.",
-        "description": "I set architecture standards, lead key RFCs, and coach squads on high-stakes topics (scalability, reliability). Impact: -40% technical debt, 10x fewer critical incidents, and senior onboarding <2 weeks."
-      }
-    ]
-  },
-  "basics": {
-    "label": "On-Demand CTO & DevX Expert - Senior Lead Developer",
-    "baseline": "Node.js & PHP Expert · Cloud Native · DevX Coach",
-    "signatureNumbers": [
-      "16 years of experience",
-      "15+ teams mentored",
-      "20+ platforms delivered"
-    ],
-    "summary": "I combine technical coaching, DevX excellence, and cloud-native modernization to transform product quality and velocity while keeping teams autonomous and accountable.\n\nI help companies industrialize their development and elevate their teams' technical capabilities.\nOn-demand CTO and Senior Lead Dev for missions that need structure, velocity, and clean execution.\nNode.js & PHP expert with deep mastery of NestJS, Symfony, and Laravel frameworks."
-  },
-  "work": [
-    {
-      "id": "build-and-run",
-      "name": "Build & Run - Fractional CTO / DevX Expert",
-      "position": "Fractional CTO & DevX Expert",
-      "summary": "Fractional CTO within the Build & Run collective, engaged with scale-ups needing structure, modern DevX, and senior guidance. Designed reference cloud-native applications, reusable CI/CD stacks, and leadership rituals that align squads around measurable delivery outcomes.",
-      "highlights": [
-        "Challenge: multi-squad delivery slowed by heterogeneous stacks and manual releases",
-        "Actions: standardization of \"12 factors Application\" blueprints, deployment of reusable GitHub/GitLab CI/CD templates, implementation of DevX scorecards and leadership rituals",
-        "Results: gain of +35% velocity, reduction of -40% debt, multiplication of releases x5, reduction of onboarding from 4 weeks to 1 with <5% change failure rate"
-      ],
-      "keywords": [
-        "Fractional CTO",
-        "DevX",
-        "cloud-native",
-        "CI/CD",
-        "GitHub",
-        "GitLab",
-        "12 factors Application",
-        "Leadership"
-      ]
-    },
-    {
-      "id": "escemi",
-      "name": "ESCEMI - Strategic Technical Partner",
-      "position": "On-Demand CTO & Senior Lead Developer",
-      "summary": "Independent strategic partner for SMEs and scale-ups that need industrialized delivery without a permanent CTO. I architect SOLID-centric platforms, tailor CI/CD and observability stacks, and embed coaching so mixed-seniority teams become autonomous.",
-      "highlights": [
-        "Challenge: ambitious product roadmaps executed by under-structured mixed-seniority teams",
-        "Actions: engineering of SOLID-centric API platforms, tailoring of client-specific CI/CD + IaC stacks, execution of FinOps reviews, and immersive coaching",
-        "Results: automation of 90% quality gates, achievement of <30 min deployments, generation of €80-150K/year savings, preparation of squads for 10x traffic"
-      ],
-      "keywords": [
-        "Fractional CTO",
-        "Senior Lead Dev",
-        "SOLID",
-        "CI/CD",
-        "IaC",
-        "Observability",
-        "FinOps",
-        "Immersive Coaching"
-      ]
-    },
-    {
-      "id": "ouistiti",
-      "name": "Ouistiti - Co-founder & CTO",
-      "position": "Chief Technical Officer",
-      "summary": "Co-founded Ouistiti to launch a zero-debt travel inspiration platform, owning product engineering from concept to growth. Delivered a JAMStack/serverless stack on AWS, orchestrated continuous UX loops, and instrumented the growth engine with SEA, CRM, and analytics.",
-      "highlights": [
-        "Challenge: launch of a zero-debt travel inspiration MVP under 3 months with aggressive acquisition goals",
-        "Actions: delivery of JAMStack/serverless stack on AWS, execution of rapid UX experimentation, implementation of data-driven CRM/SEA funnels, and creation of product ops dashboards",
-        "Results: shipment of MVP in 12 weeks, achievement of <500 ms loads, attainment of 5K MAU in 6 months, increase of +40% engagement, acquisition of 300+ sign-ups/week at €2.50 CPA"
-      ],
-      "keywords": [
-        "JAMStack",
-        "Serverless",
-        "AWS",
-        "UX",
-        "SEA",
-        "MVP",
-        "Nest.js",
-        "React"
-      ]
-    },
-    {
-      "id": "qwamplify",
-      "name": "Qwamplify Group - Technical Director & IS Architect",
-      "position": "Technical Director & IS Architect",
-      "summary": "Led the 3-year modernization program for Qwamplify, consolidating 8 business units, taming a legacy PHP estate, and sustaining high-volume marketing campaigns. Owned the IT master plan, architecture standards, and delivery governance for a 25-person engineering org.",
-      "highlights": [
-        "Challenge: fragmented legacy PHP stack blocking consolidation of 8 business units and rapid campaign launches",
-        "Actions: execution of 3-year IT master plan, introduction of SOA/microservices and standardization of environments, enforcement of CI/CD + observability governance",
-        "Results: reduction of release cycle from 4w to 1w, decrease of production defects by -55%, achievement of sprint reliability at 85%, generation of €200K/year maintenance savings"
-      ],
-      "keywords": [
-        "IT Master Plan",
-        "SOA/microservices",
-        "CI/CD",
-        "Observability",
-        "Standardized Environments",
-        "Legacy PHP"
-      ]
-    },
-    {
-      "id": "logicielnet-manager",
-      "name": "Logicielnet",
-      "position": "Application Systems Manager",
-      "summary": "Owned the evolution of the company's modular SaaS core product, from requirements gathering through development leadership to client validation of each release.",
-      "highlights": [
-        "Challenge: Balance of client-driven innovations with mounting technical debt while maintaining a packed SaaS roadmap.",
-        "Actions: Prioritization of roadmap governance, leadership of a cross-functional squad with mandatory code reviews, and enforcement of a shared Zend Framework baseline.",
-        "Results: Delivery of 20+ major upgrades annually, stabilization of release quality, and reduction of request-to-production lead time by 30%."
-      ],
-      "keywords": [
-        "Modular SaaS",
-        "Project Management",
-        "SaaS Roadmap",
-        "Zend Framework",
-        "Code Reviews",
-        "Cross-functional Team"
-      ]
-    },
-    {
-      "id": "logicielnet-rd",
-      "name": "Logicielnet",
-      "position": "R&D Engineer",
-      "summary": "Designed and built a Web Callback (click-to-call) module to improve customer relationships inside the company's application panel.",
-      "highlights": [
-        "Challenge: Delivery of instant customer callbacks inside the legacy SaaS while integrating external VoIP providers.",
-        "Actions: Engineering of a Zend Framework/PHP callback service with secure, reusable widgets covering 100% of client-facing screens and comprehensive rollout documentation.",
-        "Results: Reduction of customer follow-up time by 40% and enablement of support teams to deploy the feature without regressions."
-      ],
-      "keywords": [
-        "Web Callback",
-        "Click-to-call",
-        "VoIP",
-        "Zend Framework",
-        "PHP",
-        "JavaScript",
-        "Support"
-      ]
-    }
-  ],
-  "volunteer": [
-    {
-      "organization": "Cloud Native Aix-Marseille",
-      "position": "Co-organizer & Speaker",
-      "url": "https://www.cloudnative.aixmarseille.tech/",
-      "startDate": "2022-10",
-      "summary": "Promoting cloud-native technologies in the Aix-Marseille region with 60+ meetups animated for 1,200+ members alongside the CNCF community.",
-      "highlights": [
-        "Co-organization of 60+ Cloud Native meetups (61 past events) uniting 1,200+ registered members across the Aix/Marseille tech scene",
-        "Delivery of 6 technical talks on Kubernetes, GitOps, and DevOps practices while sustaining a 4.8★ score based on 250 Meetup reviews"
-      ]
-    },
-    {
-      "organization": "Aix-Marseille Université",
-      "position": "Professional instructor",
-      "url": "https://www.univ-amu.fr/",
-      "startDate": "2019-01",
-      "summary": "Teaching software architectures and web development best practices.",
-      "highlights": [
-        "Teaching of software architecture course to 60+ Master's students annually, covering practical applications of Clean Architecture, SOLID, and design patterns",
-        "Development of hands-on curriculum with 10+ real-world case studies, achieving 90% student satisfaction rating and 85% pass rate"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "institution": "Université Aix-Marseille III Paul Cézanne",
-      "area": "MIAGE (Computer Methods Applied to Business Management)",
-      "studyType": "Master 2",
-      "url": "https://www.univ-amu.fr/",
-      "startDate": "2007-09",
-      "endDate": "2010-06"
-    },
-    {
-      "institution": "IUT GEA Gap",
-      "area": "GEA (Business and Administration Management)",
-      "studyType": "DUT",
-      "url": "https://iut.univ-amu.fr/",
-      "startDate": "2005-09",
-      "endDate": "2007-06"
-    }
-  ],
-  "awards": [],
-  "certificates": [
-    {
-      "summary": "Training on building inclusive open source communities, covering governance, allyship, and community health best practices."
-    }
-  ],
-  "publications": [],
-  "skills": [
-    {
-      "name": "🧠 Methods & Leadership",
-      "level": "Expert",
-      "keywords": [
-        "Technical coaching · DevX",
-        "Software craftsmanship",
-        "Lean · Agile · Team Velocity"
-      ]
-    },
-    {
-      "name": "🎯 Core Tech",
-      "level": "Expert",
-      "keywords": [
-        "Node.js (NestJS)",
-        "PHP (Symfony, Laravel)",
-        "TypeScript / JavaScript",
-        "Clean Architecture · DDD · TDD"
-      ]
-    },
-    {
-      "name": "☁️ DevOps & Cloud",
-      "level": "Expert",
-      "keywords": [
-        "GitHub Actions · GitLab CI",
-        "Docker · AWS",
-        "Observability · OpenTelemetry"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "🇫🇷 French",
-      "fluency": "Native"
-    },
-    {
-      "language": "🇬🇧 English",
-      "fluency": "Full Professional"
-    }
-  ],
-  "interests": [
-    {
-      "name": "Developer Experience",
-      "keywords": ["DevX", "CI/CD", "Automation", "Productivity Tools"]
-    },
-    {
-      "name": "Software Architecture",
-      "keywords": [
-        "Clean Architecture",
-        "Design Patterns",
-        "Domain-Driven Design"
-      ]
-    },
-    {
-      "name": "Cloud Native Technologies",
-      "keywords": ["Serverless", "Microservices", "CNCF"]
-    },
-    {
-      "name": "Open Source",
-      "keywords": ["OSS Contribution", "Community Building", "Collaboration"]
-    },
-    {
-      "name": "Technical Education",
-      "keywords": [
-        "Mentoring",
-        "Teaching",
-        "Knowledge Sharing",
-        "Community Speaking"
-      ]
-    },
-    {
-      "name": "Lean & Agile Methodologies",
-      "keywords": [
-        "Continuous Improvement",
-        "Team Dynamics",
-        "Delivery Excellence"
-      ]
-    }
-  ],
-  "references": [],
-  "projects": [
-    {
-      "name": "Air Corsica - DevX Platform Engineering",
-      "description": "Modernized developer experience and transactional security for airline booking platform through GitHub Actions CI/CD ecosystem, hands-on mentoring, and resilient NestJS/RabbitMQ proxy architecture.",
-      "highlights": [
-        "Reduction of deployment time by 80% (from ~2 days manual work to <30 minutes fully automated) via reusable GitHub Actions workflows with canary deployments and automated rollbacks",
-        "Increase in release frequency by 5x (from monthly to weekly feature releases) through implementation of Cloud Native principles, ensuring staging/production parity",
-        "Improvement of transaction reliability to 99.9% uptime with 90% fewer third-party failures by architecting NestJS proxy with RabbitMQ, implementing circuit breakers, retry policies, and idempotency guarantees",
-        "Reduction of new developer onboarding time by 70% (from multiple days to <1 day productivity) through standardization of workflows, creation of living style guides, and automation of dependency updates",
-        "Mentoring of distributed team (in-house + contractors) on Clean Architecture and SOLID principles via weekly workshops, elevating code quality and establishing unit-test coverage thresholds",
-        "Deployment of resilient microservice in Docker with OpenTelemetry monitoring, Datadog integration, and zero-downtime health checks for critical booking/payment flows"
-      ],
-      "keywords": [
-        "DevX",
-        "GitHub Actions",
-        "CI/CD",
-        "NestJS",
-        "RabbitMQ",
-        "Clean Architecture",
-        "SOLID",
-        "Docker",
-        "Datadog",
-        "Mentoring"
-      ],
-      "roles": ["DevX Lead", "Platform Engineer", "Technical Mentor"],
-      "id": "air-corsica-devx"
-    },
-    {
-      "name": "Critical Infrastructure IoT Gateway Platform",
-      "description": "High-performance IoT gateway for global smart infrastructure SaaS provider, unifying heterogeneous device integration across data centers and smart buildings with Redis-backed resilience, automated CI/CD, and OpenTelemetry observability.",
-      "highlights": [
-        "Achievement of 99.99% production uptime by implementing Redis caching, edge queueing, and automatic retry strategies with exponential backoff",
-        "Reduction of data loss incidents by 85% through resilient fallback mechanisms that buffer messages during SaaS platform outages",
-        "Acceleration of new device onboarding by 81% (from 3 weeks to 4 days) via centralized decoders, schema-based validation, and normalized payload pipeline",
-        "Scaling to handle 10x traffic increase (100K+ events/minute per gateway) without additional hardware through worker pools and optimized in-memory caching",
-        "Reduction of deployment cycle time by 70% with GitLab CI automation integrating unit, integration, and E2E tests plus canary releases and staged rollouts",
-        "Construction of unified REST API with OpenAPI specification for device lifecycle management, enabling remote registration, updates, and real-time monitoring",
-        "Integration of OpenTelemetry for full observability with logs, metrics, and alerting tied to device health and data flow KPIs"
-      ],
-      "keywords": [
-        "Node.js",
-        "TypeScript",
-        "NestJS",
-        "Redis",
-        "OpenTelemetry",
-        "OpenAPI",
-        "GitLab CI",
-        "Docker",
-        "IoT",
-        "Gateway Architecture",
-        "Device Management",
-        "High Availability",
-        "CI/CD"
-      ],
-      "roles": ["IoT Platform Architect", "Lead Developer"],
-      "id": "critical-iot-gateway"
-    },
-    {
-      "name": "TestUnMetier - CTO Accompaniment",
-      "description": "Two-phase strategic consulting engagement for a career guidance platform: comprehensive IT audit followed by monthly CTO accompaniment covering product roadmap, technical recruitment, and infrastructure/security vendor management.",
-      "highlights": [
-        "Conduction of 1-week IT audit analyzing application architecture, development processes, and team organization, identifying 12 priority improvement areas that reduced technical risk by 60%",
-        "Structuring of interviews with 8 stakeholders (product, project, tech leads) to map system dependencies and bottlenecks, reducing feature delivery timelines by ~40%",
-        "Development of 5 technical job descriptions aligned with product strategy, accelerating recruitment process from 3 months to 6 weeks and improving candidate-role fit by 45%",
-        "Definition of 12-month technical roadmap prioritizing 15+ initiatives by business impact and feasibility, aligning tech investments with growth objectives (+30% target user increase)",
-        "Management of relationships with 3 external vendors (cloud infrastructure, security assurance), negotiating SLAs guaranteeing 99.5% uptime and reducing infrastructure costs by ~25%",
-        "Establishment of technical governance framework (monthly committees, velocity KPIs, quality dashboards) improving team visibility and reducing time-to-market by 35%"
-      ],
-      "keywords": [
-        "CTO Accompaniment",
-        "IT Audit",
-        "Technical Strategy",
-        "Roadmap Planning",
-        "Team Building",
-        "Vendor Management",
-        "Technical Governance",
-        "Recruitment",
-        "PHP",
-        "Symfony"
-      ],
-      "roles": ["CTO Consultant", "Strategic Advisor"],
-      "id": "testunmetier-cto"
-    },
-    {
-      "name": "Tekkare - Technical Mentoring & Architectural Bootstrap",
-      "description": "Hands-on mentorship of development team for technical services management platform, accelerating their skill growth in GraphQL/modern backend API architecture and optimizing development practices.",
-      "highlights": [
-        "Reduction of new feature development time by 40% through optimized GraphQL architecture with NestJS, replacing multiple REST endpoints with unified, type-safe queries",
-        "Acceleration of new developer onboarding from ~2 weeks to ~5 days via living architectural documentation, reusable patterns, and annotated code examples",
-        "Improvement of code maintainability by 50% by implementing Clean Architecture and SOLID principles with clear layer separation (domain, application, infrastructure)",
-        "Optimization of database query performance by 60% (from ~800ms to ~300ms average) through Postgres ORM optimization, strategic indexing, and N+1 query resolution",
-        "Establishment of quality pipeline with automated testing (unit, integration, E2E) reducing production regressions by 70% and increasing deployment confidence",
-        "Mentoring of team on GraphQL best practices (dataloaders, pagination, error handling) and NestJS patterns via pair programming and structured code reviews"
-      ],
-      "keywords": [
-        "GraphQL",
-        "NestJS",
-        "Node.js",
-        "PostgreSQL",
-        "ORM",
-        "TypeScript",
-        "Clean Architecture",
-        "SOLID",
-        "Mentoring",
-        "API Design",
-        "Backend Architecture"
-      ],
-      "roles": ["Technical Mentor", "Backend Architect"],
-      "id": "tekkare-mentoring"
-    },
-    {
-      "name": "Atlas des Régions Naturelles (ARN) - Backend Architecture",
-      "description": "Designed and developed backend architecture for the ARN photographic archive platform, documenting 15,000+ images of French landscapes and buildings through an optimized NestJS/Laravel stack focused on performance and scalability.",
-      "highlights": [
-        "Architecting of photo archive platform managing 15,000+ high-resolution images with multi-criteria filtering (region, typology, materials, period), ensuring <300ms response time and 99.9% uptime",
-        "Implementation of hybrid categorization system with full-text indexing handling 10,000+ daily search queries with geographic, thematic, and historical navigation",
-        "Optimization of image processing pipeline reducing upload and thumbnail generation time by 60% (from ~5min to ~2min per batch of 50 images) through parallelization and smart compression",
-        "Design of unified REST/GraphQL API with distributed caching cutting server load by 70% and enabling integration with physical exhibitions and printed publications",
-        "Deployment of cloud-native infrastructure with geographically distributed CDN reducing bandwidth costs by 40% while improving international load times by 55%",
-        "Establishment of CI/CD pipeline with automated testing ensuring metadata quality (geolocation, regional taxonomy) and reducing cataloging errors by 80%"
-      ],
-      "keywords": [
-        "NestJS",
-        "Laravel",
-        "Backend Architecture",
-        "REST API",
-        "GraphQL",
-        "Image Processing",
-        "Full-text Search",
-        "CDN",
-        "Cloud Native",
-        "AWS",
-        "CI/CD"
-      ],
-      "roles": ["Backend Architect", "Lead Developer"],
-      "id": "arn-backend"
-    },
-    {
-      "name": "Tekoway / Eukles - Architecture Standardization",
-      "description": "3-year strategic technical mentorship across European development teams, standardizing architecture and boosting delivery efficiency for PHP/Symfony and Node.js/NestJS projects before and after Tekoway's integration into Eukles.",
-      "highlights": [
-        "Reduction of project bootstrap time by 45% (from ~10 to ~5.5 days) through shared architecture blueprints applying Clean Architecture and SOLID principles across Symfony and NestJS stacks",
-        "Acceleration of developer onboarding x2 faster (from ~3 weeks to 1.5 weeks) via unified project templates, automated setup scripts, and common tooling across European locations",
-        "Reduction of post-release bug rate by 30% after implementing standardized QA workflows and cross-country DevOps pipelines using Docker, GitLab CI, and ArgoCD",
-        "Improvement of developer satisfaction by 35% on internal surveys regarding architecture clarity and tooling through architecture clinics, workshops, and documentation",
-        "Mentoring of distributed teams remotely across multiple European countries, establishing shared technical language and unified engineering culture that scaled seamlessly through Tekoway's evolution into Eukles",
-        "Creation of multi-stack project boilerplates integrating DDD folder structures, dependency injection, logging, monitoring, and observability hooks for consistent delivery quality regardless of team location"
-      ],
-      "keywords": [
-        "PHP",
-        "Symfony",
-        "Node.js",
-        "NestJS",
-        "Clean Architecture",
-        "DevOps",
-        "Docker",
-        "GitLab CI",
-        "ArgoCD",
-        "Mentoring",
-        "Team leadership"
-      ],
-      "roles": ["Technical Mentor", "Architecture Lead"],
-      "id": "tekoway-eukles"
-    },
-    {
-      "name": "twbs-helper-module",
-      "description": "Laminas (formerly Zend Framework) module that streamlines Twitter Bootstrap component integration.",
-      "highlights": [
-        "21+ GitHub stars and 20+ forks adopted by enterprise portals and design systems",
-        "Ships reusable helpers for grids, forms, navigation, and responsive layouts to accelerate delivery",
-        "Maintains comprehensive docs, CI pipelines, and semantic versioning to guarantee backward compatibility"
-      ],
-      "keywords": ["PHP", "Laminas", "Bootstrap", "Open Source"],
-      "roles": ["Creator", "Maintainer"],
-      "id": "twbs-helper-module"
-    },
-    {
-      "name": "php-css-lint",
-      "description": "CLI and Composer package that enforces CSS quality gates directly from PHP projects.",
-      "highlights": [
-        "11 GitHub stars and active usage inside custom CI pipelines for multi-brand marketing platforms",
-        "Wraps MDN and W3C specifications to surface actionable errors for large design systems",
-        "Provides zero-dependency binaries and GitHub Pages docs for quick onboarding"
-      ],
-      "keywords": ["PHP", "CSS", "Linting", "Composer"],
-      "roles": ["Creator", "Maintainer"],
-      "id": "php-css-lint"
-    },
-    {
-      "name": "ubuntu-config",
-      "description": "Infrastructure-as-code flavored bootstrap that standardizes my developer workstations on Ubuntu.",
-      "highlights": [
-        "Automates installation of Docker, Node.js, PHP toolchains, and desktop essentials via scripted tasks",
-        "Documents repeatable steps so consulting engagements start with a consistent developer environment",
-        "Modular Make targets and shell scripts make it easy to extend the setup per client needs"
-      ],
-      "keywords": ["Shell", "Automation", "Developer Experience", "Ubuntu"],
-      "roles": ["Maintainer"],
-      "id": "ubuntu-config"
-    }
-  ]
+	"extends": "./resume.common.json",
+	"meta": {
+		"canonical": "https://raw.githubusercontent.com/escemi-tech/.github/main/resume/resume.en.json",
+		"version": "2025.11.16.5",
+		"lastModified": "2025-11-16T11:30:00Z",
+		"locale": "en",
+		"impact": [
+			{
+				"label": "Velocity gain",
+				"value": "+35%",
+				"description": "Average sprint acceleration after DevX playbooks (3-month rolling avg)"
+			},
+			{
+				"label": "Technical debt",
+				"value": "-40%",
+				"description": "Debt paydown after architecture refactors and mentoring"
+			},
+			{
+				"label": "Deployment time",
+				"value": "-70%",
+				"description": "Lead time drop thanks to unified CI/CD pipelines"
+			},
+			{
+				"label": "Mentoring teams",
+				"value": "15+",
+				"description": "Structured coaching on Clean Architecture & DevX increasing autonomy and delivery quality of mentored teams."
+			}
+		],
+		"services": [
+			{
+				"name": "Fractional CTO (Operational & Advisory)",
+				"summary": "I translate business objectives into an execution plan that keeps multi-squad releases predictable during fast growth phases.",
+				"description": "I audit legacy stacks, prioritize a 12-month roadmap, and roll out shared GitHub/GitLab CI/CD pipelines to shrink deployment time from hours to <30 minutes while securing 90% automated quality gates."
+			},
+			{
+				"name": "Senior Lead Dev PHP & Node.js",
+				"summary": "Senior backend lead who stabilizes critical Node.js/PHP platforms and uplevels squads through hands-on mentoring.",
+				"description": "I design Cloud-Native architectures in Node.js (NestJS) / PHP (Symfony, Laravel), formalize contract-tested APIs, and run automated unit/E2E suites that cut technical debt by 40% and keep platforms ready for 10x traffic."
+			},
+			{
+				"name": "Engineering Manager",
+				"summary": "Engineering leader structuring rituals and indicators to keep multi-squad delivery predictable.",
+				"description": "I deploy pragmatic Agile/Lean workflows, steer DORA metrics, and run operational reviews. Results: +35% velocity on average, -55% production defects, and rituals aligned with product KPIs."
+			},
+			{
+				"name": "Staff Engineer",
+				"summary": "Technical expert ensuring architecture/product coherence and driving critical RFC/design decisions.",
+				"description": "I set architecture standards, lead key RFCs, and coach squads on high-stakes topics (scalability, reliability). Impact: -40% technical debt, 10x fewer critical incidents, and senior onboarding <2 weeks."
+			}
+		]
+	},
+	"basics": {
+		"label": "On-Demand CTO & DevX Expert - Senior Lead Developer",
+		"baseline": "Node.js & PHP Expert · Cloud Native · DevX Coach",
+		"signatureNumbers": [
+			"16 years of experience",
+			"15+ teams mentored",
+			"20+ platforms delivered"
+		],
+		"summary": "I combine technical coaching, DevX excellence, and cloud-native modernization to transform product quality and velocity while keeping teams autonomous and accountable.\n\nI help companies industrialize their development and elevate their teams' technical capabilities.\nOn-demand CTO and Senior Lead Dev for missions that need structure, velocity, and clean execution.\nNode.js & PHP expert with deep mastery of NestJS, Symfony, and Laravel frameworks."
+	},
+	"work": [
+		{
+			"id": "build-and-run",
+			"name": "Build & Run - Fractional CTO / DevX Expert",
+			"position": "Fractional CTO & DevX Expert",
+			"summary": "Fractional CTO within the Build & Run collective, engaged with scale-ups needing structure, modern DevX, and senior guidance. Designed reference cloud-native applications, reusable CI/CD stacks, and leadership rituals that align squads around measurable delivery outcomes.",
+			"highlights": [
+				"Challenge: multi-squad delivery slowed by heterogeneous stacks and manual releases",
+				"Actions: standardization of \"12 factors Application\" blueprints, deployment of reusable GitHub/GitLab CI/CD templates, implementation of DevX scorecards and leadership rituals",
+				"Results: gain of +35% velocity, reduction of -40% debt, multiplication of releases x5, reduction of onboarding from 4 weeks to 1 with <5% change failure rate"
+			],
+			"keywords": [
+				"Fractional CTO",
+				"DevX",
+				"cloud-native",
+				"CI/CD",
+				"GitHub",
+				"GitLab",
+				"12 factors Application",
+				"Leadership"
+			]
+		},
+		{
+			"id": "escemi",
+			"name": "ESCEMI - Strategic Technical Partner",
+			"position": "On-Demand CTO & Senior Lead Developer",
+			"summary": "Independent strategic partner for SMEs and scale-ups that need industrialized delivery without a permanent CTO. I architect SOLID-centric platforms, tailor CI/CD and observability stacks, and embed coaching so mixed-seniority teams become autonomous.",
+			"highlights": [
+				"Challenge: ambitious product roadmaps executed by under-structured mixed-seniority teams",
+				"Actions: engineering of SOLID-centric API platforms, tailoring of client-specific CI/CD + IaC stacks, execution of FinOps reviews, and immersive coaching",
+				"Results: automation of 90% quality gates, achievement of <30 min deployments, generation of €80-150K/year savings, preparation of squads for 10x traffic"
+			],
+			"keywords": [
+				"Fractional CTO",
+				"Senior Lead Dev",
+				"SOLID",
+				"CI/CD",
+				"IaC",
+				"Observability",
+				"FinOps",
+				"Immersive Coaching"
+			]
+		},
+		{
+			"id": "ouistiti",
+			"name": "Ouistiti - Co-founder & CTO",
+			"position": "Chief Technical Officer",
+			"summary": "Co-founded Ouistiti to launch a zero-debt travel inspiration platform, owning product engineering from concept to growth. Delivered a JAMStack/serverless stack on AWS, orchestrated continuous UX loops, and instrumented the growth engine with SEA, CRM, and analytics.",
+			"highlights": [
+				"Challenge: launch of a zero-debt travel inspiration MVP under 3 months with aggressive acquisition goals",
+				"Actions: delivery of JAMStack/serverless stack on AWS, execution of rapid UX experimentation, implementation of data-driven CRM/SEA funnels, and creation of product ops dashboards",
+				"Results: shipment of MVP in 12 weeks, achievement of <500 ms loads, attainment of 5K MAU in 6 months, increase of +40% engagement, acquisition of 300+ sign-ups/week at €2.50 CPA"
+			],
+			"keywords": [
+				"JAMStack",
+				"Serverless",
+				"AWS",
+				"UX",
+				"SEA",
+				"MVP",
+				"Nest.js",
+				"React"
+			]
+		},
+		{
+			"id": "qwamplify",
+			"name": "Qwamplify Group - Technical Director & IS Architect",
+			"position": "Technical Director & IS Architect",
+			"summary": "Led the 3-year modernization program for Qwamplify, consolidating 8 business units, taming a legacy PHP estate, and sustaining high-volume marketing campaigns. Owned the IT master plan, architecture standards, and delivery governance for a 25-person engineering org.",
+			"highlights": [
+				"Challenge: fragmented legacy PHP stack blocking consolidation of 8 business units and rapid campaign launches",
+				"Actions: execution of 3-year IT master plan, introduction of SOA/microservices and standardization of environments, enforcement of CI/CD + observability governance",
+				"Results: reduction of release cycle from 4w to 1w, decrease of production defects by -55%, achievement of sprint reliability at 85%, generation of €200K/year maintenance savings"
+			],
+			"keywords": [
+				"IT Master Plan",
+				"SOA/microservices",
+				"CI/CD",
+				"Observability",
+				"Standardized Environments",
+				"Legacy PHP"
+			]
+		},
+		{
+			"id": "logicielnet-manager",
+			"name": "Logicielnet",
+			"position": "Application Systems Manager",
+			"summary": "Owned the evolution of the company's modular SaaS core product, from requirements gathering through development leadership to client validation of each release.",
+			"highlights": [
+				"Challenge: Balance of client-driven innovations with mounting technical debt while maintaining a packed SaaS roadmap.",
+				"Actions: Prioritization of roadmap governance, leadership of a cross-functional squad with mandatory code reviews, and enforcement of a shared Zend Framework baseline.",
+				"Results: Delivery of 20+ major upgrades annually, stabilization of release quality, and reduction of request-to-production lead time by 30%."
+			],
+			"keywords": [
+				"Modular SaaS",
+				"Project Management",
+				"SaaS Roadmap",
+				"Zend Framework",
+				"Code Reviews",
+				"Cross-functional Team"
+			]
+		},
+		{
+			"id": "logicielnet-rd",
+			"name": "Logicielnet",
+			"position": "R&D Engineer",
+			"summary": "Designed and built a Web Callback (click-to-call) module to improve customer relationships inside the company's application panel.",
+			"highlights": [
+				"Challenge: Delivery of instant customer callbacks inside the legacy SaaS while integrating external VoIP providers.",
+				"Actions: Engineering of a Zend Framework/PHP callback service with secure, reusable widgets covering 100% of client-facing screens and comprehensive rollout documentation.",
+				"Results: Reduction of customer follow-up time by 40% and enablement of support teams to deploy the feature without regressions."
+			],
+			"keywords": [
+				"Web Callback",
+				"Click-to-call",
+				"VoIP",
+				"Zend Framework",
+				"PHP",
+				"JavaScript",
+				"Support"
+			]
+		}
+	],
+	"volunteer": [
+		{
+			"organization": "Cloud Native Aix-Marseille",
+			"position": "Co-organizer & Speaker",
+			"url": "https://www.cloudnative.aixmarseille.tech/",
+			"startDate": "2022-10",
+			"summary": "Promoting cloud-native technologies in the Aix-Marseille region with 60+ meetups animated for 1,200+ members alongside the CNCF community.",
+			"highlights": [
+				"Co-organization of 60+ Cloud Native meetups (61 past events) uniting 1,200+ registered members across the Aix/Marseille tech scene",
+				"Delivery of 6 technical talks on Kubernetes, GitOps, and DevOps practices while sustaining a 4.8★ score based on 250 Meetup reviews"
+			]
+		},
+		{
+			"organization": "Aix-Marseille Université",
+			"position": "Professional instructor",
+			"url": "https://www.univ-amu.fr/",
+			"startDate": "2019-01",
+			"summary": "Teaching software architectures and web development best practices.",
+			"highlights": [
+				"Teaching of software architecture course to 60+ Master's students annually, covering practical applications of Clean Architecture, SOLID, and design patterns",
+				"Development of hands-on curriculum with 10+ real-world case studies, achieving 90% student satisfaction rating and 85% pass rate"
+			]
+		}
+	],
+	"education": [
+		{
+			"institution": "Université Aix-Marseille III Paul Cézanne",
+			"area": "MIAGE (Computer Methods Applied to Business Management)",
+			"studyType": "Master 2",
+			"url": "https://www.univ-amu.fr/",
+			"startDate": "2007-09",
+			"endDate": "2010-06"
+		},
+		{
+			"institution": "IUT GEA Gap",
+			"area": "GEA (Business and Administration Management)",
+			"studyType": "DUT",
+			"url": "https://iut.univ-amu.fr/",
+			"startDate": "2005-09",
+			"endDate": "2007-06"
+		}
+	],
+	"awards": [],
+	"certificates": [
+		{
+			"summary": "Training on building inclusive open source communities, covering governance, allyship, and community health best practices."
+		}
+	],
+	"publications": [],
+	"skills": [
+		{
+			"name": "🧠 Methods & Leadership",
+			"level": "Expert",
+			"keywords": [
+				"Technical coaching · DevX",
+				"Software craftsmanship",
+				"Lean · Agile · Team Velocity"
+			]
+		},
+		{
+			"name": "🎯 Core Tech",
+			"level": "Expert",
+			"keywords": [
+				"Node.js (NestJS)",
+				"PHP (Symfony, Laravel)",
+				"TypeScript / JavaScript",
+				"Clean Architecture · DDD · TDD"
+			]
+		},
+		{
+			"name": "☁️ DevOps & Cloud",
+			"level": "Expert",
+			"keywords": [
+				"GitHub Actions · GitLab CI",
+				"Docker · AWS",
+				"Observability · OpenTelemetry"
+			]
+		}
+	],
+	"languages": [
+		{
+			"language": "🇫🇷 French",
+			"fluency": "Native"
+		},
+		{
+			"language": "🇬🇧 English",
+			"fluency": "Full Professional"
+		}
+	],
+	"interests": [
+		{
+			"name": "Developer Experience",
+			"keywords": ["DevX", "CI/CD", "Automation", "Productivity Tools"]
+		},
+		{
+			"name": "Software Architecture",
+			"keywords": [
+				"Clean Architecture",
+				"Design Patterns",
+				"Domain-Driven Design"
+			]
+		},
+		{
+			"name": "Cloud Native Technologies",
+			"keywords": ["Serverless", "Microservices", "CNCF"]
+		},
+		{
+			"name": "Open Source",
+			"keywords": ["OSS Contribution", "Community Building", "Collaboration"]
+		},
+		{
+			"name": "Technical Education",
+			"keywords": [
+				"Mentoring",
+				"Teaching",
+				"Knowledge Sharing",
+				"Community Speaking"
+			]
+		},
+		{
+			"name": "Lean & Agile Methodologies",
+			"keywords": [
+				"Continuous Improvement",
+				"Team Dynamics",
+				"Delivery Excellence"
+			]
+		}
+	],
+	"references": [],
+	"projects": [
+		{
+			"name": "Air Corsica - DevX Platform Engineering",
+			"description": "Modernized developer experience and transactional security for airline booking platform through GitHub Actions CI/CD ecosystem, hands-on mentoring, and resilient NestJS/RabbitMQ proxy architecture.",
+			"highlights": [
+				"Reduction of deployment time by 80% (from ~2 days manual work to <30 minutes fully automated) via reusable GitHub Actions workflows with canary deployments and automated rollbacks",
+				"Increase in release frequency by 5x (from monthly to weekly feature releases) through implementation of Cloud Native principles, ensuring staging/production parity",
+				"Improvement of transaction reliability to 99.9% uptime with 90% fewer third-party failures by architecting NestJS proxy with RabbitMQ, implementing circuit breakers, retry policies, and idempotency guarantees",
+				"Reduction of new developer onboarding time by 70% (from multiple days to <1 day productivity) through standardization of workflows, creation of living style guides, and automation of dependency updates",
+				"Mentoring of distributed team (in-house + contractors) on Clean Architecture and SOLID principles via weekly workshops, elevating code quality and establishing unit-test coverage thresholds",
+				"Deployment of resilient microservice in Docker with OpenTelemetry monitoring, Datadog integration, and zero-downtime health checks for critical booking/payment flows"
+			],
+			"keywords": [
+				"DevX",
+				"GitHub Actions",
+				"CI/CD",
+				"NestJS",
+				"RabbitMQ",
+				"Clean Architecture",
+				"SOLID",
+				"Docker",
+				"Datadog",
+				"Mentoring"
+			],
+			"roles": ["DevX Lead", "Platform Engineer", "Technical Mentor"],
+			"id": "air-corsica-devx"
+		},
+		{
+			"name": "Critical Infrastructure IoT Gateway Platform",
+			"description": "High-performance IoT gateway for global smart infrastructure SaaS provider, unifying heterogeneous device integration across data centers and smart buildings with Redis-backed resilience, automated CI/CD, and OpenTelemetry observability.",
+			"highlights": [
+				"Achievement of 99.99% production uptime by implementing Redis caching, edge queueing, and automatic retry strategies with exponential backoff",
+				"Reduction of data loss incidents by 85% through resilient fallback mechanisms that buffer messages during SaaS platform outages",
+				"Acceleration of new device onboarding by 81% (from 3 weeks to 4 days) via centralized decoders, schema-based validation, and normalized payload pipeline",
+				"Scaling to handle 10x traffic increase (100K+ events/minute per gateway) without additional hardware through worker pools and optimized in-memory caching",
+				"Reduction of deployment cycle time by 70% with GitLab CI automation integrating unit, integration, and E2E tests plus canary releases and staged rollouts",
+				"Construction of unified REST API with OpenAPI specification for device lifecycle management, enabling remote registration, updates, and real-time monitoring",
+				"Integration of OpenTelemetry for full observability with logs, metrics, and alerting tied to device health and data flow KPIs"
+			],
+			"keywords": [
+				"Node.js",
+				"TypeScript",
+				"NestJS",
+				"Redis",
+				"OpenTelemetry",
+				"OpenAPI",
+				"GitLab CI",
+				"Docker",
+				"IoT",
+				"Gateway Architecture",
+				"Device Management",
+				"High Availability",
+				"CI/CD"
+			],
+			"roles": ["IoT Platform Architect", "Lead Developer"],
+			"id": "critical-iot-gateway"
+		},
+		{
+			"name": "TestUnMetier - CTO Accompaniment",
+			"description": "Two-phase strategic consulting engagement for a career guidance platform: comprehensive IT audit followed by monthly CTO accompaniment covering product roadmap, technical recruitment, and infrastructure/security vendor management.",
+			"highlights": [
+				"Conduction of 1-week IT audit analyzing application architecture, development processes, and team organization, identifying 12 priority improvement areas that reduced technical risk by 60%",
+				"Structuring of interviews with 8 stakeholders (product, project, tech leads) to map system dependencies and bottlenecks, reducing feature delivery timelines by ~40%",
+				"Development of 5 technical job descriptions aligned with product strategy, accelerating recruitment process from 3 months to 6 weeks and improving candidate-role fit by 45%",
+				"Definition of 12-month technical roadmap prioritizing 15+ initiatives by business impact and feasibility, aligning tech investments with growth objectives (+30% target user increase)",
+				"Management of relationships with 3 external vendors (cloud infrastructure, security assurance), negotiating SLAs guaranteeing 99.5% uptime and reducing infrastructure costs by ~25%",
+				"Establishment of technical governance framework (monthly committees, velocity KPIs, quality dashboards) improving team visibility and reducing time-to-market by 35%"
+			],
+			"keywords": [
+				"CTO Accompaniment",
+				"IT Audit",
+				"Technical Strategy",
+				"Roadmap Planning",
+				"Team Building",
+				"Vendor Management",
+				"Technical Governance",
+				"Recruitment",
+				"PHP",
+				"Symfony"
+			],
+			"roles": ["CTO Consultant", "Strategic Advisor"],
+			"id": "testunmetier-cto"
+		},
+		{
+			"name": "Tekkare - Technical Mentoring & Architectural Bootstrap",
+			"description": "Hands-on mentorship of development team for technical services management platform, accelerating their skill growth in GraphQL/modern backend API architecture and optimizing development practices.",
+			"highlights": [
+				"Reduction of new feature development time by 40% through optimized GraphQL architecture with NestJS, replacing multiple REST endpoints with unified, type-safe queries",
+				"Acceleration of new developer onboarding from ~2 weeks to ~5 days via living architectural documentation, reusable patterns, and annotated code examples",
+				"Improvement of code maintainability by 50% by implementing Clean Architecture and SOLID principles with clear layer separation (domain, application, infrastructure)",
+				"Optimization of database query performance by 60% (from ~800ms to ~300ms average) through Postgres ORM optimization, strategic indexing, and N+1 query resolution",
+				"Establishment of quality pipeline with automated testing (unit, integration, E2E) reducing production regressions by 70% and increasing deployment confidence",
+				"Mentoring of team on GraphQL best practices (dataloaders, pagination, error handling) and NestJS patterns via pair programming and structured code reviews"
+			],
+			"keywords": [
+				"GraphQL",
+				"NestJS",
+				"Node.js",
+				"PostgreSQL",
+				"ORM",
+				"TypeScript",
+				"Clean Architecture",
+				"SOLID",
+				"Mentoring",
+				"API Design",
+				"Backend Architecture"
+			],
+			"roles": ["Technical Mentor", "Backend Architect"],
+			"id": "tekkare-mentoring"
+		},
+		{
+			"name": "Atlas des Régions Naturelles (ARN) - Backend Architecture",
+			"description": "Designed and developed backend architecture for the ARN photographic archive platform, documenting 15,000+ images of French landscapes and buildings through an optimized NestJS/Laravel stack focused on performance and scalability.",
+			"highlights": [
+				"Architecting of photo archive platform managing 15,000+ high-resolution images with multi-criteria filtering (region, typology, materials, period), ensuring <300ms response time and 99.9% uptime",
+				"Implementation of hybrid categorization system with full-text indexing handling 10,000+ daily search queries with geographic, thematic, and historical navigation",
+				"Optimization of image processing pipeline reducing upload and thumbnail generation time by 60% (from ~5min to ~2min per batch of 50 images) through parallelization and smart compression",
+				"Design of unified REST/GraphQL API with distributed caching cutting server load by 70% and enabling integration with physical exhibitions and printed publications",
+				"Deployment of cloud-native infrastructure with geographically distributed CDN reducing bandwidth costs by 40% while improving international load times by 55%",
+				"Establishment of CI/CD pipeline with automated testing ensuring metadata quality (geolocation, regional taxonomy) and reducing cataloging errors by 80%"
+			],
+			"keywords": [
+				"NestJS",
+				"Laravel",
+				"Backend Architecture",
+				"REST API",
+				"GraphQL",
+				"Image Processing",
+				"Full-text Search",
+				"CDN",
+				"Cloud Native",
+				"AWS",
+				"CI/CD"
+			],
+			"roles": ["Backend Architect", "Lead Developer"],
+			"id": "arn-backend"
+		},
+		{
+			"name": "Tekoway / Eukles - Architecture Standardization",
+			"description": "3-year strategic technical mentorship across European development teams, standardizing architecture and boosting delivery efficiency for PHP/Symfony and Node.js/NestJS projects before and after Tekoway's integration into Eukles.",
+			"highlights": [
+				"Reduction of project bootstrap time by 45% (from ~10 to ~5.5 days) through shared architecture blueprints applying Clean Architecture and SOLID principles across Symfony and NestJS stacks",
+				"Acceleration of developer onboarding x2 faster (from ~3 weeks to 1.5 weeks) via unified project templates, automated setup scripts, and common tooling across European locations",
+				"Reduction of post-release bug rate by 30% after implementing standardized QA workflows and cross-country DevOps pipelines using Docker, GitLab CI, and ArgoCD",
+				"Improvement of developer satisfaction by 35% on internal surveys regarding architecture clarity and tooling through architecture clinics, workshops, and documentation",
+				"Mentoring of distributed teams remotely across multiple European countries, establishing shared technical language and unified engineering culture that scaled seamlessly through Tekoway's evolution into Eukles",
+				"Creation of multi-stack project boilerplates integrating DDD folder structures, dependency injection, logging, monitoring, and observability hooks for consistent delivery quality regardless of team location"
+			],
+			"keywords": [
+				"PHP",
+				"Symfony",
+				"Node.js",
+				"NestJS",
+				"Clean Architecture",
+				"DevOps",
+				"Docker",
+				"GitLab CI",
+				"ArgoCD",
+				"Mentoring",
+				"Team leadership"
+			],
+			"roles": ["Technical Mentor", "Architecture Lead"],
+			"id": "tekoway-eukles"
+		},
+		{
+			"name": "twbs-helper-module",
+			"description": "Laminas (formerly Zend Framework) module that streamlines Twitter Bootstrap component integration.",
+			"highlights": [
+				"21+ GitHub stars and 20+ forks adopted by enterprise portals and design systems",
+				"Ships reusable helpers for grids, forms, navigation, and responsive layouts to accelerate delivery",
+				"Maintains comprehensive docs, CI pipelines, and semantic versioning to guarantee backward compatibility"
+			],
+			"keywords": ["PHP", "Laminas", "Bootstrap", "Open Source"],
+			"roles": ["Creator", "Maintainer"],
+			"id": "twbs-helper-module"
+		},
+		{
+			"name": "php-css-lint",
+			"description": "CLI and Composer package that enforces CSS quality gates directly from PHP projects.",
+			"highlights": [
+				"11 GitHub stars and active usage inside custom CI pipelines for multi-brand marketing platforms",
+				"Wraps MDN and W3C specifications to surface actionable errors for large design systems",
+				"Provides zero-dependency binaries and GitHub Pages docs for quick onboarding"
+			],
+			"keywords": ["PHP", "CSS", "Linting", "Composer"],
+			"roles": ["Creator", "Maintainer"],
+			"id": "php-css-lint"
+		},
+		{
+			"name": "ubuntu-config",
+			"description": "Infrastructure-as-code flavored bootstrap that standardizes my developer workstations on Ubuntu.",
+			"highlights": [
+				"Automates installation of Docker, Node.js, PHP toolchains, and desktop essentials via scripted tasks",
+				"Documents repeatable steps so consulting engagements start with a consistent developer environment",
+				"Modular Make targets and shell scripts make it easy to extend the setup per client needs"
+			],
+			"keywords": ["Shell", "Automation", "Developer Experience", "Ubuntu"],
+			"roles": ["Maintainer"],
+			"id": "ubuntu-config"
+		}
+	]
 }

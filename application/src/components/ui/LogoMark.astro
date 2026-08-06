@@ -1,6 +1,6 @@
 ---
-import type { ImageMetadata } from 'astro';
-import logoAsset from '../../assets/logo.svg';
+import type { ImageMetadata } from "astro";
+import logoAsset from "../../assets/logo.svg";
 
 interface Props {
 	size?: number;
@@ -8,15 +8,14 @@ interface Props {
 	ariaHidden?: boolean;
 }
 
-const {
-	size = 48,
-	label = 'ESCEMI logo',
-	ariaHidden = true,
-} = Astro.props;
+const { size = 48, label = "ESCEMI logo", ariaHidden = true } = Astro.props;
 
 const logoMetadata = logoAsset as ImageMetadata;
 const logoSrc = logoMetadata?.src ?? (logoAsset as unknown as string);
-const aspectRatio = logoMetadata?.width && logoMetadata?.height ? logoMetadata.height / logoMetadata.width : 1;
+const aspectRatio =
+	logoMetadata?.width && logoMetadata?.height
+		? logoMetadata.height / logoMetadata.width
+		: 1;
 const height = Math.max(1, Math.round(size * aspectRatio));
 const shouldDescribe = !ariaHidden;
 ---

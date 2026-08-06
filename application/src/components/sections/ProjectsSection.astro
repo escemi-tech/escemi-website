@@ -1,17 +1,18 @@
 ---
-import SectionHeader from '../ui/SectionHeader.astro';
-import ProjectCard from '../ui/ProjectCard.astro';
-import type { LocaleCopy } from '../../../i18n.config';
-import type { FeaturedProjectCard } from '../../lib/constants';
+import SectionHeader from "../ui/SectionHeader.astro";
+import ProjectCard from "../ui/ProjectCard.astro";
+import type { LocaleCopy } from "../../../i18n.config";
+import type { FeaturedProjectCard } from "../../lib/constants";
 
 interface Props {
-	experience: LocaleCopy['experience'];
+	experience: LocaleCopy["experience"];
 	projects: FeaturedProjectCard[];
 	ctaHref: string;
 }
 
 const { experience, projects, ctaHref } = Astro.props;
-const formatSequenceNumber = (index: number) => String(index + 1).padStart(2, '0');
+const formatSequenceNumber = (index: number) =>
+	String(index + 1).padStart(2, "0");
 ---
 
 <section id="projects" data-scroll-section="#projects" class="relative py-16 sm:py-32 bg-brand-primary scroll-mt-24 sm:scroll-mt-32 overflow-hidden">
