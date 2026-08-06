@@ -1,16 +1,16 @@
 ---
-import HeroBackground from '../ui/HeroBackground.astro';
-import PrimaryButton from '../ui/PrimaryButton.astro';
-import SignatureStatCard from '../ui/SignatureStatCard.astro';
-import type { LocaleCopy } from '../../../i18n.config';
+import HeroBackground from "../ui/HeroBackground.astro";
+import PrimaryButton from "../ui/PrimaryButton.astro";
+import SignatureStatCard from "../ui/SignatureStatCard.astro";
+import type { LocaleCopy } from "../../../i18n.config";
 
 interface Props {
-	hero: LocaleCopy['hero'];
+	hero: LocaleCopy["hero"];
 	heroCtaHref: string;
 }
 
 const { hero, heroCtaHref } = Astro.props;
-const [firstName, lastName] = hero.name.split(' ');
+const [firstName, lastName] = hero.name.split(" ");
 ---
 
 <section id="hero" data-scroll-section="#hero" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-brand-primary-strong via-brand-primary to-brand-primary-strong">

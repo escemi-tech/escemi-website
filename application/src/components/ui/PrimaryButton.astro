@@ -6,7 +6,9 @@ interface Props {
 }
 
 const { href, text, external = false } = Astro.props;
-const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+const externalProps = external
+	? { target: "_blank", rel: "noopener noreferrer" }
+	: {};
 ---
 
 <a 

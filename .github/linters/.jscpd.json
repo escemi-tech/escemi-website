@@ -1,14 +1,14 @@
 {
-  "threshold": 5,
-  "ignore": [
-    "**/.astro/**",
-    "**/node_modules/**",
-    "**/coverage/**",
-    "**/dist/**",
-    "**/.git/**",
-    "**/.pnpm-store/**",
-    "**/pnpm-lock.yaml",
-    "**/astro-check-report.txt",
-    "**/application/src/data/resumes/*.json"
-  ]
+	"threshold": 5,
+	"ignore": [
+		"**/.astro/**",
+		"**/node_modules/**",
+		"**/coverage/**",
+		"**/dist/**",
+		"**/.git/**",
+		"**/.pnpm-store/**",
+		"**/pnpm-lock.yaml",
+		"**/astro-check-report.txt",
+		"**/application/src/data/resumes/*.json"
+	]
 }

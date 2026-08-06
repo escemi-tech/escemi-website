@@ -1,13 +1,17 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import type { Locale } from '../../../i18n.config';
-import { getCopyForLocale } from '../../../i18n.config';
-import HeroSection from '../sections/HeroSection.astro';
-import ServicesSection from '../sections/ServicesSection.astro';
-import ImpactSection from '../sections/ImpactSection.astro';
-import ProjectsSection from '../sections/ProjectsSection.astro';
-import ContactSection from '../sections/ContactSection.astro';
-import { EXTERNAL_URLS, CONTACT_BUTTONS, getFeaturedProjectCards } from '../../lib/constants';
+import Layout from "../../layouts/Layout.astro";
+import type { Locale } from "../../../i18n.config";
+import { getCopyForLocale } from "../../../i18n.config";
+import HeroSection from "../sections/HeroSection.astro";
+import ServicesSection from "../sections/ServicesSection.astro";
+import ImpactSection from "../sections/ImpactSection.astro";
+import ProjectsSection from "../sections/ProjectsSection.astro";
+import ContactSection from "../sections/ContactSection.astro";
+import {
+	EXTERNAL_URLS,
+	CONTACT_BUTTONS,
+	getFeaturedProjectCards,
+} from "../../lib/constants";
 
 interface Props {
 	locale: Locale;
@@ -16,10 +20,12 @@ interface Props {
 const { locale } = Astro.props;
 const copy = getCopyForLocale(locale);
 const projects = getFeaturedProjectCards(locale);
-const heroCtaHref = EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin ?? '#';
-const contactCtaHref = EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin ?? '#';
-const contactCtaIsExternal = Boolean(EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin);
-const projectsCtaHref = EXTERNAL_URLS.linkedin ?? '#';
+const heroCtaHref = EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin ?? "#";
+const contactCtaHref = EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin ?? "#";
+const contactCtaIsExternal = Boolean(
+	EXTERNAL_URLS.booking ?? EXTERNAL_URLS.linkedin,
+);
+const projectsCtaHref = EXTERNAL_URLS.linkedin ?? "#";
 ---
 
 <Layout locale={locale} meta={copy.meta}>
