@@ -34,7 +34,7 @@ ci: ## Run tests in CI mode
 	$(MAKE) build
 	$(MAKE) test
 
-lint-fix: ## Execute linting and fix
+linter-fix: ## Execute linting and fix
 	$(call run_linter, \
 		-e FIX_SPELL_CODESPELL=true \
 		-e FIX_MARKDOWN=true \

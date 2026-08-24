@@ -1,5 +1,5 @@
 {
-	"name": "Debian",
+	"name": "escemi-website",
 	"image": "mcr.microsoft.com/devcontainers/base:debian",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
@@ -30,9 +30,8 @@
 				"github.vscode-github-actions",
 				"ms-vscode.makefile-tools",
 				"astro-build.astro-vscode",
-				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"biomejs.biome"
 			],
 			"mcp": {
 				"servers": {
