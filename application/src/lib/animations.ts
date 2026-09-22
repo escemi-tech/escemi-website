@@ -22,7 +22,11 @@ export function initAnimations() {
 		cleanups.push(initHeaderScroll());
 		cleanups.push(initSectionObserver());
 		cleanups.push(initStatObserver());
-		return () => cleanups.forEach((fn) => fn?.());
+		return () => {
+			cleanups.forEach((fn) => {
+				fn();
+			});
+		};
 	}
 
 	gsap.registerPlugin(ScrollTrigger);
@@ -40,7 +44,11 @@ export function initAnimations() {
 	cleanups.push(initRevealAnimations());
 	cleanups.push(initPinnedSections());
 
-	return () => cleanups.forEach((fn) => fn?.());
+	return () => {
+		cleanups.forEach((fn) => {
+			fn();
+		});
+	};
 }
 
 function initLenis() {
@@ -88,7 +96,7 @@ function initSmoothNav(lenisInstance?: Lenis | null) {
 	links.forEach((link) => {
 		const handler = (event: Event) => {
 			const href = link.getAttribute("href");
-			if (!href || !href.startsWith("#") || href.length === 1) {
+			if (!href?.startsWith("#") || href.length === 1) {
 				return;
 			}
 
@@ -109,7 +117,11 @@ function initSmoothNav(lenisInstance?: Lenis | null) {
 		handlers.push(() => link.removeEventListener("click", handler));
 	});
 
-	return () => handlers.forEach((teardown) => teardown());
+	return () => {
+		handlers.forEach((teardown) => {
+			teardown();
+		});
+	};
 }
 
 function initHeaderScroll() {
@@ -201,7 +213,9 @@ function initSectionObserver() {
 		{ threshold: 0.45 },
 	);
 
-	sections.forEach((section) => observer.observe(section));
+	sections.forEach((section) => {
+		observer.observe(section);
+	});
 	return () => observer.disconnect();
 }
 
@@ -222,7 +236,9 @@ function initStatObserver() {
 		{ threshold: 0.55 },
 	);
 
-	cards.forEach((card) => observer.observe(card));
+	cards.forEach((card) => {
+		observer.observe(card);
+	});
 	return () => observer.disconnect();
 }
 
@@ -256,7 +272,11 @@ function initParallax() {
 		return tween;
 	});
 
-	return () => animations.forEach((tween) => tween.kill());
+	return () => {
+		animations.forEach((tween) => {
+			tween.kill();
+		});
+	};
 }
 
 function initRevealAnimations() {
@@ -290,7 +310,11 @@ function initRevealAnimations() {
 		});
 	});
 
-	return () => tweens.forEach((tween) => tween.kill());
+	return () => {
+		tweens.forEach((tween) => {
+			tween.kill();
+		});
+	};
 }
 
 function initPinnedSections() {
@@ -332,7 +356,6 @@ function getAnimationConfig(type: string) {
 				from: { autoAlpha: 0, y: 90, scale: 0.96 },
 				to: { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power3.out" },
 			};
-		case "fade-up":
 		default:
 			return {
 				from: { autoAlpha: 0, y: 40 },

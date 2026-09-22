@@ -6,7 +6,7 @@ Marketing site for ESCEMI, built with [Astro](https://astro.build/) 6 and Tailwi
 
 - Node.js 22.12+
 - npm 9+
-- Docker (optional, used by linting workflow)
+- Docker (required for `make lint`, `make lint-fix`, and `make ci`)
 
 ## Getting Started
 
@@ -24,14 +24,22 @@ npm run preview --prefix application
 
 ## Development Workflow
 
-- `make lint` – Run Prettier and Astro checks (accepts globs: `make lint src/pages`)
+- `make lint` – Run Astro checks and the Dockerized linters (accepts globs: `make lint src/pages`)
 - `make lint-fix` – Apply automated fixes via npm audit + Dockerized linter
-- `make build` – Run `astro check` and produce a production build
-- `make ci` – Run setup, lint, and build sequentially
+- `make build` – Produce a production build
+- `make ci` – Run lint fixes, build, and tests with coverage sequentially (run `make setup` first)
 - `npm run test --prefix application` – Execute the Vitest unit test suite
 - `npm run preview --prefix application` – Serve the built site for QA
 
 Most changes should happen inside `application/`. See `AGENTS.md` for detailed automation guardrails.
+
+Biome uses `biome.json` for Tailwind syntax, Git ignore rules, and the
+[recommended Astro overrides](https://biomejs.dev/internals/language-support/#linting-html-ish-languages).
+Astro checks cover template usages that Biome's partial parser cannot see. Other
+linter configuration lives in `.github/linters/`; generated output and installed
+dependencies are excluded from source checks. Standalone SVG assets are excluded
+from Biome's HTML parser and spell checks; French resume data is excluded from
+English spell checks.
 
 ## Project Structure
 

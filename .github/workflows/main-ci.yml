@@ -14,7 +14,6 @@ permissions: {}
 jobs:
   ci:
     uses: ./.github/workflows/__shared-ci.yml
-    secrets: inherit
     permissions:
       contents: read
       id-token: write
@@ -35,7 +34,7 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@0.28.0
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@1ee0354c40e4cd0a46c69cbe305c74fc67338042 # 0.28.0
         with:
           build-path: application/dist
           build-artifact-id: ${{ needs.ci.outputs.build-artifact-id }}

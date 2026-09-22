@@ -7,6 +7,8 @@ updates:
       - "application/"
       - ".github/actions/**/*"
     versioning-strategy: increase
+    cooldown:
+      default-days: 7
     schedule:
       interval: "weekly"
     groups:
@@ -33,6 +35,8 @@ updates:
 
   - package-ecosystem: github-actions
     open-pull-requests-limit: 20
+    cooldown:
+      default-days: 7
     directories:
       - "/"
       - "/.github/actions/**/*"
@@ -45,12 +49,20 @@ updates:
 
   - package-ecosystem: "devcontainers"
     open-pull-requests-limit: 20
+    cooldown:
+      default-days: 7
     directory: "/"
     schedule:
       interval: weekly
+    groups:
+      devcontainers-dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "docker"
     open-pull-requests-limit: 20
+    cooldown:
+      default-days: 7
     directory: "/"
     schedule:
       interval: "weekly"
