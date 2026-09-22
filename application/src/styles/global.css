@@ -38,6 +38,7 @@
   }
 
   .lenis.lenis-smooth {
+    /* biome-ignore lint/complexity/noImportantStyles: Lenis must override native smooth scrolling. */
     scroll-behavior: auto !important;
   }
 
@@ -353,16 +354,6 @@
     border-color: rgba(236, 184, 7, 0.3);
   }
 
-  .project-flip-card:is(:hover, :focus-within):not([open])
-    .project-flip-card__front {
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(
-      135deg,
-      rgba(20, 36, 52, 0.95),
-      rgba(30, 53, 74, 0.95)
-    );
-  }
-
   .project-flip-card:focus-within {
     border-color: rgba(236, 184, 7, 0.7);
   }
@@ -420,6 +411,16 @@
     transform: perspective(1600px) rotateY(-180deg);
     opacity: 0;
     pointer-events: none;
+  }
+
+  .project-flip-card:is(:hover, :focus-within):not([open])
+    .project-flip-card__front {
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(
+      135deg,
+      rgba(20, 36, 52, 0.95),
+      rgba(30, 53, 74, 0.95)
+    );
   }
 
   .project-flip-card__back {
@@ -634,11 +635,13 @@
   @media (prefers-reduced-motion: reduce) {
     .project-flip-card,
     .project-flip-card * {
+      /* biome-ignore lint/complexity/noImportantStyles: Reduced motion must override all interactive transitions. */
       transition-duration: 0.01ms !important;
     }
 
     .project-flip-card__front,
     .project-flip-card__back {
+      /* biome-ignore lint/complexity/noImportantStyles: Reduced motion must override all card transforms. */
       transform: none !important;
     }
   }

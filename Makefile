@@ -39,6 +39,7 @@ linter-fix: ## Execute linting and fix
 		-e FIX_SPELL_CODESPELL=true \
 		-e FIX_MARKDOWN=true \
 		-e FIX_MARKDOWN_PRETTIER=true \
+		-e FIX_YAML_PRETTIER=true \
 		-e FIX_NATURAL_LANGUAGE=true \
 		-e FIX_SHELL_SHFMT=true \
 		-e FIX_BIOME_LINT=true \
@@ -46,6 +47,7 @@ linter-fix: ## Execute linting and fix
 	)
 
 define run_linter
+	set -e; \
 	DEFAULT_WORKSPACE="$(CURDIR)"; \
 	LINTER_IMAGE="linter:latest"; \
 	VOLUME="$$DEFAULT_WORKSPACE:$$DEFAULT_WORKSPACE"; \

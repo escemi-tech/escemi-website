@@ -1,8 +1,7 @@
 name: Sync Resumes From Canonical Source
 
 # Receives resume artifacts via repository_dispatch and mirrors them into this repo.
-# Replace the default GITHUB_TOKEN with a GitHub App token if cross-repo artifact
-# downloads require elevated permissions.
+# Separate GitHub App tokens scope artifact reads and website updates.
 
 on:
   repository_dispatch:
@@ -66,7 +65,12 @@ jobs:
             if (!repository) {
               return core.setFailed('Repository is required');
             }
+            const repositoryParts = /^([^/]+)\/([^/]+)$/.exec(repository);
+            if (!repositoryParts || repositoryParts[1].toLowerCase() !== context.repo.owner.toLowerCase()) {
+              return core.setFailed('Repository must belong to the current organization');
+            }
             core.setOutput('repository', repository);
+            core.setOutput('repository-name', repositoryParts[2]);
 
             if (!runId) {
               return core.setFailed('Run ID is required');
@@ -84,11 +88,13 @@ jobs:
             core.info(`  Run ID: ${runId}`);
 
       - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        id: generate-token
+        id: artifact-token
         with:
           client-id: ${{ vars.CI_BOT_APP_CLIENT_ID }}
           private-key: ${{ secrets.CI_BOT_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: ${{ steps.parse-inputs.outputs.repository-name }}
+          permission-actions: read
 
       - name: Download artifact
         id: download-artifact
@@ -97,7 +103,7 @@ jobs:
           repository: ${{ steps.parse-inputs.outputs.repository }}
           run-id: ${{ steps.parse-inputs.outputs.run-id }}
           artifact-ids: ${{ steps.parse-inputs.outputs.artifact-id }}
-          github-token: ${{ steps.generate-token.outputs.token }}
+          github-token: ${{ steps.artifact-token.outputs.token }}
           path: ${{ runner.temp }}/resumes-assets-${{ steps.parse-inputs.outputs.run-id }}-${{ steps.parse-inputs.outputs.artifact-id }}
 
       - name: Copy resume files
@@ -141,6 +147,14 @@ jobs:
                 fs.copyFileSync(sourcePath, destinationPath);
                 core.info(`Copied JSON resume file ${file} to ${destinationPath}`);
             }
+
+      - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: generate-token
+        with:
+          client-id: ${{ vars.CI_BOT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_BOT_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
 
       - name: Create pull request with updated assets
         uses: hoverkraft-tech/ci-github-common/actions/create-and-merge-pull-request@3a27d31e9ccefbe9609cc9165017ed100ff34a22 # 0.38.0
