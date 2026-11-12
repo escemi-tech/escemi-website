@@ -27,10 +27,10 @@
 		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.10",
-		"@vitest/coverage-v8": "^5.0.3",
+		"@astrojs/check": "^0.9.12",
+		"@vitest/coverage-v8": "^5.1.0",
 		"typescript": "^6.0.3",
-		"vitest": "^5.0.3"
+		"vitest": "^5.1.0"
 	},
 	"allowScripts": {
 		"esbuild@0.28.1": true,
