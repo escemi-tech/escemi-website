@@ -1,5 +1,10 @@
 # Contributing
 
+Commits and pull request titles follow the root [commitlint configuration](.commitlintrc.json).
+Conventional Commit types and subjects are required. Casing and line lengths produce
+warnings. The same rules apply to contributors and bots. See the
+[common commit process](https://github.com/hoverkraft-tech/ci-github-common/blob/d07ee49b460ae2f3815804b5153fe918092aa321/docs/usage/commits.md).
+
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change.
 
