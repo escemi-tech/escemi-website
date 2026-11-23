@@ -34,7 +34,7 @@ jobs:
       url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@5b821495b1c3b68eb2e7fba71992dfe851612ae6 # 3.0.3
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@79515002f850e714d4c76f07983e6eb1ba97bea5 # 3.1.1
         with:
           build-path: application/dist
           build-artifact-id: ${{ needs.ci.outputs.build-artifact-id }}
