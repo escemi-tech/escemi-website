@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.12",
 		"@vitest/coverage-v8": "^5.1.0",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.2",
 		"vitest": "^5.1.0"
 	},
 	"allowScripts": {
